@@ -1,10 +1,11 @@
-/* 
-  Localizable.strings
-  TravellerDiary
-
-  Created by admin on 27/07/16.
-  Copyright © 2016 Saveliy. All rights reserved.
-*/
-
-
-"password" = "Пароль";
+//Login.storyboard
+"EmailPlaceholder" = "e-mail";
+"PasswordPlaceholder" = "Пароль";
+"RepeatPasswordPlaceholder" = "Повторите пароль";
+"LogInButtonTitle" = "Вход";
+"ForgottenPasswordButtonTitle" = "Забыли пароль?";
+"SignUpButtonTitle" = "Создать аккаунт";
+"FirstNamePlaceholder" = "Имя";
+"LastNamePlaceholder" = "Фамилия";
+"LogInNavigationitemTitle" = "Вход";
+"SignUpNavigationitemTitle" = "Регистрация";

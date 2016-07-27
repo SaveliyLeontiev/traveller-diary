@@ -18,6 +18,9 @@
 		849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */; };
 		849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */; };
 		849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FB91D48970D00C6F9C6 /* Localizable.strings */; };
+		849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FBD1D48A08200C6F9C6 /* UITextField+Inspectable.m */; };
+		849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */; };
+		849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +45,13 @@
 		849D8FB61D4896F100C6F9C6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		849D8FB81D48970D00C6F9C6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		849D8FBB1D48977300C6F9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		849D8FBC1D48A08200C6F9C6 /* UITextField+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextField+Inspectable.h"; sourceTree = "<group>"; };
+		849D8FBD1D48A08200C6F9C6 /* UITextField+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextField+Inspectable.m"; sourceTree = "<group>"; };
+		849D8FBF1D48A3FF00C6F9C6 /* UIButton+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Inspectable.h"; sourceTree = "<group>"; };
+		849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Inspectable.m"; sourceTree = "<group>"; };
+		849D8FC21D48A85B00C6F9C6 /* UINavigationItem+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Inspectable.h"; sourceTree = "<group>"; };
+		849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Inspectable.m"; sourceTree = "<group>"; };
+		849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewControllerDelegate.h; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +162,7 @@
 		844542C91D47597E0043F3AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */,
 				844542CA1D4759EF0043F3AD /* LogInViewController.h */,
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
 				849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */,
@@ -167,6 +178,12 @@
 				847EB3541D477F2800CCCF84 /* UIColor+HexString.m */,
 				849D8FB31D48955100C6F9C6 /* UILabel+Inspectable.h */,
 				849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */,
+				849D8FBC1D48A08200C6F9C6 /* UITextField+Inspectable.h */,
+				849D8FBD1D48A08200C6F9C6 /* UITextField+Inspectable.m */,
+				849D8FBF1D48A3FF00C6F9C6 /* UIButton+Inspectable.h */,
+				849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */,
+				849D8FC21D48A85B00C6F9C6 /* UINavigationItem+Inspectable.h */,
+				849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -302,9 +319,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
+				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
+				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,

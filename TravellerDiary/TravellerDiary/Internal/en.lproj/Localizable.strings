@@ -1,9 +1,11 @@
-/* 
-  Localizable.strings
-  TravellerDiary
-
-  Created by admin on 27/07/16.
-  Copyright © 2016 Saveliy. All rights reserved.
-*/
-
-"password" = "Password";
+//Login.storyboard
+"EmailPlaceholder" = "e-mail";
+"PasswordPlaceholder" = "Password";
+"RepeatPasswordPlaceholder" = "Repeat password";
+"LogInButtonTitle" = "Log in";
+"ForgottenPasswordButtonTitle" = "Forgot your password?";
+"SignUpButtonTitle" = "Sign up";
+"FirstNamePlaceholder" = "First name";
+"LastNamePlaceholder" = "Last name";
+"LogInNavigationitemTitle" = "Log in";
+"SignUpNavigationitemTitle" = "Sign up";

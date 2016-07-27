@@ -23,8 +23,11 @@
                                 <state key="normal" title="Sign up">
                                     <color key="titleColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="SignUpButtonTitle"/>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="t2p-sW-21L" kind="push" id="Jds-Z8-3cv"/>
+                                    <segue destination="t2p-sW-21L" kind="push" identifier="SignUpSegueID" id="Jds-Z8-3cv"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nZu-2B-LlJ">
@@ -39,14 +42,26 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ2-mG-FnE">
                                                 <rect key="frame" x="60" y="172" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="EmailPlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="lMd-zs-Kgr" id="4Bo-1g-jGe"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FS1-ro-TJO">
                                                 <rect key="frame" x="60" y="222" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="PasswordPlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="lMd-zs-Kgr" id="grl-m2-pUZ"/>
+                                                </connections>
                                             </textField>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Te-CP-Vet">
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Te-CP-Vet">
                                                 <rect key="frame" x="60" y="272" width="200" height="30"/>
                                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
@@ -54,29 +69,36 @@
                                                 </constraints>
                                                 <state key="normal" title="log in"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                        <integer key="value" value="15"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="LogInButtonTitle"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="loginButtonTouched:" destination="lMd-zs-Kgr" eventType="touchUpInside" id="zdP-a2-C3J"/>
+                                                </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot password?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="30m-gp-6yL">
-                                                <rect key="frame" x="60" y="322" width="200" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PNk-Qm-ifk">
+                                                <rect key="frame" x="60" y="322" width="200" height="30"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <state key="normal" title="Forgot your password?"/>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="password"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="15"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="ForgottenPasswordButtonTitle"/>
                                                 </userDefinedRuntimeAttributes>
-                                            </label>
+                                                <connections>
+                                                    <action selector="forgottenPasswordButtonTouched:" destination="lMd-zs-Kgr" eventType="touchUpInside" id="WlQ-bF-DRd"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstItem="uQ2-mG-FnE" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="03C-xQ-9jt"/>
-                                            <constraint firstAttribute="trailing" secondItem="30m-gp-6yL" secondAttribute="trailing" constant="60" id="0nv-Gd-cfk"/>
                                             <constraint firstItem="uQ2-mG-FnE" firstAttribute="top" secondItem="bGA-kh-9V3" secondAttribute="bottom" constant="20" id="3fx-ZT-iuq"/>
-                                            <constraint firstItem="30m-gp-6yL" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="4tA-nz-J1X"/>
+                                            <constraint firstAttribute="trailing" secondItem="PNk-Qm-ifk" secondAttribute="trailing" constant="60" id="50u-9Y-ktM"/>
                                             <constraint firstAttribute="trailing" secondItem="uQ2-mG-FnE" secondAttribute="trailing" constant="60" id="8IM-cQ-rnL"/>
-                                            <constraint firstItem="30m-gp-6yL" firstAttribute="top" secondItem="0Te-CP-Vet" secondAttribute="bottom" constant="20" id="KQO-AH-nQ1"/>
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="centerY" secondItem="CWU-Gz-x7t" secondAttribute="centerY" id="Pxs-zR-fOg"/>
                                             <constraint firstItem="bGA-kh-9V3" firstAttribute="top" secondItem="CWU-Gz-x7t" secondAttribute="top" id="TuM-fa-Lhv"/>
                                             <constraint firstAttribute="trailing" secondItem="bGA-kh-9V3" secondAttribute="trailing" constant="60" id="WMx-TJ-ouO"/>
@@ -84,9 +106,11 @@
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="dEq-8v-f9M"/>
                                             <constraint firstAttribute="trailing" secondItem="0Te-CP-Vet" secondAttribute="trailing" constant="60" id="eFf-2C-hia"/>
                                             <constraint firstAttribute="trailing" secondItem="FS1-ro-TJO" secondAttribute="trailing" constant="60" id="iMl-4p-nQF"/>
+                                            <constraint firstItem="PNk-Qm-ifk" firstAttribute="top" secondItem="0Te-CP-Vet" secondAttribute="bottom" constant="20" id="lCl-HX-eGF"/>
                                             <constraint firstItem="bGA-kh-9V3" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="p1E-zf-HV1"/>
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="top" secondItem="uQ2-mG-FnE" secondAttribute="bottom" constant="20" id="tJL-FW-qMr"/>
                                             <constraint firstItem="0Te-CP-Vet" firstAttribute="top" secondItem="FS1-ro-TJO" secondAttribute="bottom" constant="20" id="v4F-dR-SiY"/>
+                                            <constraint firstItem="PNk-Qm-ifk" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="x1V-RE-fIF"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -112,7 +136,17 @@
                             <constraint firstItem="iKw-cd-w31" firstAttribute="top" secondItem="nZu-2B-LlJ" secondAttribute="bottom" id="w1t-aa-Lwh"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Log in" id="PQO-E2-ijM"/>
+                    <navigationItem key="navigationItem" title="Log in" id="PQO-E2-ijM">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="LogInNavigationitemTitle"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="logInButton" destination="0Te-CP-Vet" id="1kP-bB-ooc"/>
+                        <outlet property="loginTextField" destination="uQ2-mG-FnE" id="lN6-Gw-T0n"/>
+                        <outlet property="passwordTextField" destination="FS1-ro-TJO" id="vb7-XW-ie4"/>
+                        <outlet property="scrollView" destination="nZu-2B-LlJ" id="Qn2-Gr-saw"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tly-DY-hdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,27 +173,57 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="che-Jg-5aJ">
                                                 <rect key="frame" x="60" y="0.0" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="FirstNamePlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="t2p-sW-21L" id="hvW-1E-kyu"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aqx-vK-Ba9">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Aqx-vK-Ba9">
                                                 <rect key="frame" x="60" y="100" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="EmailPlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="t2p-sW-21L" id="yoY-Mm-Otp"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-1z-uId">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOM-1z-uId">
                                                 <rect key="frame" x="60" y="150" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="PasswordPlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="t2p-sW-21L" id="1lc-CZ-o0n"/>
+                                                </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdN-jY-A2A">
-                                                <rect key="frame" x="60" y="200" width="200" height="30"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
-                                            </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-Sg-m8t">
+                                            <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OGx-Sg-m8t">
                                                 <rect key="frame" x="60" y="50" width="200" height="30"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="LastNamePlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="t2p-sW-21L" id="Uyk-QZ-SLa"/>
+                                                </connections>
+                                            </textField>
+                                            <textField opaque="NO" clipsSubviews="YES" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zdN-jY-A2A">
+                                                <rect key="frame" x="60" y="200" width="200" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="RepeatPasswordPlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <outlet property="delegate" destination="t2p-sW-21L" id="eoR-zj-pbU"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,15 +246,19 @@
                                             <constraint firstAttribute="trailing" secondItem="zdN-jY-A2A" secondAttribute="trailing" constant="60" id="ziB-PJ-KZh"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mC-Mr-QLe">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1mC-Mr-QLe">
                                         <rect key="frame" x="60" y="270" width="200" height="30"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="sign up"/>
                                         <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="SignUpButtonTitle"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="15"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="signUpButtonTouched:" destination="t2p-sW-21L" eventType="touchUpInside" id="ga0-xu-Bgb"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -214,7 +282,20 @@
                             <constraint firstItem="mn4-IA-Vbe" firstAttribute="top" secondItem="C3f-41-Cu4" secondAttribute="bottom" id="gIY-RE-Glb"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign up" id="yc7-SJ-T3Z"/>
+                    <navigationItem key="navigationItem" title="Sign up" id="yc7-SJ-T3Z">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="SignUpNavigationitemTitle"/>
+                        </userDefinedRuntimeAttributes>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="scrollView" destination="C3f-41-Cu4" id="mpa-XT-NtO"/>
+                        <outlet property="signUpButton" destination="1mC-Mr-QLe" id="Ryi-TD-Z5b"/>
+                        <outletCollection property="textFields" destination="che-Jg-5aJ" id="3WK-bY-8LV"/>
+                        <outletCollection property="textFields" destination="OGx-Sg-m8t" id="oJZ-TE-dwY"/>
+                        <outletCollection property="textFields" destination="Aqx-vK-Ba9" id="FM4-q0-oXi"/>
+                        <outletCollection property="textFields" destination="qOM-1z-uId" id="05f-NI-xcB"/>
+                        <outletCollection property="textFields" destination="zdN-jY-A2A" id="MKN-Mh-o26"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpL-4w-aBM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
