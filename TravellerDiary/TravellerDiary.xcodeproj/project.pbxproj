@@ -14,7 +14,7 @@
 		844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542B81D4731700043F3AD /* LaunchScreen.storyboard */; };
 		844542C81D474E460043F3AD /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542C71D474E460043F3AD /* LogIn.storyboard */; };
 		844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542CB1D4759EF0043F3AD /* LogInViewController.m */; };
-		847EB3551D477F2800CCCF84 /* UIColor+MainThemColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EB3541D477F2800CCCF84 /* UIColor+MainThemColor.m */; };
+		847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EB3541D477F2800CCCF84 /* UIColor+HexString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +30,8 @@
 		844542C71D474E460043F3AD /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		844542CA1D4759EF0043F3AD /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		844542CB1D4759EF0043F3AD /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
-		847EB3531D477F2800CCCF84 /* UIColor+MainThemColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MainThemColor.h"; sourceTree = "<group>"; };
-		847EB3541D477F2800CCCF84 /* UIColor+MainThemColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MainThemColor.m"; sourceTree = "<group>"; };
+		847EB3531D477F2800CCCF84 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
+		847EB3541D477F2800CCCF84 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,8 +150,8 @@
 		847EB34F1D477D2600CCCF84 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				847EB3531D477F2800CCCF84 /* UIColor+MainThemColor.h */,
-				847EB3541D477F2800CCCF84 /* UIColor+MainThemColor.m */,
+				847EB3531D477F2800CCCF84 /* UIColor+HexString.h */,
+				847EB3541D477F2800CCCF84 /* UIColor+HexString.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				847EB3551D477F2800CCCF84 /* UIColor+MainThemColor.m in Sources */,
+				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
