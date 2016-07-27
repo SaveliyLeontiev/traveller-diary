@@ -15,6 +15,9 @@
 		844542C81D474E460043F3AD /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542C71D474E460043F3AD /* LogIn.storyboard */; };
 		844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542CB1D4759EF0043F3AD /* LogInViewController.m */; };
 		847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EB3541D477F2800CCCF84 /* UIColor+HexString.m */; };
+		849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */; };
+		849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */; };
+		849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FB91D48970D00C6F9C6 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,13 @@
 		844542CB1D4759EF0043F3AD /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
 		847EB3531D477F2800CCCF84 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		847EB3541D477F2800CCCF84 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
+		849D8FB31D48955100C6F9C6 /* UILabel+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Inspectable.h"; sourceTree = "<group>"; };
+		849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+Inspectable.m"; sourceTree = "<group>"; };
+		849D8FB61D4896F100C6F9C6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		849D8FB81D48970D00C6F9C6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		849D8FBB1D48977300C6F9C6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +115,7 @@
 				844542AD1D4731700043F3AD /* AppDelegate.h */,
 				844542AE1D4731700043F3AD /* AppDelegate.m */,
 				844542AA1D4731700043F3AD /* Supporting Files */,
+				849D8FB91D48970D00C6F9C6 /* Localizable.strings */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -143,6 +154,8 @@
 			children = (
 				844542CA1D4759EF0043F3AD /* LogInViewController.h */,
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
+				849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */,
+				849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -152,6 +165,8 @@
 			children = (
 				847EB3531D477F2800CCCF84 /* UIColor+HexString.h */,
 				847EB3541D477F2800CCCF84 /* UIColor+HexString.m */,
+				849D8FB31D48955100C6F9C6 /* UILabel+Inspectable.h */,
+				849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -226,6 +241,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844542C81D474E460043F3AD /* LogIn.storyboard in Resources */,
+				849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */,
 				844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */,
 				844542B71D4731700043F3AD /* Assets.xcassets in Resources */,
 			);
@@ -287,7 +303,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
+				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
+				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
 			);
@@ -300,8 +318,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				844542B91D4731700043F3AD /* Base */,
+				849D8FB61D4896F100C6F9C6 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		849D8FB91D48970D00C6F9C6 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				849D8FB81D48970D00C6F9C6 /* ru */,
+				849D8FBB1D48977300C6F9C6 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
