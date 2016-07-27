@@ -3,6 +3,7 @@
 @interface SignUpViewController ()<UITextFieldDelegate>
 
 @property (nonatomic, strong) IBOutletCollection(UITextField) NSArray *textFields;
+@property (nonatomic, strong) NSArray<UITextField *> *sortedTextFields;
 @property (weak, nonatomic) IBOutlet UIButton *signUpButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 
@@ -15,6 +16,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.sortedTextFields = [self.textFields sortedArrayUsingComparator:^NSComparisonResult(UITextField *obj1, UITextField *obj2) {
+        return [@(obj1.tag) compare:@(obj2.tag)];
+    }];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -75,11 +80,9 @@
     else {
         self.signUpButton.enabled = YES;
         for (UITextField *obj in self.textFields) {
-            if (obj != textField) {
-                if ([obj.text isEqualToString:@""]) {
-                    self.signUpButton.enabled = NO;
-                    break;
-                }
+            if (obj != textField && [obj.text isEqualToString:@""]) {
+                self.signUpButton.enabled = NO;
+                break;
             }
         }
     }
@@ -88,18 +91,11 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    NSMutableArray *mutableTextFields = [NSMutableArray arrayWithArray:self.textFields];
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"tag"
-                                                 ascending:YES];
-    NSArray *sortDescriptors = [NSArray arrayWithObject:sortDescriptor];
-    NSArray *sortedTextFields = [mutableTextFields sortedArrayUsingDescriptors:sortDescriptors];
-    
     if (textField.tag == 4) {
         [self.view endEditing:YES];
     }
     else {
-        [sortedTextFields[textField.tag +1] becomeFirstResponder];
+        [self.sortedTextFields[textField.tag + 1] becomeFirstResponder];
     }
     return YES;
 }

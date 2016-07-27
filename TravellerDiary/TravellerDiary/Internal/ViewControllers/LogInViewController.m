@@ -44,6 +44,7 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 #warning TODO:loginButton
+    [self performSegueWithIdentifier:@"ShowTabBarID" sender:self];
 }
 
 - (IBAction)forgottenPasswordButtonTouched:(id)sender

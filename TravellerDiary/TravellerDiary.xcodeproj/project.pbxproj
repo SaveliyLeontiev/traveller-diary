@@ -21,6 +21,12 @@
 		849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FBD1D48A08200C6F9C6 /* UITextField+Inspectable.m */; };
 		849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */; };
 		849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */; };
+		849D8FC71D48E1FC00C6F9C6 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FC61D48E1FC00C6F9C6 /* TabBar.storyboard */; };
+		849D8FC91D48E8B400C6F9C6 /* NewJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */; };
+		849D8FCB1D48E8C400C6F9C6 /* History.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FCA1D48E8C400C6F9C6 /* History.storyboard */; };
+		849D8FCD1D48E91400C6F9C6 /* ClosestJourneis.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FCC1D48E91400C6F9C6 /* ClosestJourneis.storyboard */; };
+		849D8FCF1D48E92D00C6F9C6 /* PopularJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FCE1D48E92D00C6F9C6 /* PopularJourney.storyboard */; };
+		849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FD01D48E96400C6F9C6 /* Settings.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +58,12 @@
 		849D8FC21D48A85B00C6F9C6 /* UINavigationItem+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationItem+Inspectable.h"; sourceTree = "<group>"; };
 		849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Inspectable.m"; sourceTree = "<group>"; };
 		849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewControllerDelegate.h; sourceTree = "<group>"; };
+		849D8FC61D48E1FC00C6F9C6 /* TabBar.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
+		849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewJourney.storyboard; sourceTree = "<group>"; };
+		849D8FCA1D48E8C400C6F9C6 /* History.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = History.storyboard; sourceTree = "<group>"; };
+		849D8FCC1D48E91400C6F9C6 /* ClosestJourneis.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ClosestJourneis.storyboard; sourceTree = "<group>"; };
+		849D8FCE1D48E92D00C6F9C6 /* PopularJourney.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PopularJourney.storyboard; sourceTree = "<group>"; };
+		849D8FD01D48E96400C6F9C6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +167,12 @@
 			isa = PBXGroup;
 			children = (
 				844542C71D474E460043F3AD /* LogIn.storyboard */,
+				849D8FC61D48E1FC00C6F9C6 /* TabBar.storyboard */,
+				849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */,
+				849D8FCA1D48E8C400C6F9C6 /* History.storyboard */,
+				849D8FCC1D48E91400C6F9C6 /* ClosestJourneis.storyboard */,
+				849D8FCE1D48E92D00C6F9C6 /* PopularJourney.storyboard */,
+				849D8FD01D48E96400C6F9C6 /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -257,10 +275,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				849D8FC71D48E1FC00C6F9C6 /* TabBar.storyboard in Resources */,
+				849D8FCF1D48E92D00C6F9C6 /* PopularJourney.storyboard in Resources */,
 				844542C81D474E460043F3AD /* LogIn.storyboard in Resources */,
+				849D8FCB1D48E8C400C6F9C6 /* History.storyboard in Resources */,
+				849D8FC91D48E8B400C6F9C6 /* NewJourney.storyboard in Resources */,
 				849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */,
+				849D8FCD1D48E91400C6F9C6 /* ClosestJourneis.storyboard in Resources */,
 				844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */,
 				844542B71D4731700043F3AD /* Assets.xcassets in Resources */,
+				849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
