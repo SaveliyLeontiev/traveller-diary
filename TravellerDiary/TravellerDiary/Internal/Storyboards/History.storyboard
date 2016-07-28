@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--History-->
         <scene sceneID="bWC-b4-4mb">
             <objects>
-                <viewController id="gYb-YN-BGJ" sceneMemberID="viewController">
+                <viewController id="gYb-YN-BGJ" customClass="HistoryViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hr2-nH-qDB"/>
                         <viewControllerLayoutGuide type="bottom" id="Neu-cb-1WQ"/>
@@ -16,12 +16,52 @@
                     <view key="view" contentMode="scaleToFill" id="cic-iu-jtI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dmy-rH-6Zt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Lap-lH-gDd" customClass="HistoryCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Lap-lH-gDd" id="dyW-lf-FKy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBC-TM-QPV">
+                                                    <rect key="frame" x="278" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="pathRate" destination="FBC-TM-QPV" id="f3Y-Jf-aik"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dmy-rH-6Zt" secondAttribute="trailing" id="Nkz-3z-GOk"/>
+                            <constraint firstItem="dmy-rH-6Zt" firstAttribute="top" secondItem="cic-iu-jtI" secondAttribute="top" id="oFo-Ns-fqT"/>
+                            <constraint firstItem="Neu-cb-1WQ" firstAttribute="top" secondItem="dmy-rH-6Zt" secondAttribute="bottom" id="rrv-cZ-M0n"/>
+                            <constraint firstItem="dmy-rH-6Zt" firstAttribute="leading" secondItem="cic-iu-jtI" secondAttribute="leading" id="xp4-ZH-8fO"/>
+                        </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="History" id="Hz7-OY-JEj">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="HistoryTabItemTitle"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Al-yR-8i7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="308.26666666666665" y="408.01333333333332"/>
+            <point key="canvasLocation" x="304" y="485"/>
         </scene>
     </scenes>
 </document>

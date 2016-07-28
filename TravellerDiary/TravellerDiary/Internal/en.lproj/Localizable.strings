@@ -9,3 +9,18 @@
 "LastNamePlaceholder" = "Last name";
 "LogInNavigationitemTitle" = "Log in";
 "SignUpNavigationitemTitle" = "Sign up";
+
+//NewJourney.storyboard
+"NewJourneyTabItemTitle" = "new jorney";
+
+//History.storyboard
+"HistoryTabItemTitle" = "history";
+
+//ClosestJourney.storyboard
+"ClosestJourneyTabItemTitle" = "nearby";
+
+//PopularJourney.storyboard
+"PopularJourneyTabItemTitle" = "popular";
+
+//Settings.storyboard
+"SettingTabItemTitle" = "settings";

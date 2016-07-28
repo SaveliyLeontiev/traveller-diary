@@ -9,3 +9,18 @@
 "LastNamePlaceholder" = "Фамилия";
 "LogInNavigationitemTitle" = "Вход";
 "SignUpNavigationitemTitle" = "Регистрация";
+
+//NewJourney.storyboard
+"NewJourneyTabItemTitle" = "новый маршрут";
+
+//History.storyboard
+"HistoryTabItemTitle" = "история";
+
+//ClosestJourney.storyboard
+"ClosestJourneyTabItemTitle" = "рядом";
+
+//PopularJourney.storyboard
+"PopularJourneyTabItemTitle" = "популярное";
+
+//Settings.storyboard
+"SettingTabItemTitle" = "настройки";

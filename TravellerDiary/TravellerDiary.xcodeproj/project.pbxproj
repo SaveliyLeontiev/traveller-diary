@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
+		843065111D49C9EE00942080 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065101D49C9EE00942080 /* HistoryViewController.m */; };
+		843065151D49CC4600942080 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065141D49CC4600942080 /* HistoryCell.m */; };
+		843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */; };
 		844542AC1D4731700043F3AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AB1D4731700043F3AD /* main.m */; };
 		844542AF1D4731700043F3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AE1D4731700043F3AD /* AppDelegate.m */; };
 		844542B71D4731700043F3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844542B61D4731700043F3AD /* Assets.xcassets */; };
@@ -32,6 +35,12 @@
 /* Begin PBXFileReference section */
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		8430650F1D49C9EE00942080 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
+		843065101D49C9EE00942080 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
+		843065131D49CC4600942080 /* HistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
+		843065141D49CC4600942080 /* HistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
+		843065161D49CF9000942080 /* UITabBarItem+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Inspectable.h"; sourceTree = "<group>"; };
+		843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Inspectable.m"; sourceTree = "<group>"; };
 		844542A71D4731700043F3AD /* TravellerDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellerDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844542AB1D4731700043F3AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Internal/main.m; sourceTree = "<group>"; };
 		844542AD1D4731700043F3AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -87,6 +96,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		843065121D49CC0C00942080 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				843065131D49CC4600942080 /* HistoryCell.h */,
+				843065141D49CC4600942080 /* HistoryCell.m */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		8445429E1D4731700043F3AD = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +149,7 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				843065121D49CC0C00942080 /* Cells */,
 				847EB34F1D477D2600CCCF84 /* Categories */,
 				844542C91D47597E0043F3AD /* ViewControllers */,
 				844542C61D474DC60043F3AD /* Storyboards */,
@@ -185,6 +204,8 @@
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
 				849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */,
 				849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */,
+				8430650F1D49C9EE00942080 /* HistoryViewController.h */,
+				843065101D49C9EE00942080 /* HistoryViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -202,6 +223,8 @@
 				849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */,
 				849D8FC21D48A85B00C6F9C6 /* UINavigationItem+Inspectable.h */,
 				849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */,
+				843065161D49CF9000942080 /* UITabBarItem+Inspectable.h */,
+				843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -346,12 +369,15 @@
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
+				843065111D49C9EE00942080 /* HistoryViewController.m in Sources */,
 				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
+				843065151D49CC4600942080 /* HistoryCell.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
+				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
