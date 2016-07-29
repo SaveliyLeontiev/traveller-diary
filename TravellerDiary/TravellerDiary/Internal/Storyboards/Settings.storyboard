@@ -8,7 +8,7 @@
         <!--settings-->
         <scene sceneID="9ww-HG-9Ux">
             <objects>
-                <viewController id="Ytd-75-bJJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ytd-75-bJJ" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H1a-4p-mgM"/>
                         <viewControllerLayoutGuide type="bottom" id="1oB-Sf-S5r"/>

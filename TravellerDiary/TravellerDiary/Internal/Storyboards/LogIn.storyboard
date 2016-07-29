@@ -146,22 +146,11 @@
                         <outlet property="loginTextField" destination="uQ2-mG-FnE" id="lN6-Gw-T0n"/>
                         <outlet property="passwordTextField" destination="FS1-ro-TJO" id="vb7-XW-ie4"/>
                         <outlet property="scrollView" destination="nZu-2B-LlJ" id="Qn2-Gr-saw"/>
-                        <segue destination="0VF-V4-qjt" kind="push" identifier="ShowTabBarID" id="Sff-Vg-JRB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tly-DY-hdQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="165" y="246"/>
-        </scene>
-        <!--TabBar-->
-        <scene sceneID="OAH-Nf-fDc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="TabBar" id="0VF-V4-qjt" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="csj-d2-ipw"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gdf-RU-Tho" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="474.5" y="-171"/>
         </scene>
         <!--Sign up-->
         <scene sceneID="JLP-EL-fVH">

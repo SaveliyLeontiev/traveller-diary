@@ -8,7 +8,7 @@
         <!--New journey-->
         <scene sceneID="sM7-8N-llF">
             <objects>
-                <viewController id="aTw-7X-Siw" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewJourneyID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aTw-7X-Siw" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ukD-Fp-Wpl"/>
                         <viewControllerLayoutGuide type="bottom" id="Lxf-ZJ-Z1W"/>

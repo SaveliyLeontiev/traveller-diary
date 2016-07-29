@@ -13,13 +13,9 @@
 //NewJourney.storyboard
 "NewJourneyTabItemTitle" = "новый маршрут";
 
-//History.storyboard
+//PathTable.storyboard
 "HistoryTabItemTitle" = "история";
-
-//ClosestJourney.storyboard
 "ClosestJourneyTabItemTitle" = "рядом";
-
-//PopularJourney.storyboard
 "PopularJourneyTabItemTitle" = "популярное";
 
 //Settings.storyboard

@@ -2,6 +2,7 @@
 #import "UIColor+HexString.h"
 #import "SignUpViewControllerDelegate.h"
 #import "SignUpViewController.h"
+#import "PathViewController.h"
 
 @interface LogInViewController () <UITextFieldDelegate, SignUpViewControllerDelegate>
 
@@ -44,7 +45,21 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 #warning TODO:loginButton
-    [self performSegueWithIdentifier:@"ShowTabBarID" sender:self];
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    UIStoryboard *pathTableStoryboard = [UIStoryboard storyboardWithName:@"PathTable" bundle:nil];
+    UIStoryboard *newJourneyStoryboard = [UIStoryboard storyboardWithName:@"NewJourney" bundle:nil];
+    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
+    PathViewController *popularVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    popularVC.tabBarItem.title = NSLocalizedString(@"PopularJourneyTabItemTitle", );
+    PathViewController *nearbyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    nearbyVC.tabBarItem.title = NSLocalizedString(@"ClosestJourneyTabItemTitle", );
+    PathViewController *historyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    historyVC.tabBarItem.title = NSLocalizedString(@"HistoryTabItemTitle", );
+    UIViewController *newJourneyVC = [newJourneyStoryboard instantiateViewControllerWithIdentifier:@"NewJourneyID"];
+    UIViewController *settingsVC = [settingsStoryboard instantiateViewControllerWithIdentifier:@"SettingsID"];
+    [tabBarController setViewControllers:@[popularVC, nearbyVC, newJourneyVC, historyVC, settingsVC]];
+    tabBarController.selectedIndex = 2;
+    [self.navigationController pushViewController:tabBarController animated:YES];
 }
 
 - (IBAction)forgottenPasswordButtonTouched:(id)sender
