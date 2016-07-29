@@ -17,6 +17,9 @@ PODS:
   - GoogleMaps (1.10.5)
   - INTULocationManager (4.2.0)
   - Masonry (1.0.1)
+  - Realm (1.0.2):
+    - Realm/Headers (= 1.0.2)
+  - Realm/Headers (1.0.2)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -26,6 +29,7 @@ DEPENDENCIES:
   - GoogleMaps (~> 1.10.5)
   - INTULocationManager
   - Masonry
+  - Realm
   - SDWebImage (~> 3.8)
 
 SPEC CHECKSUMS:
@@ -33,8 +37,9 @@ SPEC CHECKSUMS:
   GoogleMaps: da51c62c338c2d9c47cdad470a0d1e0e4b8544e4
   INTULocationManager: 73f8254b3d05c897c56bb13c190e5b7c648c0998
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  Realm: 9d5c46a4d7d27958530a8dfc58f63a99e5c2cba3
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-PODFILE CHECKSUM: 7c51569f9d29adfa5173b397378b9ac89470400b
+PODFILE CHECKSUM: 1f38bad81057d72f590dae26f145c27763357554
 
 COCOAPODS: 1.0.1

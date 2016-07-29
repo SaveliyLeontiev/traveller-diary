@@ -8,9 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
-		843065111D49C9EE00942080 /* HistoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065101D49C9EE00942080 /* HistoryViewController.m */; };
-		843065151D49CC4600942080 /* HistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065141D49CC4600942080 /* HistoryCell.m */; };
+		843065111D49C9EE00942080 /* PathViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065101D49C9EE00942080 /* PathViewController.m */; };
 		843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */; };
+		8430651C1D49E8B600942080 /* PathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430651A1D49E8B500942080 /* PathCell.m */; };
+		8430651D1D49E8B600942080 /* PathCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8430651B1D49E8B500942080 /* PathCell.xib */; };
+		843065241D4A155400942080 /* half_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8430651E1D4A155400942080 /* half_star@2x.png */; };
+		843065251D4A155400942080 /* half_star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8430651F1D4A155400942080 /* half_star@3x.png */; };
+		843065261D4A155400942080 /* star_gray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843065201D4A155400942080 /* star_gray@2x.png */; };
+		843065271D4A155400942080 /* star_gray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843065211D4A155400942080 /* star_gray@3x.png */; };
+		843065281D4A155400942080 /* star_orange@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843065221D4A155400942080 /* star_orange@2x.png */; };
+		843065291D4A155400942080 /* star_orange@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 843065231D4A155400942080 /* star_orange@3x.png */; };
+		8430652B1D4A1B3400942080 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8430652A1D4A1B3400942080 /* Image.jpg */; };
 		844542AC1D4731700043F3AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AB1D4731700043F3AD /* main.m */; };
 		844542AF1D4731700043F3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AE1D4731700043F3AD /* AppDelegate.m */; };
 		844542B71D4731700043F3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844542B61D4731700043F3AD /* Assets.xcassets */; };
@@ -35,12 +43,20 @@
 /* Begin PBXFileReference section */
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
-		8430650F1D49C9EE00942080 /* HistoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryViewController.h; sourceTree = "<group>"; };
-		843065101D49C9EE00942080 /* HistoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryViewController.m; sourceTree = "<group>"; };
-		843065131D49CC4600942080 /* HistoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistoryCell.h; sourceTree = "<group>"; };
-		843065141D49CC4600942080 /* HistoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistoryCell.m; sourceTree = "<group>"; };
+		8430650F1D49C9EE00942080 /* PathViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathViewController.h; sourceTree = "<group>"; };
+		843065101D49C9EE00942080 /* PathViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathViewController.m; sourceTree = "<group>"; };
 		843065161D49CF9000942080 /* UITabBarItem+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+Inspectable.h"; sourceTree = "<group>"; };
 		843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+Inspectable.m"; sourceTree = "<group>"; };
+		843065191D49E8B500942080 /* PathCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathCell.h; sourceTree = "<group>"; };
+		8430651A1D49E8B500942080 /* PathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathCell.m; sourceTree = "<group>"; };
+		8430651B1D49E8B500942080 /* PathCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PathCell.xib; sourceTree = "<group>"; };
+		8430651E1D4A155400942080 /* half_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "half_star@2x.png"; sourceTree = "<group>"; };
+		8430651F1D4A155400942080 /* half_star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "half_star@3x.png"; sourceTree = "<group>"; };
+		843065201D4A155400942080 /* star_gray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_gray@2x.png"; sourceTree = "<group>"; };
+		843065211D4A155400942080 /* star_gray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_gray@3x.png"; sourceTree = "<group>"; };
+		843065221D4A155400942080 /* star_orange@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_orange@2x.png"; sourceTree = "<group>"; };
+		843065231D4A155400942080 /* star_orange@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "star_orange@3x.png"; sourceTree = "<group>"; };
+		8430652A1D4A1B3400942080 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 		844542A71D4731700043F3AD /* TravellerDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellerDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844542AB1D4731700043F3AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Internal/main.m; sourceTree = "<group>"; };
 		844542AD1D4731700043F3AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -99,8 +115,9 @@
 		843065121D49CC0C00942080 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				843065131D49CC4600942080 /* HistoryCell.h */,
-				843065141D49CC4600942080 /* HistoryCell.m */,
+				843065191D49E8B500942080 /* PathCell.h */,
+				8430651A1D49E8B500942080 /* PathCell.m */,
+				8430651B1D49E8B500942080 /* PathCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -178,6 +195,13 @@
 		844542C41D4748280043F3AD /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8430652A1D4A1B3400942080 /* Image.jpg */,
+				8430651E1D4A155400942080 /* half_star@2x.png */,
+				8430651F1D4A155400942080 /* half_star@3x.png */,
+				843065201D4A155400942080 /* star_gray@2x.png */,
+				843065211D4A155400942080 /* star_gray@3x.png */,
+				843065221D4A155400942080 /* star_orange@2x.png */,
+				843065231D4A155400942080 /* star_orange@3x.png */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -204,8 +228,8 @@
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
 				849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */,
 				849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */,
-				8430650F1D49C9EE00942080 /* HistoryViewController.h */,
-				843065101D49C9EE00942080 /* HistoryViewController.m */,
+				8430650F1D49C9EE00942080 /* PathViewController.h */,
+				843065101D49C9EE00942080 /* PathViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -272,6 +296,7 @@
 				TargetAttributes = {
 					844542A61D4731700043F3AD = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 3F5A8K3326;
 					};
 				};
 			};
@@ -300,13 +325,21 @@
 			files = (
 				849D8FC71D48E1FC00C6F9C6 /* TabBar.storyboard in Resources */,
 				849D8FCF1D48E92D00C6F9C6 /* PopularJourney.storyboard in Resources */,
+				843065271D4A155400942080 /* star_gray@3x.png in Resources */,
 				844542C81D474E460043F3AD /* LogIn.storyboard in Resources */,
+				843065281D4A155400942080 /* star_orange@2x.png in Resources */,
+				843065261D4A155400942080 /* star_gray@2x.png in Resources */,
+				843065291D4A155400942080 /* star_orange@3x.png in Resources */,
+				8430651D1D49E8B600942080 /* PathCell.xib in Resources */,
 				849D8FCB1D48E8C400C6F9C6 /* History.storyboard in Resources */,
+				843065241D4A155400942080 /* half_star@2x.png in Resources */,
 				849D8FC91D48E8B400C6F9C6 /* NewJourney.storyboard in Resources */,
 				849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */,
 				849D8FCD1D48E91400C6F9C6 /* ClosestJourneis.storyboard in Resources */,
 				844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */,
 				844542B71D4731700043F3AD /* Assets.xcassets in Resources */,
+				8430652B1D4A1B3400942080 /* Image.jpg in Resources */,
+				843065251D4A155400942080 /* half_star@3x.png in Resources */,
 				849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,10 +402,10 @@
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
-				843065111D49C9EE00942080 /* HistoryViewController.m in Sources */,
+				843065111D49C9EE00942080 /* PathViewController.m in Sources */,
 				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
-				843065151D49CC4600942080 /* HistoryCell.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
+				8430651C1D49E8B600942080 /* PathCell.m in Sources */,
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
@@ -494,10 +527,14 @@
 			baseConfigurationReference = 099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravellerDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.TravellerDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -506,10 +543,14 @@
 			baseConfigurationReference = AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TravellerDiary/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.TravellerDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
