@@ -23,11 +23,12 @@
                             <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="NewJourneyTabItemTitle"/>
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
+                    <navigationItem key="navigationItem" id="dlQ-WL-IzH"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GLT-v5-7lB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="311" y="448"/>
+            <point key="canvasLocation" x="486" y="408"/>
         </scene>
     </scenes>
 </document>

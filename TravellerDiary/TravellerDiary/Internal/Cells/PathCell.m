@@ -16,13 +16,13 @@
     }];
     for (NSInteger i = 0; i<5; i++) {
         if (rate >= 1) {
-            sortedStars[i].image = [UIImage imageNamed:@"star_orange.png"];
+            sortedStars[i].image = [UIImage imageNamed:@"star_orange"];
         }
         else if (rate >= 0.5) {
-            sortedStars[i].image = [UIImage imageNamed:@"half_star.png"];
+            sortedStars[i].image = [UIImage imageNamed:@"half_star"];
         }
         else {
-            sortedStars[i].image = [UIImage imageNamed:@"star_gray.png"];
+            sortedStars[i].image = [UIImage imageNamed:@"star_gray"];
         }
         rate--;
     }

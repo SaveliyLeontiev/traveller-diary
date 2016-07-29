@@ -3,6 +3,7 @@
 #import "SignUpViewControllerDelegate.h"
 #import "SignUpViewController.h"
 #import "PathViewController.h"
+#import "TabBarController.h"
 
 @interface LogInViewController () <UITextFieldDelegate, SignUpViewControllerDelegate>
 
@@ -45,21 +46,22 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 #warning TODO:loginButton
-    UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    UIStoryboard *pathTableStoryboard = [UIStoryboard storyboardWithName:@"PathTable" bundle:nil];
-    UIStoryboard *newJourneyStoryboard = [UIStoryboard storyboardWithName:@"NewJourney" bundle:nil];
-    UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
-    PathViewController *popularVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
-    popularVC.tabBarItem.title = NSLocalizedString(@"PopularJourneyTabItemTitle", );
-    PathViewController *nearbyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
-    nearbyVC.tabBarItem.title = NSLocalizedString(@"ClosestJourneyTabItemTitle", );
-    PathViewController *historyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
-    historyVC.tabBarItem.title = NSLocalizedString(@"HistoryTabItemTitle", );
-    UIViewController *newJourneyVC = [newJourneyStoryboard instantiateViewControllerWithIdentifier:@"NewJourneyID"];
-    UIViewController *settingsVC = [settingsStoryboard instantiateViewControllerWithIdentifier:@"SettingsID"];
-    [tabBarController setViewControllers:@[popularVC, nearbyVC, newJourneyVC, historyVC, settingsVC]];
-    tabBarController.selectedIndex = 2;
-    [self.navigationController pushViewController:tabBarController animated:YES];
+    TabBarController *tabBarController =
+    [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
+                                                       @"ClosestJourney",
+                                                       @"NewJourney",
+                                                       @"History",
+                                                       @"Settings"]];
+    [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
+
+//    [UIView
+//     transitionFromView:[UIApplication sharedApplication].delegate.window.rootViewController.view
+//     toView:tabBarController.view
+//     duration:0.65f
+//     options:UIViewAnimationOptionLayoutSubviews|UIViewAnimationOptionTransitionFlipFromLeft
+//     completion:^(BOOL finished) {
+//         [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
+//     }];
 }
 
 - (IBAction)forgottenPasswordButtonTouched:(id)sender
@@ -136,6 +138,7 @@
 {
     self.loginTextField.text = @"";
     self.passwordTextField.text = @"";
+    self.logInButton.enabled = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
