@@ -54,7 +54,7 @@ static NSString *const kNumberOfRow = @"RowNumber";
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return (int)[self.sections[section] objectForKey:kNumberOfRow];
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
