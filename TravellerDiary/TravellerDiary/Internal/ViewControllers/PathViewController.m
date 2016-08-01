@@ -1,9 +1,15 @@
 #import "PathViewController.h"
 #import "PathCell.h"
 
+static NSString *const kSectionTitle = @"Title";
+static NSString *const kNumberOfRow = @"RowNumber";
+
 @interface PathViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property (nonatomic) NSArray *data;
+@property (nonatomic) NSMutableArray<NSDictionary *> *sections;
 
 @end
 
@@ -17,13 +23,53 @@
     UINib *cellNib = [UINib nibWithNibName:@"PathCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"PathCellID"];
     self.tableView.estimatedRowHeight = 75.f;
+    self.sections = [[NSMutableArray alloc] init];
+    switch (self.pathTableType) {
+        case PopularPathTabelType:
+            //Load popular pathes in data
+            self.navigationItem.title = NSLocalizedString(@"PopularJourneyNavigationItemTitle", );
+            [self.sections addObject:@{kSectionTitle: @"",
+                                       kNumberOfRow: @10}];
+            break;
+        case ClosestPathTabelType:
+            //Load nearby pathes in data
+            self.navigationItem.title = NSLocalizedString(@"ClosestJourneyNavigationItemTitle", );
+            [self.sections addObject:@{kSectionTitle: @"",
+                                       kNumberOfRow: @1}];
+            break;
+        case HistoryPathTabelType:
+            //Load pathes from user history
+            self.navigationItem.title = NSLocalizedString(@"HistoryNavigationItemTitle", );
+            
+            break;
+    }
 }
 
 #pragma mark - UITableViewDataSource
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self.sections count];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 1;
+}
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    switch (self.pathTableType) {
+        case PopularPathTabelType:
+            return @"";
+            break;
+        case ClosestPathTabelType:
+            return @"";
+            break;
+        case HistoryPathTabelType:
+            return @"Date";
+            break;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

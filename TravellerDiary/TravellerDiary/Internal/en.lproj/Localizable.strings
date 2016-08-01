@@ -18,9 +18,9 @@
 "NewJourneyTabItemTitle" = "new jorney";
 
 //PathTable.storyboard
-"HistoryTabItemTitle" = "history";
-"ClosestJourneyTabItemTitle" = "nearby";
-"PopularJourneyTabItemTitle" = "popular";
+"HistoryNavigationItemTitle" = "History";
+"ClosestJourneyNavigationItemTitle" = "Nearby";
+"PopularJourneyNavigationItemTitle" = "Popular";
 
 //Settings.storyboard
 "SettingTabItemTitle" = "settings";
