@@ -32,14 +32,20 @@
 		849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */; };
 		849D8FC91D48E8B400C6F9C6 /* NewJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */; };
 		849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FD01D48E96400C6F9C6 /* Settings.storyboard */; };
+		A5D110041D4F2C57003AC9E8 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110031D4F2C57003AC9E8 /* Path.m */; };
+		A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */; };
+		A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */; };
+		A5D1100E1D4F2E51003AC9E8 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */; };
+		A5D110131D4F2F5C003AC9E8 /* Interactor.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110121D4F2F5C003AC9E8 /* Interactor.m */; };
+		A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PathTable.storyboard; sourceTree = "<group>"; };
-		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
-		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
+		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
 		842A23B21D4B4D3000D6B805 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		842A23B31D4B6CF500D6B805 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		842A23B41D4B6CF500D6B805 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -81,6 +87,20 @@
 		849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewControllerDelegate.h; sourceTree = "<group>"; };
 		849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewJourney.storyboard; sourceTree = "<group>"; };
 		849D8FD01D48E96400C6F9C6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		A5D110021D4F2C57003AC9E8 /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
+		A5D110031D4F2C57003AC9E8 /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
+		A5D110051D4F2C87003AC9E8 /* LocationCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCoordinate.h; sourceTree = "<group>"; };
+		A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationCoordinate.m; sourceTree = "<group>"; };
+		A5D110081D4F2D2B003AC9E8 /* DatabaseProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseProvider.h; sourceTree = "<group>"; };
+		A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseProvider.m; sourceTree = "<group>"; };
+		A5D1100C1D4F2E51003AC9E8 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
+		A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerDelegate.h; sourceTree = "<group>"; };
+		A5D110111D4F2F5C003AC9E8 /* Interactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interactor.h; sourceTree = "<group>"; };
+		A5D110121D4F2F5C003AC9E8 /* Interactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interactor.m; sourceTree = "<group>"; };
+		A5D110141D4F2FA8003AC9E8 /* InteractorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractorDelegate.h; sourceTree = "<group>"; };
+		A5D110151D4F3029003AC9E8 /* NewJourneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJourneyViewController.h; sourceTree = "<group>"; };
+		A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJourneyViewController.m; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -104,14 +124,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		842A23B11D4B486300D6B805 /* Model */ = {
+		842A23B11D4B486300D6B805 /* APIManager */ = {
 			isa = PBXGroup;
 			children = (
-				842A23AE1D4B44BE00D6B805 /* User.h */,
-				842A23AF1D4B44BE00D6B805 /* User.m */,
 				84677BFC1D4DBD4200BE7E9E /* LoginAPIManager.h */,
 				84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */,
 			);
+			name = APIManager;
 			path = Model;
 			sourceTree = "<group>";
 		};
@@ -169,7 +188,10 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				842A23B11D4B486300D6B805 /* Model */,
+				A5D110101D4F2EC3003AC9E8 /* Interactor */,
+				A5D1100B1D4F2E1F003AC9E8 /* LocationManager */,
+				A5D110001D4F2B8A003AC9E8 /* Database */,
+				842A23B11D4B486300D6B805 /* APIManager */,
 				843065121D49CC0C00942080 /* Cells */,
 				847EB34F1D477D2600CCCF84 /* Categories */,
 				844542C91D47597E0043F3AD /* ViewControllers */,
@@ -228,6 +250,8 @@
 				843065101D49C9EE00942080 /* PathViewController.m */,
 				842A23B31D4B6CF500D6B805 /* TabBarController.h */,
 				842A23B41D4B6CF500D6B805 /* TabBarController.m */,
+				A5D110151D4F3029003AC9E8 /* NewJourneyViewController.h */,
+				A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -249,6 +273,49 @@
 				843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		A5D110001D4F2B8A003AC9E8 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				A5D110011D4F2BD1003AC9E8 /* Model */,
+				A5D110081D4F2D2B003AC9E8 /* DatabaseProvider.h */,
+				A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */,
+			);
+			name = Database;
+			sourceTree = "<group>";
+		};
+		A5D110011D4F2BD1003AC9E8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				842A23AE1D4B44BE00D6B805 /* User.h */,
+				842A23AF1D4B44BE00D6B805 /* User.m */,
+				A5D110021D4F2C57003AC9E8 /* Path.h */,
+				A5D110031D4F2C57003AC9E8 /* Path.m */,
+				A5D110051D4F2C87003AC9E8 /* LocationCoordinate.h */,
+				A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A5D1100B1D4F2E1F003AC9E8 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				A5D1100C1D4F2E51003AC9E8 /* LocationManager.h */,
+				A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */,
+				A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */,
+			);
+			name = LocationManager;
+			sourceTree = "<group>";
+		};
+		A5D110101D4F2EC3003AC9E8 /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				A5D110141D4F2FA8003AC9E8 /* InteractorDelegate.h */,
+				A5D110111D4F2F5C003AC9E8 /* Interactor.h */,
+				A5D110121D4F2F5C003AC9E8 /* Interactor.m */,
+			);
+			name = Interactor;
 			sourceTree = "<group>";
 		};
 		B389B7ED914667FE4B1FD562 /* Pods */ = {
@@ -389,19 +456,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				842A23B01D4B44BE00D6B805 /* User.m in Sources */,
+				A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */,
 				84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */,
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
+				A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
+				A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */,
+				A5D110131D4F2F5C003AC9E8 /* Interactor.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
 				843065111D49C9EE00942080 /* PathViewController.m in Sources */,
 				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
 				842A23B51D4B6CF500D6B805 /* TabBarController.m in Sources */,
 				8430651C1D49E8B600942080 /* PathCell.m in Sources */,
+				A5D1100E1D4F2E51003AC9E8 /* LocationManager.m in Sources */,
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
+				A5D110041D4F2C57003AC9E8 /* Path.m in Sources */,
 				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
