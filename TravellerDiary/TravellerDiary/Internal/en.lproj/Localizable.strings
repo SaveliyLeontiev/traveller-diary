@@ -1,3 +1,6 @@
+"ErrorTitle" = "Error";
+"LoginAPIManagerErrorUserNotFound" = "Incorect e-mail or password";
+
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";
 "PasswordPlaceholder" = "Password";
@@ -9,6 +12,7 @@
 "LastNamePlaceholder" = "Last name";
 "LogInNavigationitemTitle" = "Log in";
 "SignUpNavigationitemTitle" = "Sign up";
+"SignUpErrorMessageWithEqualPasswords" = "Passwords not equal";
 
 //NewJourney.storyboard
 "NewJourneyTabItemTitle" = "new jorney";

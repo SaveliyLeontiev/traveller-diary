@@ -1,3 +1,6 @@
+"ErrorTitle" = "Ошибка";
+"LoginAPIManagerErrorUserNotFound" = "Неверный e-mail или пароль";
+
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";
 "PasswordPlaceholder" = "Пароль";
@@ -9,6 +12,7 @@
 "LastNamePlaceholder" = "Фамилия";
 "LogInNavigationitemTitle" = "Вход";
 "SignUpNavigationitemTitle" = "Регистрация";
+"SignUpErrorMessageWithEqualPasswords" = "Пароли не совпадают";
 
 //NewJourney.storyboard
 "NewJourneyTabItemTitle" = "новый маршрут";

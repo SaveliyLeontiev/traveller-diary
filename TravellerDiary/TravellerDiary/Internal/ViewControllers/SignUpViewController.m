@@ -1,4 +1,5 @@
 #import "SignUpViewController.h"
+#import "LoginAPIManager.h"
 
 @interface SignUpViewController ()<UITextFieldDelegate>
 
@@ -45,7 +46,22 @@
 - (IBAction)signUpButtonTouched:(id)sender
 {
 #warning TODO: signUpButton
-    [self.delegate newUserRegistred:self];
+    if (![self.sortedTextFields[3].text isEqual:self.sortedTextFields[4].text]) {
+        [self allertWithMessage:NSLocalizedString(@"SignUpErrorMessageWithEqualPasswords", )];
+    }
+    else {
+        [[LoginAPIManager sharedInstance]
+    signUpWithFirstName:self.sortedTextFields[0].text
+    lastName:self.sortedTextFields[1].text
+    email:self.sortedTextFields[2].text
+    password:self.sortedTextFields[3].text
+    success:^{
+        [self.delegate newUserRegistred:self];
+    }
+    failure:^(NSString *errorMassage) {
+        [self allertWithMessage:errorMassage];
+    }];
+    }
 }
 
 - (void)keyboardDidShow:(NSNotification *)notification
@@ -67,6 +83,23 @@
     UIEdgeInsets contentInsets = UIEdgeInsetsZero;
     self.scrollView.contentInset = contentInsets;
     self.scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+#pragma mark - Allerts
+
+- (void) allertWithMessage:(NSString *)message
+{
+    UIAlertController *alert =
+    [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                        message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *defaultAction =
+    [UIAlertAction actionWithTitle:@"OK"
+                             style:UIAlertActionStyleDefault
+                           handler:^(UIAlertAction *action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - UITextFieldDelegate

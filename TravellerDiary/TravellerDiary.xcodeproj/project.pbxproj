@@ -22,6 +22,7 @@
 		844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542B81D4731700043F3AD /* LaunchScreen.storyboard */; };
 		844542C81D474E460043F3AD /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542C71D474E460043F3AD /* LogIn.storyboard */; };
 		844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542CB1D4759EF0043F3AD /* LogInViewController.m */; };
+		84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */; };
 		847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EB3541D477F2800CCCF84 /* UIColor+HexString.m */; };
 		849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */; };
 		849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */; };
@@ -60,6 +61,8 @@
 		844542C71D474E460043F3AD /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		844542CA1D4759EF0043F3AD /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		844542CB1D4759EF0043F3AD /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		84677BFC1D4DBD4200BE7E9E /* LoginAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginAPIManager.h; sourceTree = "<group>"; };
+		84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAPIManager.m; sourceTree = "<group>"; };
 		847EB3531D477F2800CCCF84 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		847EB3541D477F2800CCCF84 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
 		849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 			children = (
 				842A23AE1D4B44BE00D6B805 /* User.h */,
 				842A23AF1D4B44BE00D6B805 /* User.m */,
+				84677BFC1D4DBD4200BE7E9E /* LoginAPIManager.h */,
+				84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -384,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				842A23B01D4B44BE00D6B805 /* User.m in Sources */,
+				84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */,
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,

@@ -4,6 +4,7 @@
 #import "SignUpViewController.h"
 #import "PathViewController.h"
 #import "TabBarController.h"
+#import "LoginAPIManager.h"
 
 @interface LogInViewController () <UITextFieldDelegate, SignUpViewControllerDelegate>
 
@@ -11,6 +12,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+//@property (nonatomic) LoginAPIManager *loginAPIManager;
 
 @end
 
@@ -46,14 +48,32 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 #warning TODO:loginButton
-    TabBarController *tabBarController =
-    [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
-                                                       @"ClosestJourney",
-                                                       @"NewJourney",
-                                                       @"History",
-                                                       @"Settings"]];
-    [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
-
+    [[LoginAPIManager sharedInstance]
+     logInWithEmail:self.loginTextField.text
+     password:self.passwordTextField.text
+     success:^(NSString *hash){
+         TabBarController *tabBarController =
+         [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
+                                                          @"ClosestJourney",
+                                                          @"NewJourney",
+                                                          @"History",
+                                                          @"Settings"]];
+         [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
+    }
+     failure:^(NSString *errorMassage) {
+         UIAlertController *alert =
+         [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                             message:errorMassage
+                                      preferredStyle:UIAlertControllerStyleAlert];
+         UIAlertAction *defaultAction =
+         [UIAlertAction actionWithTitle:@"OK"
+                                  style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction *action) {}];
+         
+         [alert addAction:defaultAction];
+         [self presentViewController:alert animated:YES completion:nil];
+    }];
+    
 //    [UIView
 //     transitionFromView:[UIApplication sharedApplication].delegate.window.rootViewController.view
 //     toView:tabBarController.view
@@ -141,6 +161,5 @@
     self.logInButton.enabled = NO;
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
-
 
 @end
