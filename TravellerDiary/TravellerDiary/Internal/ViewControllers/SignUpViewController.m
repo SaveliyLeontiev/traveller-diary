@@ -45,7 +45,7 @@
 
 - (IBAction)signUpButtonTouched:(id)sender
 {
-#warning TODO: signUpButton
+#warning SAVELIY TODO: signUpButton
     if (![self.sortedTextFields[3].text isEqual:self.sortedTextFields[4].text]) {
         [self allertWithMessage:NSLocalizedString(@"SignUpErrorMessageWithEqualPasswords", )];
     }

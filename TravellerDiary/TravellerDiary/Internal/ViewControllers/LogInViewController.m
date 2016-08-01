@@ -47,7 +47,7 @@
 
 - (IBAction)loginButtonTouched:(id)sender
 {
-#warning TODO:loginButton
+#warning SAVELIY TODO:loginButton
     TabBarController *tabBarController =
     [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                      @"ClosestJourney",
@@ -95,7 +95,7 @@
 
 - (IBAction)forgottenPasswordButtonTouched:(id)sender
 {
-#warning TODO:forgottenPassword
+#warning SAVELIY TODO:forgottenPassword
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

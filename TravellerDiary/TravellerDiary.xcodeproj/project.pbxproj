@@ -44,8 +44,8 @@
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PathTable.storyboard; sourceTree = "<group>"; };
-		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = Model/User.h; sourceTree = "<group>"; };
-		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Model/User.m; sourceTree = "<group>"; };
+		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		842A23B21D4B4D3000D6B805 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PrefixHeader.pch; path = ../PrefixHeader.pch; sourceTree = "<group>"; };
 		842A23B31D4B6CF500D6B805 /* TabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarController.h; sourceTree = "<group>"; };
 		842A23B41D4B6CF500D6B805 /* TabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarController.m; sourceTree = "<group>"; };
@@ -130,8 +130,7 @@
 				84677BFC1D4DBD4200BE7E9E /* LoginAPIManager.h */,
 				84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */,
 			);
-			name = APIManager;
-			path = Model;
+			path = APIManager;
 			sourceTree = "<group>";
 		};
 		843065121D49CC0C00942080 /* Cells */ = {
@@ -188,9 +187,10 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				A5D110011D4F2BD1003AC9E8 /* Model */,
 				A5D110101D4F2EC3003AC9E8 /* Interactor */,
 				A5D1100B1D4F2E1F003AC9E8 /* LocationManager */,
-				A5D110001D4F2B8A003AC9E8 /* Database */,
+				A5D110001D4F2B8A003AC9E8 /* DatabaseProvider */,
 				842A23B11D4B486300D6B805 /* APIManager */,
 				843065121D49CC0C00942080 /* Cells */,
 				847EB34F1D477D2600CCCF84 /* Categories */,
@@ -275,14 +275,13 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
-		A5D110001D4F2B8A003AC9E8 /* Database */ = {
+		A5D110001D4F2B8A003AC9E8 /* DatabaseProvider */ = {
 			isa = PBXGroup;
 			children = (
-				A5D110011D4F2BD1003AC9E8 /* Model */,
 				A5D110081D4F2D2B003AC9E8 /* DatabaseProvider.h */,
 				A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */,
 			);
-			name = Database;
+			name = DatabaseProvider;
 			sourceTree = "<group>";
 		};
 		A5D110011D4F2BD1003AC9E8 /* Model */ = {
@@ -295,7 +294,7 @@
 				A5D110051D4F2C87003AC9E8 /* LocationCoordinate.h */,
 				A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */,
 			);
-			name = Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		A5D1100B1D4F2E1F003AC9E8 /* LocationManager */ = {
@@ -305,7 +304,7 @@
 				A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */,
 				A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */,
 			);
-			name = LocationManager;
+			path = LocationManager;
 			sourceTree = "<group>";
 		};
 		A5D110101D4F2EC3003AC9E8 /* Interactor */ = {
@@ -315,7 +314,7 @@
 				A5D110111D4F2F5C003AC9E8 /* Interactor.h */,
 				A5D110121D4F2F5C003AC9E8 /* Interactor.m */,
 			);
-			name = Interactor;
+			path = Interactor;
 			sourceTree = "<group>";
 		};
 		B389B7ED914667FE4B1FD562 /* Pods */ = {
