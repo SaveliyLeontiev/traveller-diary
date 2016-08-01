@@ -2,7 +2,7 @@
 
 @interface User : RLMObject
 
-@property (nonatomic) NSInteger userId;
+@property (nonatomic) NSInteger id;
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
 @property (nonatomic) NSString *email;
