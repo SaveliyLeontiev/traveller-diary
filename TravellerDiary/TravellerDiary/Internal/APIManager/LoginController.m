@@ -10,6 +10,11 @@ static NSString *const kHash = @"hash";
     [[NSUserDefaults standardUserDefaults] setObject:hash forKey:kHash];
 }
 
++ (NSString *)hash
+{
+    return [[NSUserDefaults standardUserDefaults] objectForKey:kHash];
+}
+
 + (BOOL)isLogined
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kHash]) {
