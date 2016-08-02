@@ -16,8 +16,4 @@
                     success:(void(^)(void))success
                     failure:(void(^)(NSString *))failure;
 
-- (void)resetPasswordWithEmail:(NSString *)email
-                       success:(void(^)(void))success
-                       failure:(void(^)(NSString *))failure;
-
 @end

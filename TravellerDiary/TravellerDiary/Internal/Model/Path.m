@@ -3,7 +3,7 @@
 @implementation Path
 
 + (NSString *)primaryKey {
-    return @"id";
+    return @"pathId";
 }
 
 @end

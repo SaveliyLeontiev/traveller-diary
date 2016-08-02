@@ -1,7 +1,7 @@
 #import "LoginAPIManager.h"
 #import "AFNetworking.h"
 
-static NSString *const kAPIBaseURLString = @"http://demo7081002.mockable.io";
+static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 
 @interface LoginAPIManager ()
 
@@ -37,28 +37,33 @@ static NSString *const kAPIBaseURLString = @"http://demo7081002.mockable.io";
                success:(void(^)(NSString *))success
                failure:(void(^)(NSString *))failure
 {
-    NSDictionary *data = @{@"email": email,
-                           @"password": password};
-    [self.sessionManager
-     POST:@"user/login"
-     parameters:data
-     progress:nil
-     success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hash) {
-         if (success) {
-             success([self parseHash:hash]);
+    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+        NSDictionary *data = @{@"email": email,
+                               @"password": password};
+        [self.sessionManager
+         POST:@"user/login"
+         parameters:data
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hash) {
+             if (success) {
+                 success([self parseHash:hash]);
+             }
          }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             NSHTTPURLResponse *response =
+             error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+             switch (response.statusCode) {
+                 case 404:
+                     failure(NSLocalizedString(@"LoginAPIManagerErrorUserNotFound", ));
+                 default:
+                     failure(NSLocalizedString(@"ErrorTitle", ));
+                     break;
+             }
+         }];
     }
-     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         NSHTTPURLResponse *response =
-         error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-         switch (response.statusCode) {
-             case 404:
-                 failure(NSLocalizedString(@"LoginAPIManagerErrorUserNotFound", ));
-             default:
-                 failure(@"Error");
-                 break;
-         }
-     }];
+    else if (failure) {
+        failure(NSLocalizedString(@"ErrorNoInternetConnection", ));
+    }
 
 }
 
@@ -79,49 +84,29 @@ static NSString *const kAPIBaseURLString = @"http://demo7081002.mockable.io";
                            @"password": password,
                            @"first_name": firstName,
                            @"last_name": lastName};
-    [self.sessionManager
-     POST:@"user/register"
-     parameters:data
-     progress:nil
-     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         if (success) {
-             success();
+    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+        [self.sessionManager
+         POST:@"user/register"
+         parameters:data
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if (success) {
+                 success();
+             }
          }
-     }
-     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         NSHTTPURLResponse *response =
-         error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-         switch (response.statusCode) {
-             default:
-                 failure(@"Error");
-                 break;
-         }
-     }];
-}
-
-- (void)resetPasswordWithEmail:(NSString *)email
-                       success:(void (^)(void))success
-                       failure:(void (^)(NSString *))failure
-{
-    NSDictionary *data = @{@"email": email};
-    [self.sessionManager
-     POST:@"user/forgot"
-     parameters:data
-     progress:nil
-     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-         if (success) {
-             success();
-         }
-     }
-     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-         NSHTTPURLResponse *response =
-         error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-         switch (response.statusCode) {
-             default:
-                 failure(@"Error");
-                 break;
-         }
-     }];
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             NSHTTPURLResponse *response =
+             error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+             switch (response.statusCode) {
+                 default:
+                     failure(@"Error");
+                     break;
+             }
+         }];
+    }
+    else if (failure) {
+        failure(NSLocalizedString(@"ErrorNoInternetConnection", ));
+    }
 }
 
 @end

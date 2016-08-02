@@ -1,5 +1,6 @@
 "ErrorTitle" = "Error";
 "LoginAPIManagerErrorUserNotFound" = "Incorect e-mail or password";
+"ErrorNoInternetConnection" = "No conection with server";
 
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";

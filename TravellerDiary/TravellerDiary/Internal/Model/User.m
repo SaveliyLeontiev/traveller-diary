@@ -4,7 +4,7 @@
 
 + (NSString *)primaryKey
 {
-    return @"id";
+    return @"userId";
 }
 
 + (NSArray *)requiredProperties

@@ -3,15 +3,17 @@
 
 @interface Path : RLMObject
 
-@property NSInteger id;
+@property NSInteger pathId;
+@property NSInteger userId;
 @property NSString *name;
 @property NSString *comment;
-@property RLMArray<LocationCoordinate *> *coordinates;
+@property NSInteger rating;
 @property NSDate *createdAt;
 @property NSDate *updatedAt;
 @property BOOL shared;
 @property NSInteger duration;
 @property NSInteger distance;
+@property RLMLinkingObjects *coordinates;
 
 @end
 

@@ -1,7 +1,8 @@
 #import "AppDelegate.h"
-@import GoogleMaps;
 #import "UIColor+HexString.h"
+#import <AFNetworking/AFNetworking.h>
 
+@import GoogleMaps;
 
 @interface AppDelegate ()
 
@@ -14,6 +15,7 @@
     
     [self setupAppearance];
     [GMSServices provideAPIKey:@"AIzaSyCgkgAovPuySt7M8m2zZ4fTRiSF1gPe6mo"];
+    [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     return YES;
 }
 

@@ -1,5 +1,6 @@
 "ErrorTitle" = "Ошибка";
 "LoginAPIManagerErrorUserNotFound" = "Неверный e-mail или пароль";
+"ErrorNoInternetConnection" = "Нет соединения с сервером";
 
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";

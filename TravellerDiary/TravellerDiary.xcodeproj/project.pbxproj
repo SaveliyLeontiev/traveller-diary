@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
+		842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E51D5069F20039B9E7 /* PathBuilder.m */; };
 		842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */; };
 		842A23B01D4B44BE00D6B805 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 842A23AF1D4B44BE00D6B805 /* User.m */; };
 		842A23B51D4B6CF500D6B805 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842A23B41D4B6CF500D6B805 /* TabBarController.m */; };
@@ -24,6 +25,8 @@
 		844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542CB1D4759EF0043F3AD /* LogInViewController.m */; };
 		84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */; };
 		847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = 847EB3541D477F2800CCCF84 /* UIColor+HexString.m */; };
+		8480346E1D4F6DD800995823 /* SessionAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8480346D1D4F6DD800995823 /* SessionAPIManager.m */; };
+		848034721D4F841400995823 /* UserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 848034711D4F841400995823 /* UserBuilder.m */; };
 		849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */; };
 		849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FB41D48955100C6F9C6 /* UILabel+Inspectable.m */; };
 		849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FB91D48970D00C6F9C6 /* Localizable.strings */; };
@@ -43,6 +46,9 @@
 /* Begin PBXFileReference section */
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		842615E41D5069F20039B9E7 /* PathBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathBuilder.h; sourceTree = "<group>"; };
+		842615E51D5069F20039B9E7 /* PathBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathBuilder.m; sourceTree = "<group>"; };
+		842615E71D5091CC0039B9E7 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Keys.h; path = Internal/Keys.h; sourceTree = "<group>"; };
 		842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PathTable.storyboard; sourceTree = "<group>"; };
 		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -71,6 +77,10 @@
 		84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginAPIManager.m; sourceTree = "<group>"; };
 		847EB3531D477F2800CCCF84 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HexString.h"; sourceTree = "<group>"; };
 		847EB3541D477F2800CCCF84 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HexString.m"; sourceTree = "<group>"; };
+		8480346C1D4F6DD800995823 /* SessionAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionAPIManager.h; sourceTree = "<group>"; };
+		8480346D1D4F6DD800995823 /* SessionAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionAPIManager.m; sourceTree = "<group>"; };
+		848034701D4F841400995823 /* UserBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserBuilder.h; sourceTree = "<group>"; };
+		848034711D4F841400995823 /* UserBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserBuilder.m; sourceTree = "<group>"; };
 		849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		849D8FB31D48955100C6F9C6 /* UILabel+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+Inspectable.h"; sourceTree = "<group>"; };
@@ -129,6 +139,8 @@
 			children = (
 				84677BFC1D4DBD4200BE7E9E /* LoginAPIManager.h */,
 				84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */,
+				8480346C1D4F6DD800995823 /* SessionAPIManager.h */,
+				8480346D1D4F6DD800995823 /* SessionAPIManager.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -179,6 +191,7 @@
 			isa = PBXGroup;
 			children = (
 				844542AB1D4731700043F3AD /* main.m */,
+				842615E71D5091CC0039B9E7 /* Keys.h */,
 			);
 			name = "Supporting Files";
 			path = ..;
@@ -187,6 +200,7 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				8480346F1D4F83D200995823 /* Builder */,
 				A5D110011D4F2BD1003AC9E8 /* Model */,
 				A5D110101D4F2EC3003AC9E8 /* Interactor */,
 				A5D1100B1D4F2E1F003AC9E8 /* LocationManager */,
@@ -273,6 +287,17 @@
 				843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */,
 			);
 			path = Categories;
+			sourceTree = "<group>";
+		};
+		8480346F1D4F83D200995823 /* Builder */ = {
+			isa = PBXGroup;
+			children = (
+				848034701D4F841400995823 /* UserBuilder.h */,
+				848034711D4F841400995823 /* UserBuilder.m */,
+				842615E41D5069F20039B9E7 /* PathBuilder.h */,
+				842615E51D5069F20039B9E7 /* PathBuilder.m */,
+			);
+			path = Builder;
 			sourceTree = "<group>";
 		};
 		A5D110001D4F2B8A003AC9E8 /* DatabaseProvider */ = {
@@ -454,7 +479,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848034721D4F841400995823 /* UserBuilder.m in Sources */,
 				842A23B01D4B44BE00D6B805 /* User.m in Sources */,
+				8480346E1D4F6DD800995823 /* SessionAPIManager.m in Sources */,
 				A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */,
 				84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */,
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
@@ -472,6 +499,7 @@
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
+				842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
 				A5D110041D4F2C57003AC9E8 /* Path.m in Sources */,
 				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,
