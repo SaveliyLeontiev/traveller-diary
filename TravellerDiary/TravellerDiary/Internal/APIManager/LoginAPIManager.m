@@ -58,7 +58,7 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
                  case 404:
                      failure(NSLocalizedString(@"LoginAPIManagerErrorUserNotFound", ));
                  default:
-                     failure(NSLocalizedString(@"ErrorTitle", ));
+                     failure(error.localizedDescription);
                      break;
              }
          }];

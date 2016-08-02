@@ -23,7 +23,7 @@
 {
     Path *path = [[Path alloc] init];
     NSNumber *numValue = dict[kPathId];
-    path.pathId = numValue.integerValue;
+    path.id = numValue.integerValue;
     path.name = dict[kPathName];
     numValue = dict[kPathUserId];
     path.userId = numValue.integerValue;

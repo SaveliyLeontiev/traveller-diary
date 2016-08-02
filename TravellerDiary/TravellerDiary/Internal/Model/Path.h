@@ -5,7 +5,7 @@
 
 @interface Path : RLMObject
 
-@property NSInteger pathId;
+@property NSInteger id;
 @property NSInteger userId;
 @property NSString *name;
 @property NSString *comment;
