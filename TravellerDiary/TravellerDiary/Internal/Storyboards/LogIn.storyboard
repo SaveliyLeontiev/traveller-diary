@@ -304,7 +304,7 @@
         <!--Navigation Controller-->
         <scene sceneID="35h-56-Vcw">
             <objects>
-                <navigationController id="sAh-ar-6A2" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="sAh-ar-6A2" sceneMemberID="viewController">
                     <keyCommands/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

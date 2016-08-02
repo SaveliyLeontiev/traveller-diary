@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
 		842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E51D5069F20039B9E7 /* PathBuilder.m */; };
+		842615EA1D50A3B00039B9E7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E91D50A3B00039B9E7 /* LoginController.m */; };
 		842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */; };
 		842A23B01D4B44BE00D6B805 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 842A23AF1D4B44BE00D6B805 /* User.m */; };
 		842A23B51D4B6CF500D6B805 /* TabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842A23B41D4B6CF500D6B805 /* TabBarController.m */; };
@@ -49,6 +50,8 @@
 		842615E41D5069F20039B9E7 /* PathBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathBuilder.h; sourceTree = "<group>"; };
 		842615E51D5069F20039B9E7 /* PathBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathBuilder.m; sourceTree = "<group>"; };
 		842615E71D5091CC0039B9E7 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Keys.h; path = Internal/Keys.h; sourceTree = "<group>"; };
+		842615E81D50A3B00039B9E7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
+		842615E91D50A3B00039B9E7 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PathTable.storyboard; sourceTree = "<group>"; };
 		842A23AE1D4B44BE00D6B805 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		842A23AF1D4B44BE00D6B805 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 				84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */,
 				8480346C1D4F6DD800995823 /* SessionAPIManager.h */,
 				8480346D1D4F6DD800995823 /* SessionAPIManager.m */,
+				842615E81D50A3B00039B9E7 /* LoginController.h */,
+				842615E91D50A3B00039B9E7 /* LoginController.m */,
 			);
 			path = APIManager;
 			sourceTree = "<group>";
@@ -484,6 +489,7 @@
 				8480346E1D4F6DD800995823 /* SessionAPIManager.m in Sources */,
 				A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */,
 				84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */,
+				842615EA1D50A3B00039B9E7 /* LoginController.m in Sources */,
 				849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */,
 				A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
