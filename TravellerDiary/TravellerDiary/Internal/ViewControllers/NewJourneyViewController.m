@@ -1,13 +1,14 @@
 #import "NewJourneyViewController.h"
 #import "LocationManager.h"
-#import "InteractorDelegate.h"
-#import "Interactor.h"
+#import "NewJourneyManagerDelegate.h"
+#import "NewJourneyManager.h"
+#import "SaveViewController.h"
 #import <CoreLocation/CoreLocation.h>
 @import GoogleMaps;
 
 const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from minimum topViewHeight
 
-@interface NewJourneyViewController () <InteractorDelegate>
+@interface NewJourneyViewController () <NewJourneyManagerDelegate, SaveViewControllerDelegate>
 
 @property (nonatomic) IBOutlet NSLayoutConstraint *topViewHeightConstraint;
 @property (nonatomic) IBOutlet NSLayoutConstraint *proportionalHeightConstraint;
@@ -20,27 +21,22 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 @property (nonatomic) CGFloat delta; // currentPoint - startPoint
 
 @property (nonatomic) IBOutlet UIView *topSubview;
-@property (nonatomic) IBOutlet UIView *bottomSubview;
 
 @property (nonatomic) IBOutlet UIImageView *imageView;
 @property (nonatomic) IBOutlet UILabel *timeLabel;
 @property (nonatomic) IBOutlet UILabel *distanceLabel;
 
-@property (nonatomic) GMSMapView *mapView;
+@property (nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic) GMSCameraPosition *camera;
 @property (nonatomic) GMSMutablePath *path;
-@property (nonatomic) GMSPolyline *route;
+@property (nonatomic) GMSPolyline *polyline;
 
-@property (nonatomic) Interactor *interactor;
-//@property (nonatomic) LocationManager *locationManager;
+@property (nonatomic) NewJourneyManager *journeyManager;
 @property (nonatomic) CLLocationCoordinate2D currentLocationCoordinate;
+@property (nonatomic) SaveViewController *saveViewController;
 
 @property (nonatomic) NSTimer *timer;
-@property (nonatomic) NSInteger timeSec;
-@property (nonatomic) NSInteger timeMin;
-@property (nonatomic) NSInteger timeHour;
-@property (nonatomic) NSInteger timeDay;
-
+@property (nonatomic) NSDate *startDate;
 @end
 
 @implementation NewJourneyViewController
@@ -49,26 +45,18 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 {
     [super viewDidLoad];
     
-    self.interactor = [[Interactor alloc] init];
-    self.interactor.locationManager = [[LocationManager alloc] init];
-    self.interactor.locationManager.delegate = self.interactor;
-    self.interactor.databaseProvider = [[DatabaseProvider alloc] init];
-    self.interactor.delegate = self;
+    self.journeyManager = [[NewJourneyManager alloc] init];
+    self.journeyManager.delegate = self;
     
     self.firstLayout = YES;
+    
     self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:6];
-    self.mapView = [GMSMapView mapWithFrame:self.bottomSubview.bounds camera:self.camera];
+    self.mapView.camera = self.camera;
     self.mapView.myLocationEnabled = YES;
-    [self.bottomSubview addSubview:self.mapView];
     
     self.path = [GMSMutablePath path];
-    self.route = [GMSPolyline polylineWithPath:self.path];
+    self.polyline = [GMSPolyline polylineWithPath:self.path];
     
-    // Timer Initialization
-    self.timeSec = 0;
-    self.timeMin = 0;
-    self.timeHour = 0;
-    self.timeDay = 0;
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
 }
 
@@ -101,9 +89,6 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
             
             self.topViewHeightConstraint.constant = self.topViewHeightConstraint.constant + self.delta;
           
-#warning SERGEY TO DO: update incorrectly
-            
-            self.mapView.bounds = self.bottomSubview.bounds;
             [self.view setNeedsLayout];
             [self.view layoutIfNeeded];
             break;
@@ -115,8 +100,6 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
             } else {
                 self.currentTopViewHeight = self.initialTopViewHeight;
             }
-
-#warning SERGEY TO DO: set alpha value
 
             [UIView animateWithDuration:0.3 animations:^{
                 self.topViewHeightConstraint.constant = self.currentTopViewHeight;
@@ -132,53 +115,59 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 - (void)handleTimer:(NSTimer *)timer
 {
-    self.timeSec++;
+    NSTimeInterval duration = [[NSDate date] timeIntervalSinceDate:self.startDate];
     
-    if (self.timeSec == 60) {
-        self.timeSec = 0;
-        self.timeMin++;
+    NSInteger days = duration / 60 / 60 / 24;
+    NSInteger hours = duration / 60 / 60;
+    NSInteger minutes = duration / 60;
+    NSInteger seconds = (NSInteger)duration % 60;
+    
+    NSString *timeString;
+    
+    if (days != 0) {
+        timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld:%02ld",
+                   (long)days, (long)hours, (long)minutes, (long)seconds];
+    }
+    else if (hours != 0) {
+        timeString = [NSString stringWithFormat:@"%02ld:%02ld:%02ld",
+                      (long)hours, (long)minutes, (long)seconds];
+    }
+    else {
+        timeString = [NSString stringWithFormat:@"%02ld:%02ld", (long)minutes, (long)seconds];
     }
     
-    NSString* timeNow = [NSString stringWithFormat:@"%02ld:%02ld", (long)self.timeMin, (long)self.timeSec];
-    
-    if (self.timeMin == 60) {
-        self.timeMin = 0;
-        self.timeHour++;
-        timeNow = [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)self.timeHour, (long)self.timeMin, (long)self.timeSec];
-    }
-    
-    if (self.timeHour == 24) {
-        self.timeHour = 0;
-        self.timeDay++;
-        timeNow = [NSString stringWithFormat:@"%02ld:%02ld:%02ld:%02ld", (long)self.timeDay, (long)self.timeHour, (long)self.timeMin, (long)self.timeSec];
-    }
-    
-    self.timeLabel.text= timeNow;
+    self.timeLabel.text = timeString;
 }
 
 #pragma mark - Action
 
 - (IBAction)didTapOnButton:(UIButton *)sender
 {
-    if (sender.selected) {
-        [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
-        [self.interactor startMonitoringSignificantLocationChanges];
-    }
-    else {
-        [self.timer invalidate];
-        [self.interactor stopMonitoringSignificantLocationChanges];
-        
-#warning SERGEY TO DO: save path to db
-         
+    if (sender.highlighted) {
+        [sender setSelected:!sender.selected];
+        if (sender.selected) {
+            self.startDate = [NSDate date];
+            [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+            [self.journeyManager startMonitoringSignificantLocationChanges];
+        }
+        else {
+            [self.timer invalidate];
+            [self.journeyManager stopMonitoringSignificantLocationChanges];
+            
+            self.saveViewController = (SaveViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"saveViewContollerID"];
+            self.saveViewController.delegate = self;
+            [self presentViewController:self.saveViewController animated:YES completion:nil];
+        }
     }
 }
 
-#pragma mark - InteractorDelegate
+#pragma mark - NewJourneyManagerDelegate
 
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 {
     self.currentLocationCoordinate = currentLocation.coordinate;
     [self.path addCoordinate:self.currentLocationCoordinate];
+    [self.polyline setPath:self.path];
     self.camera = [GMSCameraPosition cameraWithLatitude:self.currentLocationCoordinate.latitude
                                               longitude:self.currentLocationCoordinate.longitude
                                                    zoom:15];
@@ -199,5 +188,14 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+#pragma mark - SaveViewControllerDelegate
+
+- (void)didCloseViewController:(SaveViewController *)saveViewController
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
 
 @end
