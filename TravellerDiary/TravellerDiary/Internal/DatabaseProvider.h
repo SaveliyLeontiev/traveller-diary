@@ -1,10 +1,10 @@
 #import <Foundation/Foundation.h>
+@class Path;
+
 
 @interface DatabaseProvider : NSObject
 
 + (instancetype)sharedInstance;
-
-- (void)saveData:(NSDictionary *)data;
 
 - (void)addObject:(RLMObject *)object;
 - (void)updateObject:(RLMObject *)object;
@@ -15,5 +15,8 @@
 
 - (RLMObject *)pathByName:(NSString *)name;
 - (NSArray *)paths;
+
+- (void)currentPathCompletionBlock:(void (^)(Path *))completionBlock;
+- (Path *)currentPath;
 
 @end
