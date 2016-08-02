@@ -1,4 +1,7 @@
 #import <Realm/Realm.h>
+#import "Path.h"
+
+@class Path;
 
 @interface LocationCoordinate : RLMObject
 
@@ -6,7 +9,7 @@
 @property float longitude;
 @property float latitude;
 @property NSDate *date;
-@property (readonly) RLMLinkingObjects *paths;
+@property Path *path;
 
 @end
 

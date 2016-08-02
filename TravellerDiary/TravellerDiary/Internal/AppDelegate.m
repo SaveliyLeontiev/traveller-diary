@@ -1,6 +1,6 @@
 #import "AppDelegate.h"
-
 #import "UIColor+HexString.h"
+@import GoogleMaps;
 
 
 @interface AppDelegate ()
@@ -10,8 +10,9 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    [GMSServices provideAPIKey:@"AIzaSyCIJ_snk-Zs7hFmzEIOVn4wasDdP91wpLI"];
     [self setupAppearance];
     return YES;
 }

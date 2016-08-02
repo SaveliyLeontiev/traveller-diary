@@ -1,12 +1,14 @@
 #import <Realm/Realm.h>
 #import "LocationCoordinate.h"
 
+@class LocationCoordinate;
+
 @interface Path : RLMObject
 
 @property NSInteger id;
 @property NSString *name;
 @property NSString *comment;
-@property RLMArray<LocationCoordinate *> *coordinates;
+@property (readonly) RLMLinkingObjects *coordinates;
 @property NSDate *createdAt;
 @property NSDate *updatedAt;
 @property BOOL shared;

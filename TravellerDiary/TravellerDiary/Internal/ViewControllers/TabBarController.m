@@ -16,7 +16,7 @@
     UIViewController *settingsVC = [settingsStoryboard instantiateViewControllerWithIdentifier:@"SettingsID"];
     [self setViewController:[[UINavigationController alloc] initWithRootViewController:popularVC] atIndex:0];
     [self setViewController:[[UINavigationController alloc] initWithRootViewController:nearbyVC] atIndex:1];
-    [self setViewController:[[UINavigationController alloc] initWithRootViewController:newJourneyVC] atIndex:2];
+    [self setViewController:newJourneyVC atIndex:2];
     [self setViewController:[[UINavigationController alloc] initWithRootViewController:historyVC] atIndex:3];
     [self setViewController:[[UINavigationController alloc] initWithRootViewController:settingsVC] atIndex:4];
     self.buttonsBackgroundColor = [UIColor whiteColor];

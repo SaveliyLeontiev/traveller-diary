@@ -36,8 +36,9 @@
 		A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */; };
 		A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */; };
 		A5D1100E1D4F2E51003AC9E8 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */; };
-		A5D110131D4F2F5C003AC9E8 /* Interactor.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110121D4F2F5C003AC9E8 /* Interactor.m */; };
+		A5D110131D4F2F5C003AC9E8 /* NewJourneyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110121D4F2F5C003AC9E8 /* NewJourneyManager.m */; };
 		A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */; };
+		A5D1101A1D4F9390003AC9E8 /* SaveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110191D4F9390003AC9E8 /* SaveViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -87,6 +88,7 @@
 		849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewControllerDelegate.h; sourceTree = "<group>"; };
 		849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewJourney.storyboard; sourceTree = "<group>"; };
 		849D8FD01D48E96400C6F9C6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		A53D394F1D50838800988397 /* SaveViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveViewControllerDelegate.h; sourceTree = "<group>"; };
 		A5D110021D4F2C57003AC9E8 /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
 		A5D110031D4F2C57003AC9E8 /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
 		A5D110051D4F2C87003AC9E8 /* LocationCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationCoordinate.h; sourceTree = "<group>"; };
@@ -96,11 +98,13 @@
 		A5D1100C1D4F2E51003AC9E8 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
 		A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManagerDelegate.h; sourceTree = "<group>"; };
-		A5D110111D4F2F5C003AC9E8 /* Interactor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Interactor.h; sourceTree = "<group>"; };
-		A5D110121D4F2F5C003AC9E8 /* Interactor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Interactor.m; sourceTree = "<group>"; };
-		A5D110141D4F2FA8003AC9E8 /* InteractorDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InteractorDelegate.h; sourceTree = "<group>"; };
+		A5D110111D4F2F5C003AC9E8 /* NewJourneyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJourneyManager.h; sourceTree = "<group>"; };
+		A5D110121D4F2F5C003AC9E8 /* NewJourneyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJourneyManager.m; sourceTree = "<group>"; };
+		A5D110141D4F2FA8003AC9E8 /* NewJourneyManagerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJourneyManagerDelegate.h; sourceTree = "<group>"; };
 		A5D110151D4F3029003AC9E8 /* NewJourneyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewJourneyViewController.h; sourceTree = "<group>"; };
 		A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewJourneyViewController.m; sourceTree = "<group>"; };
+		A5D110181D4F9390003AC9E8 /* SaveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveViewController.h; sourceTree = "<group>"; };
+		A5D110191D4F9390003AC9E8 /* SaveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SaveViewController.m; sourceTree = "<group>"; };
 		AC07A378C4CECEF8E4E2B552 /* Pods-TravellerDiary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,9 +245,9 @@
 		844542C91D47597E0043F3AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */,
 				844542CA1D4759EF0043F3AD /* LogInViewController.h */,
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
+				849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */,
 				849D8FAB1D488F6700C6F9C6 /* SignUpViewController.h */,
 				849D8FAC1D488F6700C6F9C6 /* SignUpViewController.m */,
 				8430650F1D49C9EE00942080 /* PathViewController.h */,
@@ -252,6 +256,9 @@
 				842A23B41D4B6CF500D6B805 /* TabBarController.m */,
 				A5D110151D4F3029003AC9E8 /* NewJourneyViewController.h */,
 				A5D110161D4F3029003AC9E8 /* NewJourneyViewController.m */,
+				A53D394F1D50838800988397 /* SaveViewControllerDelegate.h */,
+				A5D110181D4F9390003AC9E8 /* SaveViewController.h */,
+				A5D110191D4F9390003AC9E8 /* SaveViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -301,9 +308,9 @@
 		A5D1100B1D4F2E1F003AC9E8 /* LocationManager */ = {
 			isa = PBXGroup;
 			children = (
+				A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */,
 				A5D1100C1D4F2E51003AC9E8 /* LocationManager.h */,
 				A5D1100D1D4F2E51003AC9E8 /* LocationManager.m */,
-				A5D1100F1D4F2E61003AC9E8 /* LocationManagerDelegate.h */,
 			);
 			name = LocationManager;
 			sourceTree = "<group>";
@@ -311,9 +318,9 @@
 		A5D110101D4F2EC3003AC9E8 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
-				A5D110141D4F2FA8003AC9E8 /* InteractorDelegate.h */,
-				A5D110111D4F2F5C003AC9E8 /* Interactor.h */,
-				A5D110121D4F2F5C003AC9E8 /* Interactor.m */,
+				A5D110141D4F2FA8003AC9E8 /* NewJourneyManagerDelegate.h */,
+				A5D110111D4F2F5C003AC9E8 /* NewJourneyManager.h */,
+				A5D110121D4F2F5C003AC9E8 /* NewJourneyManager.m */,
 			);
 			name = Interactor;
 			sourceTree = "<group>";
@@ -361,7 +368,7 @@
 				TargetAttributes = {
 					844542A61D4731700043F3AD = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = 3F5A8K3326;
+						DevelopmentTeam = 36Q33FKJJM;
 					};
 				};
 			};
@@ -462,7 +469,7 @@
 				A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */,
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */,
-				A5D110131D4F2F5C003AC9E8 /* Interactor.m in Sources */,
+				A5D110131D4F2F5C003AC9E8 /* NewJourneyManager.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
 				843065111D49C9EE00942080 /* PathViewController.m in Sources */,
 				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
@@ -474,6 +481,7 @@
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
+				A5D1101A1D4F9390003AC9E8 /* SaveViewController.m in Sources */,
 				A5D110041D4F2C57003AC9E8 /* Path.m in Sources */,
 				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,
 			);
@@ -598,11 +606,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = TravellerDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.TravellerDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsu.ccfit.plotnikov.TravellerDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -617,11 +626,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
 				INFOPLIST_FILE = TravellerDiary/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Saveliy.TravellerDiary;
+				PRODUCT_BUNDLE_IDENTIFIER = ru.nsu.ccfit.plotnikov.TravellerDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
