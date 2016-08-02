@@ -7,7 +7,6 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
 @interface LoginAPIManager ()
 
 @property (nonatomic) AFHTTPSessionManager *sessionManager;
-@property (nonatomic) LoginController *loginController;
 
 @end
 
@@ -30,7 +29,6 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
     if (self = [super init]) {
         NSURL *APIBaseURL = [NSURL URLWithString:kAPIBaseURLString];
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:APIBaseURL];
-        _loginController = [[LoginController alloc] init];
     }
     return self;
 }
@@ -48,8 +46,8 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
          parameters:data
          progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hashDict) {
+             [LoginController saveHash:[self parseHash:hashDict]];
              if (success) {
-                 [self.loginController saveHash:[self parseHash:hashDict]];
                  success();
              }
          }

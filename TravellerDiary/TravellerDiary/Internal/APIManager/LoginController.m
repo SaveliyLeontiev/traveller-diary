@@ -5,12 +5,12 @@ static NSString *const kHash = @"hash";
 
 @implementation LoginController
 
-- (void)saveHash:(NSString *)hash
++ (void)saveHash:(NSString *)hash
 {
     [[NSUserDefaults standardUserDefaults] setObject:hash forKey:kHash];
 }
 
-- (BOOL)isLogined
++ (BOOL)isLogined
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kHash]) {
         return YES;
@@ -20,7 +20,7 @@ static NSString *const kHash = @"hash";
     }
 }
 
--(void)logout
++ (void)logout
 {
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kHash];
     UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"Login.storyboard" bundle:nil];

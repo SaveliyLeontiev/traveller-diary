@@ -18,8 +18,7 @@
     [self setupAppearance];
     [GMSServices provideAPIKey:@"AIzaSyCgkgAovPuySt7M8m2zZ4fTRiSF1gPe6mo"];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-    LoginController *loginController = [[LoginController alloc] init];
-    if ([loginController isLogined]) {
+    if ([LoginController isLogined]) {
         TabBarController *tabBarController =
         [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                          @"ClosestJourney",
