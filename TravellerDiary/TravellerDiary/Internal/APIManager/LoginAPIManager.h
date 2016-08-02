@@ -6,7 +6,7 @@
 
 - (void)logInWithEmail:(NSString *)email
               password:(NSString *)password
-               success:(void(^)(NSString *))success
+               success:(void(^)(void))success
                failure:(void(^)(NSString *))failure;
 
 - (void)signUpWithFirstName:(NSString *)firstName

@@ -34,7 +34,7 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
 
 - (void)logInWithEmail:(NSString *)email
               password:(NSString *)password
-               success:(void(^)(NSString *))success
+               success:(void(^)(void))success
                failure:(void(^)(NSString *))failure
 {
     if ([AFNetworkReachabilityManager sharedManager].reachable) {
@@ -44,9 +44,11 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
          POST:@"user/login"
          parameters:data
          progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hash) {
+         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hashDict) {
              if (success) {
-                 success([self parseHash:hash]);
+                 NSString *hash = [self parseHash:hashDict];
+                 [[NSUserDefaults standardUserDefaults] setObject:hash forKey:@"hash"];
+                 success();
              }
          }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

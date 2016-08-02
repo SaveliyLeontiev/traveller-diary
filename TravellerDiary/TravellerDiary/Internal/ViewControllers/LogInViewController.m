@@ -51,7 +51,7 @@
     [[LoginAPIManager sharedInstance]
      logInWithEmail:self.loginTextField.text
      password:self.passwordTextField.text
-     success:^(NSString *hash){
+     success:^(void){
          TabBarController *tabBarController =
          [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                           @"ClosestJourney",
