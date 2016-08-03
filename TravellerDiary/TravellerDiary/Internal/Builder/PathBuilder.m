@@ -22,22 +22,16 @@
 - (Path *)pathWithDictionary:(NSDictionary *)dict
 {
     Path *path = [[Path alloc] init];
-    NSNumber *numValue = dict[kPathId];
-    path.id = numValue.integerValue;
+    path.id = [self intValueFromNum:dict[kPathId]];
     path.name = dict[kPathName];
-    numValue = dict[kPathUserId];
-    path.userId = numValue.integerValue;
+    path.userId = [self intValueFromNum:dict[kPathUserId]];
     path.comment = dict[kPathComment];
-    //numValue = dict[kPathRating];
-    //path.rating = numValue.integerValue;
+    path.rating = [self intValueFromNum:dict[kPathRating]];
     path.createdAt = [self.dateFormater dateFromString:dict[kPathCreateAt]];
     path.updatedAt = [self.dateFormater dateFromString:dict[kPathUpdateAt]];
-    numValue = dict[kPathShared];
-    path.shared = numValue.boolValue;
-    //numValue = dict[kPathDuration];
-    //path.duration = numValue.integerValue;
-    //numValue = dict[kPathDistance];
-    //path.distance = numValue.integerValue;
+    path.shared = [self boolValueFromNum:dict[kPathShared]];
+    path.duration = [self intValueFromNum:dict[kPathDuration]];
+    path.distance = [self intValueFromNum:dict[kPathDistance]];
     return path;
 }
 
@@ -48,6 +42,26 @@
         [pathes addObject:[self pathWithDictionary:dict]];
     }
     return [pathes copy];
+}
+
+- (NSInteger)intValueFromNum:(NSNumber *)num;
+{
+    if (![num isEqual:[NSNull null]]) {
+        return num.integerValue;
+    }
+    else {
+        return 0;
+    }
+}
+
+- (BOOL)boolValueFromNum:(NSNumber *)num
+{
+    if (![num isEqual:[NSNull null]]) {
+        return num.boolValue;
+    }
+    else {
+        return NO;
+    }
 }
 
 @end
