@@ -16,7 +16,6 @@
 - (RLMObject *)pathByName:(NSString *)name;
 - (NSArray *)paths;
 
-- (void)currentPathCompletionBlock:(void (^)(Path *))completionBlock;
 - (Path *)currentPath;
 
 @end

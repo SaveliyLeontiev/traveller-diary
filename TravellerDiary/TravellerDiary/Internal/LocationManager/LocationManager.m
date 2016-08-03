@@ -35,8 +35,8 @@
         __typeof(weakSelf) strongSelf = weakSelf;
         
         if (status == INTULocationStatusSuccess) {
-            [strongSelf.delegate didChangeLocation:currentLocation];
             NSLog(@"%f, %f, %@", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, currentLocation.description);
+            [strongSelf.delegate didChangeLocation:currentLocation];
         }
         else {
             [strongSelf.delegate monitoringSignificantLocationChangesFailedWithError:[strongSelf getLocationErrorDescription:status]];

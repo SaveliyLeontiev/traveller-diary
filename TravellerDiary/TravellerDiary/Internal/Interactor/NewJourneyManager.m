@@ -18,8 +18,8 @@
     if (self) {
         _locationManager = [[LocationManager alloc] init];
         _locationManager.delegate = self;
-        _databaseProvider = [[DatabaseProvider alloc] init];
-        _currentPath = [self.databaseProvider currentPath];
+        _databaseProvider = [DatabaseProvider sharedInstance];
+//        _currentPath = [self.databaseProvider currentPath];
     }
     return self;
 }
@@ -34,7 +34,7 @@
     if (self.currentPath) {
         locationCoordinate.path = self.currentPath;
         [self.databaseProvider addObject:locationCoordinate];
-//        [self.databaseProvider updateObject:self.currentPath];
+        [self.databaseProvider updateObject:self.currentPath];
     } else {
         self.currentPath = [[Path alloc] init];
         self.currentPath.createdAt = [NSDate date];
@@ -48,7 +48,7 @@
 
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 {
-//    [self saveCurrentLocation:currentLocation];
+    [self saveCurrentLocation:currentLocation];
     [self.delegate didChangeLocation:currentLocation];
 }
 
@@ -61,6 +61,7 @@
 
 - (void)startMonitoringSignificantLocationChanges
 {
+    self.currentPath = [self.databaseProvider currentPath];
     [self.locationManager startMonitoringSignificantLocationChanges];
 }
 
