@@ -16,6 +16,8 @@
 - (void)getUserWithId:(NSInteger)userId
               success:(void(^)(User *))success
               failure:(void(^)(NSInteger))failure;
+
+- (void)getMyPathWithSuccess:(void(^)(NSArray<Path *> *))success failure:(void(^)(NSInteger))failure;
 - (void)getPathWithId:(NSInteger)pathId
               success:(void(^)(Path *))success
               failure:(void(^)(NSInteger))failure;

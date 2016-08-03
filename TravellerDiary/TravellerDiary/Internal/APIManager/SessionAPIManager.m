@@ -26,6 +26,8 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         [_sessionManager.requestSerializer
             setValue:[NSString stringWithFormat:@"Bearer  %@", hash]
             forHTTPHeaderField:kAuthorizationHeader];
+        _userBuilder = [[UserBuilder alloc] init];
+        _pathBuilder = [[PathBuilder alloc] init];
     }
     return self;
 }
@@ -123,6 +125,34 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 }
 
 #pragma mark Path requests
+
+- (void)getMyPathWithSuccess:(void (^)(NSArray<Path *> *))success failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+    else {
+        [self.sessionManager
+         GET:@"path/mypath"
+         parameters:nil
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, NSArray *responseObject) {
+             if (success) {
+                 NSArray *pathes = [self.pathBuilder pathesWithArray:responseObject];
+                 success(pathes);
+             }
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 failure(response.statusCode);
+             }
+         }];
+    }
+}
 
 - (void)getPathWithId:(NSInteger)pathId
               success:(void (^)(Path *))success

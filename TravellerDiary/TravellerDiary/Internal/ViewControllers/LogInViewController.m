@@ -47,7 +47,6 @@
 
 - (IBAction)loginButtonTouched:(id)sender
 {
-#warning SAVELIY TODO:loginButton
     [[LoginAPIManager sharedInstance]
      logInWithEmail:self.loginTextField.text
      password:self.passwordTextField.text

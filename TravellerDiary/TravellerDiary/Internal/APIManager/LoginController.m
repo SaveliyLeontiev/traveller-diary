@@ -28,7 +28,7 @@ static NSString *const kHash = @"hash";
 + (void)logout
 {
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:kHash];
-    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"Login.storyboard" bundle:nil];
+    UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"LogIn" bundle:nil];
     UINavigationController *navigationController = [loginStoryboard instantiateViewControllerWithIdentifier:@"LoginID"];
     [UIApplication sharedApplication].delegate.window.rootViewController = navigationController;
 }

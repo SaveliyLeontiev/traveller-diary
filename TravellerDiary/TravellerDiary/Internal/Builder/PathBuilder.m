@@ -28,16 +28,16 @@
     numValue = dict[kPathUserId];
     path.userId = numValue.integerValue;
     path.comment = dict[kPathComment];
-    numValue = dict[kPathRating];
-    path.rating = numValue.integerValue;
+    //numValue = dict[kPathRating];
+    //path.rating = numValue.integerValue;
     path.createdAt = [self.dateFormater dateFromString:dict[kPathCreateAt]];
     path.updatedAt = [self.dateFormater dateFromString:dict[kPathUpdateAt]];
     numValue = dict[kPathShared];
     path.shared = numValue.boolValue;
-    numValue = dict[kPathDuration];
-    path.duration = numValue.integerValue;
-    numValue = dict[kPathDistance];
-    path.distance = numValue.integerValue;
+    //numValue = dict[kPathDuration];
+    //path.duration = numValue.integerValue;
+    //numValue = dict[kPathDistance];
+    //path.distance = numValue.integerValue;
     return path;
 }
 

@@ -1,5 +1,7 @@
 #import "PathViewController.h"
 #import "PathCell.h"
+#import "PathData.h"
+#import "PathManager.h"
 
 static NSString *const kSectionTitle = @"Title";
 static NSString *const kNumberOfRow = @"RowNumber";
@@ -8,8 +10,8 @@ static NSString *const kNumberOfRow = @"RowNumber";
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
-@property (nonatomic) NSArray *data;
-@property (nonatomic) NSMutableArray<NSDictionary *> *sections;
+@property (nonatomic) PathData *pathData;
+@property (nonatomic) NSDateFormatter *dateFormater;
 
 @end
 
@@ -23,22 +25,42 @@ static NSString *const kNumberOfRow = @"RowNumber";
     UINib *cellNib = [UINib nibWithNibName:@"PathCell" bundle:nil];
     [self.tableView registerNib:cellNib forCellReuseIdentifier:@"PathCellID"];
     self.tableView.estimatedRowHeight = 75.f;
-    self.sections = [[NSMutableArray alloc] init];
+    self.dateFormater = [[NSDateFormatter alloc] init];
+    [self.dateFormater setDateFormat:@"dd/MM/yy"];
+
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    PathManager *pathManager = [[PathManager alloc] init];
     switch (self.pathTableType) {
         case PopularPathTabelType:
             //Load popular pathes in data
             self.navigationItem.title = NSLocalizedString(@"PopularJourneyNavigationItemTitle", );
-            [self.sections addObject:@{kSectionTitle: @"",
-                                       kNumberOfRow: @10}];
             break;
         case ClosestPathTabelType:
             //Load nearby pathes in data
             self.navigationItem.title = NSLocalizedString(@"ClosestJourneyNavigationItemTitle", );
-            [self.sections addObject:@{kSectionTitle: @"",
-                                       kNumberOfRow: @1}];
             break;
         case HistoryPathTabelType:
-            //Load pathes from user history
+            [pathManager
+             getPathDataForHistoryWithSuccess:^(PathData *pathData) {
+                 self.pathData = pathData;
+                 [self.tableView reloadData];
+             }
+             failure:^(NSString *errorMessage) {
+                 UIAlertController *alert =
+                 [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                                     message:errorMessage
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                 UIAlertAction *defaultAction =
+                 [UIAlertAction actionWithTitle:@"OK"
+                                          style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction *action) {}];
+                 
+                 [alert addAction:defaultAction];
+                 [self presentViewController:alert animated:YES completion:nil];
+             }];
             self.navigationItem.title = NSLocalizedString(@"HistoryNavigationItemTitle", );
             
             break;
@@ -49,27 +71,17 @@ static NSString *const kNumberOfRow = @"RowNumber";
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return [self.sections count];
+    return [self.pathData.sectionTitles count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.pathData.pathesInSectrion[section] count];
 }
 
 - (nullable NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    switch (self.pathTableType) {
-        case PopularPathTabelType:
-            return @"";
-            break;
-        case ClosestPathTabelType:
-            return @"";
-            break;
-        case HistoryPathTabelType:
-            return @"Date";
-            break;
-    }
+    return self.pathData.sectionTitles[section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,9 +91,10 @@ static NSString *const kNumberOfRow = @"RowNumber";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    PathCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PathCellID"];
-    cell.title.text = @"Title";
-    cell.date.text =  @"28/08/16";
+    PathCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PathCellID" forIndexPath:indexPath];
+    Path *path = self.pathData.pathesInSectrion[indexPath.section][indexPath.row];
+    cell.title.text = path.name;
+    cell.date.text =  [self.dateFormater stringFromDate:path.createdAt];
     cell.rate = 3.5;
     cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
     return cell;
