@@ -7,7 +7,7 @@
 @interface DatabaseProvider ()
 
 @property (nonatomic) dispatch_queue_t serialQueue;
-@property (nonatomic) Path *path;
+//@property (nonatomic) Path *path;
 
 @end
 
@@ -27,102 +27,32 @@
 {
     if (self = [super init]) {
         _serialQueue = dispatch_queue_create("travelller.DiaryDatabaseProvider.serialQueue", 0);
+//        _path = [[Path alloc] init];
     }
     return self;
 }
 
-//- (void)currentPathCompletionBlock:(void (^)(Path *))completionBlock;
-//{
-//    dispatch_async(self.serialQueue, ^{
-//        RLMRealm *realm = [RLMRealm defaultRealm];
-//        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"updatedAt = 'NULL'"];
-//        [realm beginWriteTransaction];
-//        Path *path = [[Path objectsWithPredicate:predicate] firstObject];
-//        [realm commitWriteTransaction];
-//        if (completionBlock) {
-//            completionBlock(path);
-//        }
-//    });
-//}
-
 - (Path *)currentPath
 {
-    dispatch_sync(self.serialQueue, ^{
-                RLMRealm *realm = [RLMRealm defaultRealm];
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"updatedAt = %@", nil];
-                [realm beginWriteTransaction];
-                self.path = [[Path objectsWithPredicate:predicate] firstObject];
-                [realm commitWriteTransaction];
-            });
-    
-    return self.path;
-    
-    
-//    return [[Path objectsWithPredicate:[NSPredicate predicateWithFormat:@"updatedAt = %@", nil]] firstObject];
+    RLMResults<Path *> *currentPath = [[Path objectsWithPredicate:[NSPredicate predicateWithFormat:@"updatedAt = nil"]] sortedResultsUsingProperty:@"createdAt" ascending:YES];
+    return [currentPath firstObject];
+//    return self.path;
 }
-
-//- (void)saveData:(NSDictionary *)data
-//{
-//    
-//#warning SERGEY TO DO: save Data haven't done yet
-//    
-//    dispatch_async(self.serialQueue, ^{
-//        RLMRealm *realm = [RLMRealm defaultRealm];
-//        [realm beginWriteTransaction];
-//        Path *path = [[Path alloc] init];
-//        path.name = [data valueForKey:@"name"];
-//        path.comment = [data valueForKey:@"comment"];
-//        path.coordinates = [data valueForKey:@"points"];
-//        
-////                route.duration = [data valueForKey:@"duration"];
-//        
-//        [realm commitWriteTransaction];
-//    });
-//}
 
 - (void)addObject:(RLMObject *)object
 {
-//    if ([object isKindOfClass:[LocationCoordinate class]]) {
-        dispatch_async(self.serialQueue, ^{
-            RLMRealm *realm = [RLMRealm defaultRealm];
-            [realm beginWriteTransaction];
-            [realm addObject:object];
-            [realm commitWriteTransaction];
-        });
-//    }
-//    
-//    if ([object isKindOfClass:[Path class]]) {
-//        dispatch_async(dispatch_queue_create("queue", 0), ^{
-//            RLMRealm *realm = [RLMRealm defaultRealm];
-//            [realm beginWriteTransaction];
-//            [realm addObject:object];
-//            [realm commitWriteTransaction];
-//        });
-//    }
-//    
-//    if ([object isKindOfClass:[User class]]) {
-//        dispatch_async(dispatch_queue_create("queue", 0), ^{
-//            RLMRealm *realm = [RLMRealm defaultRealm];
-//            [realm beginWriteTransaction];
-//            [realm addObject:(User *)object];
-//            [realm commitWriteTransaction];
-//        });
-//    }
-//    
-//    else {
-//        // Failed
-//    }
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
+        [realm addObject:object];
+    }];
 }
 
 - (void)updateObject:(RLMObject *)object
 {
-    dispatch_async(self.serialQueue, ^{
-        RLMRealm *realm = [RLMRealm defaultRealm];
-        [realm beginWriteTransaction];
+    RLMRealm *realm = [RLMRealm defaultRealm];
+    [realm transactionWithBlock:^{
         [realm addOrUpdateObject:object];
-        [realm commitWriteTransaction];
-    });
-
+    }];
 }
 
 - (void)removeObject:(RLMObject *)object

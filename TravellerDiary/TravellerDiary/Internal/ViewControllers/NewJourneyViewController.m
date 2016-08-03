@@ -50,12 +50,14 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     
     self.firstLayout = YES;
     
-    self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:6];
+    self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:0];
     self.mapView.camera = self.camera;
     self.mapView.myLocationEnabled = YES;
     
     self.path = [GMSMutablePath path];
     self.polyline = [GMSPolyline polylineWithPath:self.path];
+    self.polyline.strokeWidth = 5;
+    self.polyline.map = self.mapView;
     
     self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
 }

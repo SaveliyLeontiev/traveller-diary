@@ -3,19 +3,13 @@
 
 @implementation LocationCoordinate
 
-+ (NSString *)primaryKey
-{
-    return @"id";
-}
-
-//+ (NSArray *)requiredProperties
+//+ (NSString *)primaryKey
 //{
-//    return @[@"date"];
+//    return @"id";
 //}
 
-//+ (NSDictionary *)linkingObjectsProperties
-//{
-//    return @{ @"paths": [RLMPropertyDescriptor descriptorWithClass:Path.class propertyName:@"id"] };
+//+ (NSDictionary *)defaultPropertyValues {
+//    return @{@"id" : [[NSUUID UUID] UUIDString]};
 //}
 
 @end

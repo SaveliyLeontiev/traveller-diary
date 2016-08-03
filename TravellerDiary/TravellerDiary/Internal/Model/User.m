@@ -2,14 +2,14 @@
 
 @implementation User
 
-+ (NSString *)primaryKey
-{
-    return @"id";
-}
+//+ (NSString *)primaryKey
+//{
+//    return @"id";
+//}
 
-+ (NSArray *)requiredProperties
-{
-    return @[@"firstName", @"lastName", @"email", @"password", @"file"];
-}
+//+ (NSArray *)requiredProperties
+//{
+//    return @[@"firstName", @"lastName", @"email", @"password", @"file"];
+//}
 
 @end

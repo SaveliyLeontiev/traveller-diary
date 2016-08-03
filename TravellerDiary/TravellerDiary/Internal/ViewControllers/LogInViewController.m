@@ -48,10 +48,10 @@
 - (IBAction)loginButtonTouched:(id)sender
 {
 #warning TODO:loginButton
-    [[LoginAPIManager sharedInstance]
-     logInWithEmail:self.loginTextField.text
-     password:self.passwordTextField.text
-     success:^(NSString *hash){
+//    [[LoginAPIManager sharedInstance]
+//     logInWithEmail:self.loginTextField.text
+//     password:self.passwordTextField.text
+//     success:^(NSString *hash){
          TabBarController *tabBarController =
          [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                           @"ClosestJourney",
@@ -59,20 +59,20 @@
                                                           @"History",
                                                           @"Settings"]];
          [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
-    }
-     failure:^(NSString *errorMassage) {
-         UIAlertController *alert =
-         [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
-                                             message:errorMassage
-                                      preferredStyle:UIAlertControllerStyleAlert];
-         UIAlertAction *defaultAction =
-         [UIAlertAction actionWithTitle:@"OK"
-                                  style:UIAlertActionStyleDefault
-                                handler:^(UIAlertAction *action) {}];
-         
-         [alert addAction:defaultAction];
-         [self presentViewController:alert animated:YES completion:nil];
-    }];
+//    }
+//     failure:^(NSString *errorMassage) {
+//         UIAlertController *alert =
+//         [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+//                                             message:errorMassage
+//                                      preferredStyle:UIAlertControllerStyleAlert];
+//         UIAlertAction *defaultAction =
+//         [UIAlertAction actionWithTitle:@"OK"
+//                                  style:UIAlertActionStyleDefault
+//                                handler:^(UIAlertAction *action) {}];
+//         
+//         [alert addAction:defaultAction];
+//         [self presentViewController:alert animated:YES completion:nil];
+//    }];
     
 //    [UIView
 //     transitionFromView:[UIApplication sharedApplication].delegate.window.rootViewController.view

@@ -5,7 +5,7 @@
 
 @interface Path : RLMObject
 
-@property NSInteger id;
+//@property NSInteger id;
 @property NSString *name;
 @property NSString *comment;
 @property (readonly) RLMLinkingObjects *coordinates;
