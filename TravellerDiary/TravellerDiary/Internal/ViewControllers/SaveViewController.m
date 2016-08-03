@@ -10,6 +10,9 @@
 @property (nonatomic) IBOutlet UITextView *commentTextView;
 @property (nonatomic) BOOL shared;
 
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+@property (nonatomic) GMSPolyline *polyline;
+
 @end
 
 @implementation SaveViewController
@@ -17,6 +20,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    self.polyline.map = nil;
+    
+    GMSCoordinateBounds *coordinateBounds = [[GMSCoordinateBounds alloc] initWithPath:self.path];
+    GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate fitBounds:coordinateBounds];
+    
+    [self.mapView animateWithCameraUpdate:cameraUpdate];
+    
+    self.polyline = [GMSPolyline polylineWithPath:self.path];
+    self.polyline.map = self.mapView;
+    
     self.shared = YES;
     self.images = [NSMutableArray array];
     self.datebaseProvider = [DatabaseProvider sharedInstance];
@@ -30,10 +43,16 @@
     path.createdAt = [[self.datebaseProvider currentPath] createdAt];
     path.updatedAt = [NSDate date];
     path.shared = self.shared;
+    path.distance = self.distance;
+    path.duration = self.duration;
+    
     [self.datebaseProvider updateObject:path];
-    
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate didCloseViewController:self];
+}
+
+- (IBAction)tapOnCancelButton:(id)sender
+{
+    [self.delegate didCloseViewController:self];
 }
 
 - (IBAction)tapOnSharedButton:(id)sender

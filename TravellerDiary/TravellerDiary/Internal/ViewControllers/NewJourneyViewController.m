@@ -28,14 +28,18 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 @property (nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic) GMSCameraPosition *camera;
+@property (nonatomic) GMSCameraUpdate *cameraUpdate;
 @property (nonatomic) GMSMutablePath *path;
 @property (nonatomic) GMSPolyline *polyline;
 
 @property (nonatomic) NewJourneyManager *journeyManager;
 @property (nonatomic) CLLocationCoordinate2D currentLocationCoordinate;
+@property (nonatomic) CLLocation* previousLocation;
+@property (nonatomic) CLLocationDistance distance;
 @property (nonatomic) SaveViewController *saveViewController;
 
 @property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSTimeInterval duration;
 @property (nonatomic) NSDate *startDate;
 @end
 
@@ -50,16 +54,9 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     
     self.firstLayout = YES;
     
-    self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:0];
-    self.mapView.camera = self.camera;
-    self.mapView.myLocationEnabled = YES;
-    
-    self.path = [GMSMutablePath path];
-    self.polyline = [GMSPolyline polylineWithPath:self.path];
-    self.polyline.strokeWidth = 5;
-    self.polyline.map = self.mapView;
-    
-    self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
+//    self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:0];
+//    self.mapView.camera = self.camera;
+//    self.mapView.myLocationEnabled = YES;
 }
 
 - (void)viewDidLayoutSubviews
@@ -117,12 +114,12 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 - (void)handleTimer:(NSTimer *)timer
 {
-    NSTimeInterval duration = [[NSDate date] timeIntervalSinceDate:self.startDate];
+    self.duration = [[NSDate date] timeIntervalSinceDate:self.startDate];
     
-    NSInteger days = duration / 60 / 60 / 24;
-    NSInteger hours = duration / 60 / 60;
-    NSInteger minutes = duration / 60;
-    NSInteger seconds = (NSInteger)duration % 60;
+    NSInteger days = self.duration / 60 / 60 / 24;
+    NSInteger hours = self.duration / 60 / 60;
+    NSInteger minutes = self.duration / 60;
+    NSInteger seconds = (NSInteger)self.duration % 60;
     
     NSString *timeString;
     
@@ -148,16 +145,45 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     if (sender.highlighted) {
         [sender setSelected:!sender.selected];
         if (sender.selected) {
+//            [self default];
+            
+//            self.mapView.camera = self.camera;
+            self.mapView.myLocationEnabled = YES;
+//            self.polyline = nil;
+//
+            self.path = [GMSMutablePath path];
+            self.polyline = [GMSPolyline polylineWithPath:self.path];
+            self.polyline.strokeWidth = 5;
+            self.polyline.map = self.mapView;
+            
+//            self.duration = 0;
+//            self.previousLocation = 0;
+            
             self.startDate = [NSDate date];
+            self.timer = [NSTimer timerWithTimeInterval:1.0 target:self selector:@selector(handleTimer:) userInfo:nil repeats:YES];
             [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
             [self.journeyManager startMonitoringSignificantLocationChanges];
         }
         else {
+//            self.timeLabel.text = @"00:00";
+//            self.distanceLabel.text = @"0.00 m";
+            
             [self.timer invalidate];
             [self.journeyManager stopMonitoringSignificantLocationChanges];
+//            self.polyline.map = nil;
             
             self.saveViewController = (SaveViewController *)[self.storyboard instantiateViewControllerWithIdentifier:@"saveViewContollerID"];
             self.saveViewController.delegate = self;
+            self.saveViewController.path = self.path;
+            self.saveViewController.distance = self.distance;
+            self.saveViewController.duration = self.duration;
+            
+//            self.path = nil;
+//            self.distance = 0;
+            
+//            [self default];
+//            [super dealloc];
+
             [self presentViewController:self.saveViewController animated:YES completion:nil];
         }
     }
@@ -169,13 +195,19 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 {
     self.currentLocationCoordinate = currentLocation.coordinate;
     [self.path addCoordinate:self.currentLocationCoordinate];
-    [self.polyline setPath:self.path];
+    self.polyline.path = self.path;
+//    self.polyline = [GMSPolyline polylineWithPath:self.path];
+    self.polyline.map = self.mapView;
+//    [self.polyline setPath:self.path];
     self.camera = [GMSCameraPosition cameraWithLatitude:self.currentLocationCoordinate.latitude
                                               longitude:self.currentLocationCoordinate.longitude
                                                    zoom:15];
     
-    GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate setCamera:self.camera];
-    [self.mapView moveCamera:cameraUpdate];
+    self.cameraUpdate = [GMSCameraUpdate setCamera:self.camera];
+    [self.mapView moveCamera:self.cameraUpdate];
+    [self countCurrentDistance:(CLLocation *)currentLocation];
+    self.previousLocation = currentLocation;
+
 }
 
 - (void)monitoringSignificantLocationChangesFailedWithError:(NSString *)errorDescription
@@ -191,13 +223,38 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)countCurrentDistance:(CLLocation *)currentLocation
+{
+    self.distance += [currentLocation distanceFromLocation:self.previousLocation];
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f m", self.distance];
+}
+
 #pragma mark - SaveViewControllerDelegate
 
 - (void)didCloseViewController:(SaveViewController *)saveViewController
 {
+//    self.polyline.map = nil;
+//    self.polyline = nil;
+//    self.path = nil;
+//    self.camera = [GMSCameraPosition cameraWithLatitude:0 longitude:0 zoom:0];
+//    self.mapView.camera = self.camera;
+//    self.mapView.myLocationEnabled = YES;
+    [self default];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
+- (void)default
+{
+    self.timeLabel.text = @"00:00";
+    self.distanceLabel.text = @"0.00 m";
+    self.path = nil;
+    self.polyline.map = nil;
+    self.polyline = nil;
+    self.mapView = nil;
+    self.camera = nil;
+    self.cameraUpdate = nil;
+    self.previousLocation = nil;
+    self.distance = 0;
+}
 
 @end

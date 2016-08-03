@@ -1,5 +1,6 @@
 "ErrorTitle" = "Error";
 "LoginAPIManagerErrorUserNotFound" = "Incorect e-mail or password";
+"ErrorNoInternetConnection" = "No conection with server";
 
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";
@@ -18,9 +19,9 @@
 "NewJourneyTabItemTitle" = "new jorney";
 
 //PathTable.storyboard
-"HistoryTabItemTitle" = "history";
-"ClosestJourneyTabItemTitle" = "nearby";
-"PopularJourneyTabItemTitle" = "popular";
+"HistoryNavigationItemTitle" = "History";
+"ClosestJourneyNavigationItemTitle" = "Nearby";
+"PopularJourneyNavigationItemTitle" = "Popular";
 
 //Settings.storyboard
 "SettingTabItemTitle" = "settings";

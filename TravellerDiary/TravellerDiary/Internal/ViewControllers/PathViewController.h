@@ -2,13 +2,13 @@
 
 typedef NS_ENUM(NSInteger, PathTableType)
 {
-    PopularPathType,
-    ClosestPathType,
-    HistoryPathType
+    PopularPathTabelType,
+    ClosestPathTabelType,
+    HistoryPathTabelType
 };
 
 @interface PathViewController : UIViewController
 
-@property (nonatomic) PathTableType pathType;
+@property (nonatomic) PathTableType pathTableType;
 
 @end

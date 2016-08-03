@@ -1,5 +1,6 @@
 "ErrorTitle" = "Ошибка";
 "LoginAPIManagerErrorUserNotFound" = "Неверный e-mail или пароль";
+"ErrorNoInternetConnection" = "Нет соединения с сервером";
 
 //Login.storyboard
 "EmailPlaceholder" = "e-mail";
@@ -18,9 +19,9 @@
 "NewJourneyTabItemTitle" = "новый маршрут";
 
 //PathTable.storyboard
-"HistoryTabItemTitle" = "история";
-"ClosestJourneyTabItemTitle" = "рядом";
-"PopularJourneyTabItemTitle" = "популярное";
+"HistoryNavigationItemTitle" = "История";
+"ClosestJourneyNavigationItemTitle" = "Рядом";
+"PopularJourneyNavigationItemTitle" = "Популярное";
 
 //Settings.storyboard
 "SettingTabItemTitle" = "настройки";

@@ -5,7 +5,7 @@
 
 @interface LocationCoordinate : RLMObject
 
-//@property NSInteger id;
+@property NSInteger id;
 @property float longitude;
 @property float latitude;
 @property NSDate *date;

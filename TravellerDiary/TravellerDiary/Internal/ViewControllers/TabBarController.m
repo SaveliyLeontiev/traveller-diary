@@ -10,8 +10,11 @@
     UIStoryboard *newJourneyStoryboard = [UIStoryboard storyboardWithName:@"NewJourney" bundle:nil];
     UIStoryboard *settingsStoryboard = [UIStoryboard storyboardWithName:@"Settings" bundle:nil];
     PathViewController *popularVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    popularVC.pathTableType = PopularPathTabelType;
     PathViewController *nearbyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    nearbyVC.pathTableType = ClosestPathTabelType;
     PathViewController *historyVC = [pathTableStoryboard instantiateViewControllerWithIdentifier:@"PathViewControllerID"];
+    historyVC.pathTableType = HistoryPathTabelType;
     UIViewController *newJourneyVC = [newJourneyStoryboard instantiateViewControllerWithIdentifier:@"NewJourneyID"];
     UIViewController *settingsVC = [settingsStoryboard instantiateViewControllerWithIdentifier:@"SettingsID"];
     [self setViewController:[[UINavigationController alloc] initWithRootViewController:popularVC] atIndex:0];

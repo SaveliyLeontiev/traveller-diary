@@ -5,9 +5,11 @@
 
 @interface Path : RLMObject
 
-//@property NSInteger id;
+@property NSInteger id;
+@property NSInteger userId;
 @property NSString *name;
 @property NSString *comment;
+@property NSInteger rating;
 @property (readonly) RLMLinkingObjects *coordinates;
 @property NSDate *createdAt;
 @property NSDate *updatedAt;
