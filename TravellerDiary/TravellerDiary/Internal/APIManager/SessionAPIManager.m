@@ -4,6 +4,8 @@
 #import "PathBuilder.h"
 #import "PointBuilder.h"
 #import "Utility.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "LoginAPIManager.h"
 
 static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 static NSString *const kAuthorizationHeader = @"Authorization";
@@ -23,11 +25,18 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 - (instancetype)initWithHash:(NSString *)hash
 {
     if (self = [super init]) {
+        [LoginAPIManager sharedInstance];
+        
         NSURL *APIBaseURL = [NSURL URLWithString:kAPIBaseURLString];
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:APIBaseURL];
+        _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
+        [_sessionManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
         [_sessionManager.requestSerializer
-            setValue:[NSString stringWithFormat:@"Bearer  %@", hash]
+            setValue:[NSString stringWithFormat:@"Bearer %@", hash]
             forHTTPHeaderField:kAuthorizationHeader];
+        [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"User-Agent"];
+        [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"Accept-Language"];
+
         _userBuilder = [[UserBuilder alloc] init];
         _pathBuilder = [[PathBuilder alloc] init];
         _pointBuilder = [[PointBuilder alloc] init];
@@ -137,7 +146,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         }
     }
     else {
-        [self.sessionManager
+        NSURLSessionDataTask *task = [self.sessionManager
          GET:@"path/mypath"
          parameters:nil
          progress:nil
@@ -302,6 +311,27 @@ static NSString *const kAuthorizationHeader = @"Authorization";
                  }
              }];
         }
+}
+
+#pragma mark - Photo requests
+
+- (void)getPhotoWithName:(NSString *)name
+                 success:(void (^)(UIImage *))success
+                 failure:(void (^)(NSInteger))failure
+{
+   
+    [self.sessionManager
+     GET:@"photo/get/1.png"
+     parameters:nil
+     progress:nil
+     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        __unused int i = 0;
+    }
+     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
+        UIImage *image = [UIImage imageWithData:data];
+         __unused int i = 0;
+    }];
 }
 
 @end

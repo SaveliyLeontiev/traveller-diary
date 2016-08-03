@@ -5,6 +5,7 @@
 #import "PathViewController.h"
 #import "TabBarController.h"
 #import "LoginAPIManager.h"
+#import "LoginController.h"
 
 @interface LogInViewController () <UITextFieldDelegate, SignUpViewControllerDelegate>
 
@@ -12,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-//@property (nonatomic) LoginAPIManager *loginAPIManager;
 
 @end
 
@@ -23,6 +23,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -47,10 +48,9 @@
 
 - (IBAction)loginButtonTouched:(id)sender
 {
-    [[LoginAPIManager sharedInstance]
-     logInWithEmail:self.loginTextField.text
-     password:self.passwordTextField.text
-     success:^(void){
+    [[LoginAPIManager sharedInstance] logInWithEmail:self.loginTextField.text
+                                            password:self.passwordTextField.text
+                                             success:^(void){
          TabBarController *tabBarController =
          [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                           @"ClosestJourney",

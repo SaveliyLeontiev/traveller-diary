@@ -16,7 +16,7 @@
     if (self = [super init]) {
         _sessionAPIManager = [[SessionAPIManager alloc] initWithHash:[LoginController hash]];
         _dateFormater = [[NSDateFormatter alloc] init];
-        [_dateFormater setDateFormat:@"dd/yy"];
+        [_dateFormater setDateFormat:@"dd/MM/yy"];
     }
     return self;
 }

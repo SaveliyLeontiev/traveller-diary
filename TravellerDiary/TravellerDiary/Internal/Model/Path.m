@@ -8,10 +8,6 @@
 {
     return @"name";
 }
-//
-//+ (NSDictionary *)defaultPropertyValues {
-//    return @{@"id" : [[NSUUID UUID] UUIDString]};
-//}
 
 + (NSDictionary *)linkingObjectsProperties
 {

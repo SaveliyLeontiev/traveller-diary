@@ -8,7 +8,7 @@
         <!--settings-->
         <scene sceneID="9ww-HG-9Ux">
             <objects>
-                <viewController storyboardIdentifier="SettingsID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ytd-75-bJJ" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ytd-75-bJJ" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="H1a-4p-mgM"/>
                         <viewControllerLayoutGuide type="bottom" id="1oB-Sf-S5r"/>
@@ -16,7 +16,29 @@
                     <view key="view" contentMode="scaleToFill" id="W7g-uW-2KD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tgE-Ta-aN6">
+                                <rect key="frame" x="40" y="220" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Lg3-0p-W4x"/>
+                                    <constraint firstAttribute="width" constant="240" id="iY6-8c-hs7"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-vB-G2W">
+                                <rect key="frame" x="137" y="489" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="logout:" destination="Ytd-75-bJJ" eventType="touchUpInside" id="BkZ-iC-fRr"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="tgE-Ta-aN6" firstAttribute="centerY" secondItem="W7g-uW-2KD" secondAttribute="centerY" id="68c-Zk-eqw"/>
+                            <constraint firstItem="1oB-Sf-S5r" firstAttribute="top" secondItem="gvF-vB-G2W" secondAttribute="bottom" id="ABd-Lt-u4O"/>
+                            <constraint firstItem="gvF-vB-G2W" firstAttribute="centerX" secondItem="W7g-uW-2KD" secondAttribute="centerX" id="E4n-tF-m0b"/>
+                            <constraint firstItem="tgE-Ta-aN6" firstAttribute="centerX" secondItem="W7g-uW-2KD" secondAttribute="centerX" id="gXS-44-QI4"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="settings" id="q9G-q3-GmO">
                         <userDefinedRuntimeAttributes>
@@ -24,10 +46,13 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="image" destination="tgE-Ta-aN6" id="ndw-a9-oqY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hha-Ep-haH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="145"/>
+            <point key="canvasLocation" x="475" y="145"/>
         </scene>
     </scenes>
 </document>

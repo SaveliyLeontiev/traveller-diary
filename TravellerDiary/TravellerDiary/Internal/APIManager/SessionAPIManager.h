@@ -1,4 +1,5 @@
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "User.h"
 #import "Path.h"
 #import "LocationCoordinate.h"
@@ -46,4 +47,13 @@
 - (void)getPointsWithPathId:(NSInteger)pathId
                    success:(void(^)(NSArray<LocationCoordinate *> *))success
                    failure:(void(^)(NSInteger))failure;
+
+/*
+ * Photo methods
+ */
+
+- (void)getPhotoWithName:(NSString *)name
+                 success:(void(^)(UIImage *))success
+                 failure:(void(^)(NSInteger))failure;
+
 @end

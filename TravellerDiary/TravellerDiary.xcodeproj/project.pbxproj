@@ -21,6 +21,7 @@
 		843CD49D1D51CE2300E319E2 /* PhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD49C1D51CE2300E319E2 /* PhotoLoader.m */; };
 		843CD4A01D51DF1700E319E2 /* PointBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD49F1D51DF1700E319E2 /* PointBuilder.m */; };
 		843CD4A31D51E2A800E319E2 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD4A21D51E2A800E319E2 /* Utility.m */; };
+		843CD4A61D522E4500E319E2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD4A51D522E4500E319E2 /* SettingsViewController.m */; };
 		844542AC1D4731700043F3AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AB1D4731700043F3AD /* main.m */; };
 		844542AF1D4731700043F3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AE1D4731700043F3AD /* AppDelegate.m */; };
 		844542B71D4731700043F3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844542B61D4731700043F3AD /* Assets.xcassets */; };
@@ -77,6 +78,8 @@
 		843CD49F1D51DF1700E319E2 /* PointBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointBuilder.m; sourceTree = "<group>"; };
 		843CD4A11D51E2A800E319E2 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
 		843CD4A21D51E2A800E319E2 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		843CD4A41D522E4500E319E2 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		843CD4A51D522E4500E319E2 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		844542A71D4731700043F3AD /* TravellerDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellerDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844542AB1D4731700043F3AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Internal/main.m; sourceTree = "<group>"; };
 		844542AD1D4731700043F3AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -304,6 +307,8 @@
 				A53D394F1D50838800988397 /* SaveViewControllerDelegate.h */,
 				A5D110181D4F9390003AC9E8 /* SaveViewController.h */,
 				A5D110191D4F9390003AC9E8 /* SaveViewController.m */,
+				843CD4A41D522E4500E319E2 /* SettingsViewController.h */,
+				843CD4A51D522E4500E319E2 /* SettingsViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				848034721D4F841400995823 /* UserBuilder.m in Sources */,
 				842A23B01D4B44BE00D6B805 /* User.m in Sources */,
 				8480346E1D4F6DD800995823 /* SessionAPIManager.m in Sources */,
+				843CD4A61D522E4500E319E2 /* SettingsViewController.m in Sources */,
 				A5D110171D4F3029003AC9E8 /* NewJourneyViewController.m in Sources */,
 				846705071D50D74A00B956A7 /* PathData.m in Sources */,
 				84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */,

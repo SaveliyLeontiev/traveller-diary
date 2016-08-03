@@ -36,8 +36,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CWU-Gz-x7t">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="474"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bGA-kh-9V3">
-                                                <rect key="frame" x="60" y="0.0" width="200" height="152"/>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="Logo" translatesAutoresizingMaskIntoConstraints="NO" id="bGA-kh-9V3">
+                                                <rect key="frame" x="60" y="20" width="200" height="132"/>
                                             </imageView>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uQ2-mG-FnE">
                                                 <rect key="frame" x="60" y="172" width="200" height="30"/>
@@ -100,12 +100,12 @@
                                             <constraint firstAttribute="trailing" secondItem="PNk-Qm-ifk" secondAttribute="trailing" constant="60" id="50u-9Y-ktM"/>
                                             <constraint firstAttribute="trailing" secondItem="uQ2-mG-FnE" secondAttribute="trailing" constant="60" id="8IM-cQ-rnL"/>
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="centerY" secondItem="CWU-Gz-x7t" secondAttribute="centerY" id="Pxs-zR-fOg"/>
-                                            <constraint firstItem="bGA-kh-9V3" firstAttribute="top" secondItem="CWU-Gz-x7t" secondAttribute="top" id="TuM-fa-Lhv"/>
                                             <constraint firstAttribute="trailing" secondItem="bGA-kh-9V3" secondAttribute="trailing" constant="60" id="WMx-TJ-ouO"/>
                                             <constraint firstItem="0Te-CP-Vet" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="Wb5-kD-CtV"/>
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="dEq-8v-f9M"/>
                                             <constraint firstAttribute="trailing" secondItem="0Te-CP-Vet" secondAttribute="trailing" constant="60" id="eFf-2C-hia"/>
                                             <constraint firstAttribute="trailing" secondItem="FS1-ro-TJO" secondAttribute="trailing" constant="60" id="iMl-4p-nQF"/>
+                                            <constraint firstItem="bGA-kh-9V3" firstAttribute="top" secondItem="CWU-Gz-x7t" secondAttribute="top" constant="20" id="ieQ-9a-TlV"/>
                                             <constraint firstItem="PNk-Qm-ifk" firstAttribute="top" secondItem="0Te-CP-Vet" secondAttribute="bottom" constant="20" id="lCl-HX-eGF"/>
                                             <constraint firstItem="bGA-kh-9V3" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="p1E-zf-HV1"/>
                                             <constraint firstItem="FS1-ro-TJO" firstAttribute="top" secondItem="uQ2-mG-FnE" secondAttribute="bottom" constant="20" id="tJL-FW-qMr"/>
@@ -325,5 +325,8 @@
             <point key="canvasLocation" x="-307" y="246"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Logo" width="200" height="200"/>
+    </resources>
     <color key="tintColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
 </document>

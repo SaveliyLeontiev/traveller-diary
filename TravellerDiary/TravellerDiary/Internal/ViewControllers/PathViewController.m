@@ -3,6 +3,8 @@
 #import "PathData.h"
 #import "PathManager.h"
 
+
+
 static NSString *const kSectionTitle = @"Title";
 static NSString *const kNumberOfRow = @"RowNumber";
 
@@ -97,6 +99,8 @@ static NSString *const kNumberOfRow = @"RowNumber";
     cell.date.text =  [self.dateFormater stringFromDate:path.createdAt];
     cell.rate = 3.5;
     cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
+
+    
     return cell;
 }
 

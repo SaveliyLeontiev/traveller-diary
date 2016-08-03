@@ -1,8 +1,9 @@
 #import "AppDelegate.h"
 #import "UIColor+HexString.h"
 #import <AFNetworking/AFNetworking.h>
-#import "LoginController.h"
 #import "TabBarController.h"
+#import "LoginAPIManager.h"
+#import "LoginController.h"
 
 @import GoogleMaps;
 
@@ -19,6 +20,8 @@
     [GMSServices provideAPIKey:@"AIzaSyCIJ_snk-Zs7hFmzEIOVn4wasDdP91wpLI"];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     if ([LoginController isLogined]) {
+        [[LoginAPIManager sharedInstance] logInWithEmail:[LoginController email] password:[LoginController password] success:^{
+        } failure:nil];
         TabBarController *tabBarController =
         [[TabBarController alloc] initWithTabIconNames:@[@"Popular",
                                                          @"ClosestJourney",
@@ -27,11 +30,7 @@
                                                          @"Settings"]];
         [UIApplication sharedApplication].delegate.window.rootViewController = tabBarController;
     }
-    else {
-        UIStoryboard *loginStoryboard = [UIStoryboard storyboardWithName:@"LogIn" bundle:nil];
-        UINavigationController *navigationController = [loginStoryboard instantiateViewControllerWithIdentifier:@"LoginID"];
-        [UIApplication sharedApplication].delegate.window.rootViewController = navigationController;
-    }
+    
     return YES;
 }
 

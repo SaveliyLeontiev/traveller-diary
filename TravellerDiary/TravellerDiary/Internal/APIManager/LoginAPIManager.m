@@ -38,7 +38,7 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
                success:(void(^)(void))success
                failure:(void(^)(NSString *))failure
 {
-    if ([AFNetworkReachabilityManager sharedManager].reachable) {
+    if (YES) {
         NSDictionary *data = @{@"email": email,
                                @"password": password};
         [self.sessionManager
@@ -46,20 +46,22 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
          parameters:data
          progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *hashDict) {
-             [LoginController saveHash:[self parseHash:hashDict]];
+             [LoginController saveHash:[self parseHash:hashDict] Email:email password:password];
              if (success) {
                  success();
              }
          }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             NSHTTPURLResponse *response =
-             error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
-             switch (response.statusCode) {
-                 case 404:
-                     failure(NSLocalizedString(@"LoginAPIManagerErrorUserNotFound", ));
-                 default:
-                     failure(error.localizedDescription);
-                     break;
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 switch (response.statusCode) {
+                     case 404:
+                         failure(NSLocalizedString(@"LoginAPIManagerErrorUserNotFound", ));
+                     default:
+                         failure(error.localizedDescription);
+                         break;
+                 }
              }
          }];
     }
