@@ -1,5 +1,5 @@
 #import "UserBuilder.h"
-#import "Keys.h"
+#import "Utility.h"
 
 @interface UserBuilder ()
 
@@ -22,8 +22,7 @@
 - (User *)userWithDictionary:(NSDictionary *)dict
 {
     User *user = [[User alloc] init];
-    NSNumber *obj = dict[kUserId];
-    user.userId = obj.intValue;
+    user.userId = [Utility intValueFromNum:dict[kUserId]];
     user.firstName = dict[kUserFirstName];
     user.lastName = dict[kUserLastName];
     user.email = dict[kUserEmail];

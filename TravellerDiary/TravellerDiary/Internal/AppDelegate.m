@@ -16,7 +16,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     [self setupAppearance];
-    [GMSServices provideAPIKey:@"AIzaSyCgkgAovPuySt7M8m2zZ4fTRiSF1gPe6mo"];
+    [GMSServices provideAPIKey:@"AIzaSyCIJ_snk-Zs7hFmzEIOVn4wasDdP91wpLI"];
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     if ([LoginController isLogined]) {
         TabBarController *tabBarController =

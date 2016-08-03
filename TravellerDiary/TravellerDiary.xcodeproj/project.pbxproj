@@ -18,6 +18,9 @@
 		8430651C1D49E8B600942080 /* PathCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8430651A1D49E8B500942080 /* PathCell.m */; };
 		8430651D1D49E8B600942080 /* PathCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8430651B1D49E8B500942080 /* PathCell.xib */; };
 		8430652B1D4A1B3400942080 /* Image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8430652A1D4A1B3400942080 /* Image.jpg */; };
+		843CD49D1D51CE2300E319E2 /* PhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD49C1D51CE2300E319E2 /* PhotoLoader.m */; };
+		843CD4A01D51DF1700E319E2 /* PointBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD49F1D51DF1700E319E2 /* PointBuilder.m */; };
+		843CD4A31D51E2A800E319E2 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 843CD4A21D51E2A800E319E2 /* Utility.m */; };
 		844542AC1D4731700043F3AD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AB1D4731700043F3AD /* main.m */; };
 		844542AF1D4731700043F3AD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542AE1D4731700043F3AD /* AppDelegate.m */; };
 		844542B71D4731700043F3AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844542B61D4731700043F3AD /* Assets.xcassets */; };
@@ -52,7 +55,6 @@
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
 		842615E41D5069F20039B9E7 /* PathBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathBuilder.h; sourceTree = "<group>"; };
 		842615E51D5069F20039B9E7 /* PathBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathBuilder.m; sourceTree = "<group>"; };
-		842615E71D5091CC0039B9E7 /* Keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Keys.h; path = Internal/Keys.h; sourceTree = "<group>"; };
 		842615E81D50A3B00039B9E7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
 		842615E91D50A3B00039B9E7 /* LoginController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginController.m; sourceTree = "<group>"; };
 		842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PathTable.storyboard; sourceTree = "<group>"; };
@@ -69,6 +71,12 @@
 		8430651A1D49E8B500942080 /* PathCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathCell.m; sourceTree = "<group>"; };
 		8430651B1D49E8B500942080 /* PathCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PathCell.xib; sourceTree = "<group>"; };
 		8430652A1D4A1B3400942080 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
+		843CD49B1D51CE2300E319E2 /* PhotoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoLoader.h; sourceTree = "<group>"; };
+		843CD49C1D51CE2300E319E2 /* PhotoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoLoader.m; sourceTree = "<group>"; };
+		843CD49E1D51DF1700E319E2 /* PointBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointBuilder.h; sourceTree = "<group>"; };
+		843CD49F1D51DF1700E319E2 /* PointBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PointBuilder.m; sourceTree = "<group>"; };
+		843CD4A11D51E2A800E319E2 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		843CD4A21D51E2A800E319E2 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
 		844542A71D4731700043F3AD /* TravellerDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravellerDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844542AB1D4731700043F3AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Internal/main.m; sourceTree = "<group>"; };
 		844542AD1D4731700043F3AD /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -170,6 +178,15 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		843CD49A1D51CDE600E319E2 /* PhotoManager */ = {
+			isa = PBXGroup;
+			children = (
+				843CD49B1D51CE2300E319E2 /* PhotoLoader.h */,
+				843CD49C1D51CE2300E319E2 /* PhotoLoader.m */,
+			);
+			path = PhotoManager;
+			sourceTree = "<group>";
+		};
 		8445429E1D4731700043F3AD = {
 			isa = PBXGroup;
 			children = (
@@ -206,7 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				844542AB1D4731700043F3AD /* main.m */,
-				842615E71D5091CC0039B9E7 /* Keys.h */,
+				843CD4A11D51E2A800E319E2 /* Utility.h */,
+				843CD4A21D51E2A800E319E2 /* Utility.m */,
 			);
 			name = "Supporting Files";
 			path = ..;
@@ -215,6 +233,7 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				843CD49A1D51CDE600E319E2 /* PhotoManager */,
 				846705011D50D40100B956A7 /* PathManager */,
 				8480346F1D4F83D200995823 /* Builder */,
 				A5D110011D4F2BD1003AC9E8 /* Model */,
@@ -326,6 +345,8 @@
 				848034711D4F841400995823 /* UserBuilder.m */,
 				842615E41D5069F20039B9E7 /* PathBuilder.h */,
 				842615E51D5069F20039B9E7 /* PathBuilder.m */,
+				843CD49E1D51DF1700E319E2 /* PointBuilder.h */,
+				843CD49F1D51DF1700E319E2 /* PointBuilder.m */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -521,8 +542,10 @@
 				847EB3551D477F2800CCCF84 /* UIColor+HexString.m in Sources */,
 				A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */,
 				A5D110131D4F2F5C003AC9E8 /* NewJourneyManager.m in Sources */,
+				843CD4A31D51E2A800E319E2 /* Utility.m in Sources */,
 				849D8FAD1D488F6700C6F9C6 /* SignUpViewController.m in Sources */,
 				843065111D49C9EE00942080 /* PathViewController.m in Sources */,
+				843CD4A01D51DF1700E319E2 /* PointBuilder.m in Sources */,
 				849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */,
 				844542AF1D4731700043F3AD /* AppDelegate.m in Sources */,
 				842A23B51D4B6CF500D6B805 /* TabBarController.m in Sources */,
@@ -534,6 +557,7 @@
 				844542AC1D4731700043F3AD /* main.m in Sources */,
 				842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */,
 				844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */,
+				843CD49D1D51CE2300E319E2 /* PhotoLoader.m in Sources */,
 				A5D1101A1D4F9390003AC9E8 /* SaveViewController.m in Sources */,
 				A5D110041D4F2C57003AC9E8 /* Path.m in Sources */,
 				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,

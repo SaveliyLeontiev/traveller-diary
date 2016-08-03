@@ -1,3 +1,5 @@
+#import <Foundation/Foundation.h>
+
 static NSString *const kUserId = @"id";
 static NSString *const kUserFirstName = @"first_name";
 static NSString *const kUserLastName = @"last_name";
@@ -16,3 +18,17 @@ static NSString *const kPathUpdateAt = @"updated_at";
 static NSString *const kPathDistance = @"distance";
 static NSString *const kPathDuration = @"duration";
 static NSString *const kPathShared = @"shared";
+
+static NSString *const kPointId = @"id";
+static NSString *const kPointPathId = @"path_id";
+static NSString *const kPointUserId = @"user_id";
+static NSString *const kPointLongitude = @"longitude";
+static NSString *const kPointLatitude = @"latitude";
+static NSString *const kPointCreatedAt = @"created_at";
+
+@interface Utility : NSObject
+
++ (NSInteger)intValueFromNum:(NSNumber *)num;
++ (BOOL)boolValueFromNum:(NSNumber *)num;
+
+@end

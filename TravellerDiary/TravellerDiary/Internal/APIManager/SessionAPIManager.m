@@ -2,7 +2,8 @@
 #import "AFNetworking.h"
 #import "UserBuilder.h"
 #import "PathBuilder.h"
-#import "Keys.h"
+#import "PointBuilder.h"
+#import "Utility.h"
 
 static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 static NSString *const kAuthorizationHeader = @"Authorization";
@@ -13,6 +14,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 @property (nonatomic) AFHTTPSessionManager *sessionManager;
 @property (nonatomic) UserBuilder *userBuilder;
 @property (nonatomic) PathBuilder *pathBuilder;
+@property (nonatomic) PointBuilder *pointBuilder;
 
 @end
 
@@ -28,6 +30,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
             forHTTPHeaderField:kAuthorizationHeader];
         _userBuilder = [[UserBuilder alloc] init];
         _pathBuilder = [[PathBuilder alloc] init];
+        _pointBuilder = [[PointBuilder alloc] init];
     }
     return self;
 }
@@ -124,7 +127,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
     }
 }
 
-#pragma mark Path requests
+#pragma mark - Path requests
 
 - (void)getMyPathWithSuccess:(void (^)(NSArray<Path *> *))success failure:(void (^)(NSInteger))failure
 {
@@ -236,6 +239,69 @@ static NSString *const kAuthorizationHeader = @"Authorization";
     else if (failure) {
         failure(NSURLErrorNotConnectedToInternet);
     }
+}
+
+#pragma mark - Point request
+
+- (void)createPoint:(LocationCoordinate *)point
+            success:(void (^)(void))success
+            failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+        else {
+            NSDictionary *data = @{kPointPathId: @(point.path.id),
+                                   kPointLongitude: @(point.longitude),
+                                   kPointLatitude: @(point.latitude)};
+            [self.sessionManager
+             POST:@"point/add"
+             parameters:data
+             progress:nil
+             success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                 if (success) {
+                     success();
+                 }
+            }
+             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                 if (failure) {
+                     NSHTTPURLResponse *response =
+                     error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                     failure(response.statusCode);
+                 }
+             }];
+        }
+    }
+}
+
+- (void)getPointsWithPathId:(NSInteger)pathId
+                   success:(void (^)(NSArray<LocationCoordinate *> *))success
+                   failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+        else {
+            [self.sessionManager
+             GET:[NSString stringWithFormat:@"point/path/%i",pathId]
+             parameters:nil
+             progress:nil
+             success:^(NSURLSessionDataTask * _Nonnull task, NSArray<NSDictionary *> *responseObject) {
+                 if (success) {
+                     success([self.pointBuilder pointsWithArray:responseObject]);
+                 }
+             }
+             failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                 if (failure) {
+                     NSHTTPURLResponse *response =
+                     error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                     failure(response.statusCode);
+                 }
+             }];
+        }
 }
 
 @end
