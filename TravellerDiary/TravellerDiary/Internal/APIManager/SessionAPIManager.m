@@ -6,6 +6,8 @@
 #import "Utility.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "LoginAPIManager.h"
+#import "AFNetworking/UIImageView+AFNetworking.h"
+#import "AFNetworking/AFImageDownloader.h"
 
 static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 static NSString *const kAuthorizationHeader = @"Authorization";
@@ -36,7 +38,6 @@ static NSString *const kAuthorizationHeader = @"Authorization";
             forHTTPHeaderField:kAuthorizationHeader];
         [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"User-Agent"];
         [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"Accept-Language"];
-
         _userBuilder = [[UserBuilder alloc] init];
         _pathBuilder = [[PathBuilder alloc] init];
         _pointBuilder = [[PointBuilder alloc] init];
@@ -342,23 +343,18 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 
 #pragma mark - Photo requests
 
-- (void)getPhotoWithName:(NSString *)name
-                 success:(void (^)(UIImage *))success
-                 failure:(void (^)(NSInteger))failure
+- (void)getPhotoWithImageURL:(NSURL *)imageURL
+                     success:(void (^)(UIImage *))success
+                     failure:(void (^)(NSInteger))failure
 {
-   
-    [self.sessionManager
-     GET:@"photo/get/1.png"
-     parameters:nil
-     progress:nil
-     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        __unused int i = 0;
-    }
-     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        NSData *data = error.userInfo[@"com.alamofire.serialization.response.error.data"];
-        UIImage *image = [UIImage imageWithData:data];
-         __unused int i = 0;
-    }];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"]];
+    [[[UIImageView alloc] init] setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
+     {
+         __unused NSInteger i=0;
+     } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+         __unused NSInteger i=0;
+         
+     }];
 }
 
 @end

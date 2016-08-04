@@ -53,8 +53,8 @@
  * Photo methods
  */
 
-- (void)getPhotoWithName:(NSString *)name
-                 success:(void(^)(UIImage *))success
-                 failure:(void(^)(NSInteger))failure;
+- (void)getPhotoWithImageURL:(NSURL *)imageURL
+                     success:(void(^)(UIImage *))success
+                     failure:(void(^)(NSInteger))failure;
 
 @end

@@ -8,7 +8,6 @@
 @interface SettingsViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-
 @property (nonatomic) NSIndexPath *currentCellIndexPath;
 
 @end
@@ -18,21 +17,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-//   
-//    
-//    NSURL *imageURL = [NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"];
-//    
-//     NSURLRequest *urlRequest = [NSURLRequest requestWithURL:imageURL];
-//    
-//    [self.image setImageWithURL:imageURL];
-//    
-//    [self.image setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image) {
-//        
-//        self.image.image = image;
-//    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-//        
-//    }];
 }
 
 #pragma mark - UITableViewDelegate implementation

@@ -2,13 +2,17 @@
 #import "PathCell.h"
 #import "PathData.h"
 #import "PathManager.h"
-
+#import "SessionAPIManager.h"
+#import "AFNetworking/UIImageView+AFNetworking.h"
+#import "AFNetworking/AFImageDownloader.h"
+#import "SaveViewController.h"
+#import "SaveViewControllerDelegate.h"
 
 
 static NSString *const kSectionTitle = @"Title";
 static NSString *const kNumberOfRow = @"RowNumber";
 
-@interface PathViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface PathViewController ()<UITableViewDataSource, UITableViewDelegate, SaveViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -113,14 +117,31 @@ static NSString *const kNumberOfRow = @"RowNumber";
     cell.date.text =  [self.dateFormater stringFromDate:path.createdAt];
     cell.rate = path.rating;
     cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
-
-    
+//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"]];
+//    [cell.cover setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
+//    {
+//        cell.cover.image = image;
+//    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+//        __unused NSInteger i=0;
+//        
+//    }];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"Selection");
+    Path *path = self.pathData.pathesInSectrion[indexPath.section][indexPath.row];
+    UIStoryboard *newJourneyStoryboard = [UIStoryboard storyboardWithName:@"NewJourney" bundle:nil];
+    SaveViewController *saveVC = [newJourneyStoryboard instantiateViewControllerWithIdentifier:@"saveViewContollerID"];
+    saveVC.delegate = self;
+    saveVC.pathId = path.id;
+    saveVC.pathName = path.name;
+    saveVC.comment = path.comment;
+    saveVC.saveMode = NO;
+    [self.navigationController pushViewController:saveVC animated:YES];
 }
+
+
+
 
 @end

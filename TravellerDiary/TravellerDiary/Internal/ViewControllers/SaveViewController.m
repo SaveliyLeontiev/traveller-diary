@@ -1,4 +1,5 @@
 #import "SaveViewController.h"
+#import <Chameleon.h>
 #import "DatabaseProvider.h"
 #import "Path.h"
 
@@ -8,6 +9,10 @@
 @property (nonatomic) DatabaseProvider *datebaseProvider;
 @property (nonatomic) IBOutlet UITextField *nameTextField;
 @property (nonatomic) IBOutlet UITextView *commentTextView;
+@property (nonatomic) IBOutlet UIButton *saveButton;
+@property (nonatomic) IBOutlet UIButton *addPhotoButton;
+@property (nonatomic) IBOutlet UIButton *sharedButton;
+
 @property (nonatomic) BOOL shared;
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
@@ -20,7 +25,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    self.polyline.map = nil;
+    self.view.backgroundColor = [UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
+
+    if (!self.saveMode) {
+        //  запросить маршрут и его точки
+        
+        self.nameTextField.userInteractionEnabled = NO;
+        self.commentTextView.userInteractionEnabled = NO;
+        self.saveButton.hidden = YES;
+        self.addPhotoButton.hidden = YES;
+        self.sharedButton.hidden = YES;
+    }
     
     GMSCoordinateBounds *coordinateBounds = [[GMSCoordinateBounds alloc] initWithPath:self.path];
     GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate fitBounds:coordinateBounds];

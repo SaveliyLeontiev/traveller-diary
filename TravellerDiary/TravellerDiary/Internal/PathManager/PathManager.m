@@ -26,6 +26,7 @@
 {
     [self.sessionAPIManager
      getMyPathWithSuccess:^(NSArray<Path *> *pathes) {
+         [self.sessionAPIManager getPhotoWithImageURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"] success:nil failure:nil];
          PathData *pathData = [[PathData alloc] init];
          pathes = [pathes sortedArrayUsingComparator:^NSComparisonResult(Path *obj1, Path *obj2) {
              return [obj2.createdAt compare: obj1.createdAt];

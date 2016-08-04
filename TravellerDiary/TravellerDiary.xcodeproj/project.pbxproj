@@ -10,6 +10,7 @@
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
 		8406E4621D52F1C700D8CFED /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406E4611D52F1C700D8CFED /* Preferences.m */; };
 		8406E48A1D53061900D8CFED /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8406E4891D53061900D8CFED /* Settings.storyboard */; };
+		8406E4901D533EA300D8CFED /* UITextView+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406E48F1D533EA300D8CFED /* UITextView+Inspectable.m */; };
 		842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E51D5069F20039B9E7 /* PathBuilder.m */; };
 		842615EA1D50A3B00039B9E7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E91D50A3B00039B9E7 /* LoginController.m */; };
 		842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */; };
@@ -58,6 +59,8 @@
 		8406E4601D52F1C700D8CFED /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
 		8406E4611D52F1C700D8CFED /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
 		8406E4891D53061900D8CFED /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		8406E48E1D533EA300D8CFED /* UITextView+Inspectable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITextView+Inspectable.h"; sourceTree = "<group>"; };
+		8406E48F1D533EA300D8CFED /* UITextView+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITextView+Inspectable.m"; sourceTree = "<group>"; };
 		842615E41D5069F20039B9E7 /* PathBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathBuilder.h; sourceTree = "<group>"; };
 		842615E51D5069F20039B9E7 /* PathBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathBuilder.m; sourceTree = "<group>"; };
 		842615E81D50A3B00039B9E7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
@@ -352,6 +355,8 @@
 				849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */,
 				843065161D49CF9000942080 /* UITabBarItem+Inspectable.h */,
 				843065171D49CF9000942080 /* UITabBarItem+Inspectable.m */,
+				8406E48E1D533EA300D8CFED /* UITextView+Inspectable.h */,
+				8406E48F1D533EA300D8CFED /* UITextView+Inspectable.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -570,6 +575,7 @@
 				842A23B51D4B6CF500D6B805 /* TabBarController.m in Sources */,
 				8430651C1D49E8B600942080 /* PathCell.m in Sources */,
 				846705041D50D41E00B956A7 /* PathManager.m in Sources */,
+				8406E4901D533EA300D8CFED /* UITextView+Inspectable.m in Sources */,
 				A5D1100E1D4F2E51003AC9E8 /* LocationManager.m in Sources */,
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
