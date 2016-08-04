@@ -23,8 +23,7 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 @property (nonatomic) IBOutlet UIView *topSubview;
 
 @property (nonatomic) IBOutlet UIImageView *imageView;
-@property (nonatomic) IBOutlet UILabel *timeLabel;
-@property (nonatomic) IBOutlet UILabel *distanceLabel;
+@property (nonatomic) IBOutlet UILabel *timeDistanceLabel;
 
 @property (nonatomic) IBOutlet GMSMapView *mapView;
 @property (nonatomic) GMSCameraPosition *camera;
@@ -135,7 +134,7 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
         timeString = [NSString stringWithFormat:@"%02ld:%02ld", (long)minutes, (long)seconds];
     }
     
-    self.timeLabel.text = timeString;
+    self.timeDistanceLabel.text = [NSString stringWithFormat:@"%@\n %.2f m", timeString, self.distance];
 }
 
 #pragma mark - Action
@@ -207,21 +206,21 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 - (void)countCurrentDistance:(CLLocation *)currentLocation
 {
     self.distance += [currentLocation distanceFromLocation:self.previousLocation];
-    self.distanceLabel.text = [NSString stringWithFormat:@"%.2f m", fabs(self.distance)];
+    [self handleTimer:nil];
 }
 
 #pragma mark - SaveViewControllerDelegate
 
 - (void)didCloseViewController:(SaveViewController *)saveViewController
 {
-    [self default];
+    [self defaultValues];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)default
+- (void)defaultValues
 {
-    self.timeLabel.text = @"00:00";
-    self.distanceLabel.text = @"0.00 m";
+    self.timeDistanceLabel.text = @"00:00\n 0.00 m";
+    
     self.path = nil;
     self.polyline.map = nil;
     self.polyline = nil;

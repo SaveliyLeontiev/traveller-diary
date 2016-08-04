@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DeletableImageView">
+            <rect key="frame" x="0.0" y="0.0" width="167" height="133"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pA9-aW-9Mh">
+                    <rect key="frame" x="0.0" y="10" width="157" height="123"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXZ-bY-n4B">
+                    <rect key="frame" x="0.0" y="10" width="157" height="123"/>
+                    <connections>
+                        <action selector="imageViewTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="DGU-Vm-NGt"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eSJ-vi-bJL">
+                    <rect key="frame" x="142" y="0.0" width="25" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="At8-s2-NLG"/>
+                        <constraint firstAttribute="width" constant="25" id="n1e-2Y-Aza"/>
+                    </constraints>
+                    <state key="normal" image="DeleteImage"/>
+                    <connections>
+                        <action selector="deleteButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="ipv-bS-xFr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="pA9-aW-9Mh" secondAttribute="trailing" constant="10" id="0h8-p5-wOJ"/>
+                <constraint firstItem="QXZ-bY-n4B" firstAttribute="bottom" secondItem="pA9-aW-9Mh" secondAttribute="bottom" id="5t9-FR-d6w"/>
+                <constraint firstItem="eSJ-vi-bJL" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="DCz-ul-Qqo"/>
+                <constraint firstItem="pA9-aW-9Mh" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="JYh-DX-hdm"/>
+                <constraint firstItem="pA9-aW-9Mh" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Vd7-Iy-Af4"/>
+                <constraint firstItem="QXZ-bY-n4B" firstAttribute="leading" secondItem="pA9-aW-9Mh" secondAttribute="leading" id="ZAR-Tj-LtO"/>
+                <constraint firstItem="QXZ-bY-n4B" firstAttribute="top" secondItem="pA9-aW-9Mh" secondAttribute="top" id="eyH-7J-elB"/>
+                <constraint firstAttribute="bottom" secondItem="pA9-aW-9Mh" secondAttribute="bottom" id="lEj-88-YDo"/>
+                <constraint firstItem="QXZ-bY-n4B" firstAttribute="trailing" secondItem="pA9-aW-9Mh" secondAttribute="trailing" id="so0-Xp-n8F"/>
+                <constraint firstAttribute="trailing" secondItem="eSJ-vi-bJL" secondAttribute="trailing" id="tMF-rf-28h"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="imageView" destination="pA9-aW-9Mh" id="EA4-7H-Ijk"/>
+            </connections>
+            <point key="canvasLocation" x="310.5" y="225.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="DeleteImage" width="33" height="33"/>
+    </resources>
+</document>

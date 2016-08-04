@@ -31,6 +31,8 @@
 		844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542B81D4731700043F3AD /* LaunchScreen.storyboard */; };
 		844542C81D474E460043F3AD /* LogIn.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844542C71D474E460043F3AD /* LogIn.storyboard */; };
 		844542CC1D4759EF0043F3AD /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 844542CB1D4759EF0043F3AD /* LogInViewController.m */; };
+		8456F66C1D53535A00E8AE9D /* DeletableImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8456F66B1D53535A00E8AE9D /* DeletableImageView.m */; };
+		8456F66E1D5353B700E8AE9D /* DeletableImageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8456F66D1D5353B700E8AE9D /* DeletableImageView.xib */; };
 		846705041D50D41E00B956A7 /* PathManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 846705031D50D41E00B956A7 /* PathManager.m */; };
 		846705071D50D74A00B956A7 /* PathData.m in Sources */ = {isa = PBXBuildFile; fileRef = 846705061D50D74A00B956A7 /* PathData.m */; };
 		84677BFE1D4DBD4200BE7E9E /* LoginAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84677BFD1D4DBD4200BE7E9E /* LoginAPIManager.m */; };
@@ -97,6 +99,9 @@
 		844542C71D474E460043F3AD /* LogIn.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LogIn.storyboard; sourceTree = "<group>"; };
 		844542CA1D4759EF0043F3AD /* LogInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LogInViewController.h; sourceTree = "<group>"; };
 		844542CB1D4759EF0043F3AD /* LogInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogInViewController.m; sourceTree = "<group>"; };
+		8456F66A1D53535A00E8AE9D /* DeletableImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeletableImageView.h; sourceTree = "<group>"; };
+		8456F66B1D53535A00E8AE9D /* DeletableImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeletableImageView.m; sourceTree = "<group>"; };
+		8456F66D1D5353B700E8AE9D /* DeletableImageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DeletableImageView.xib; sourceTree = "<group>"; };
 		846705021D50D41E00B956A7 /* PathManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathManager.h; sourceTree = "<group>"; };
 		846705031D50D41E00B956A7 /* PathManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathManager.m; sourceTree = "<group>"; };
 		846705051D50D74A00B956A7 /* PathData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathData.h; sourceTree = "<group>"; };
@@ -309,6 +314,7 @@
 		844542C91D47597E0043F3AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				8456F6691D53532600E8AE9D /* Staff */,
 				844542CA1D4759EF0043F3AD /* LogInViewController.h */,
 				844542CB1D4759EF0043F3AD /* LogInViewController.m */,
 				849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */,
@@ -327,6 +333,16 @@
 				843CD4A51D522E4500E319E2 /* SettingsViewController.m */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		8456F6691D53532600E8AE9D /* Staff */ = {
+			isa = PBXGroup;
+			children = (
+				8456F66A1D53535A00E8AE9D /* DeletableImageView.h */,
+				8456F66B1D53535A00E8AE9D /* DeletableImageView.m */,
+				8456F66D1D5353B700E8AE9D /* DeletableImageView.xib */,
+			);
+			name = Staff;
 			sourceTree = "<group>";
 		};
 		846705011D50D40100B956A7 /* PathManager */ = {
@@ -492,6 +508,7 @@
 				849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */,
 				844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */,
 				844542B71D4731700043F3AD /* Assets.xcassets in Resources */,
+				8456F66E1D5353B700E8AE9D /* DeletableImageView.xib in Resources */,
 				8406E48A1D53061900D8CFED /* Settings.storyboard in Resources */,
 				842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */,
 				8430652B1D4A1B3400942080 /* Image.jpg in Resources */,
@@ -576,6 +593,7 @@
 				8430651C1D49E8B600942080 /* PathCell.m in Sources */,
 				846705041D50D41E00B956A7 /* PathManager.m in Sources */,
 				8406E4901D533EA300D8CFED /* UITextView+Inspectable.m in Sources */,
+				8456F66C1D53535A00E8AE9D /* DeletableImageView.m in Sources */,
 				A5D1100E1D4F2E51003AC9E8 /* LocationManager.m in Sources */,
 				849D8FBE1D48A08200C6F9C6 /* UITextField+Inspectable.m in Sources */,
 				849D8FB51D48955100C6F9C6 /* UILabel+Inspectable.m in Sources */,
