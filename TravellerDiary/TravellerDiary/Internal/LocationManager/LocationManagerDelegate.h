@@ -5,5 +5,6 @@
 
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 - (void)monitoringSignificantLocationChangesFailedWithError:(NSString *)errorDescription;
+- (void)location:(CLLocation *)currentLocation;
 
 @end

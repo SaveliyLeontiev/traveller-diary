@@ -8,8 +8,10 @@
 
 @property (nonatomic) id<NewJourneyManagerDelegate> delegate;
 @property (nonatomic) LocationManager *locationManager;
+@property (nonatomic) NSDate *startDate;
 
 - (void)startMonitoringSignificantLocationChanges;
 - (void)stopMonitoringSignificantLocationChanges;
+- (void)currentLocation;
 
 @end

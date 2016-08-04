@@ -48,13 +48,21 @@
 
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 {
-    [self saveCurrentLocation:currentLocation];
+    if ([self.startDate timeIntervalSinceDate:currentLocation.timestamp] > 0.0) {
+        return;
+    }
+//    [self saveCurrentLocation:currentLocation];
     [self.delegate didChangeLocation:currentLocation];
 }
 
 - (void)monitoringSignificantLocationChangesFailedWithError:(NSString *)errorDescription
 {
     [self.delegate monitoringSignificantLocationChangesFailedWithError:errorDescription];
+}
+
+- (void)location:(CLLocation *)currentLocation
+{
+    [self.delegate location:currentLocation];
 }
 
 #pragma mark - NewJourneyManager Methods
@@ -68,6 +76,11 @@
 - (void)stopMonitoringSignificantLocationChanges
 {
     [self.locationManager stopMonitoringSignificantLocationChanges];
+}
+
+- (void)currentLocation
+{
+    [self.locationManager startSingleLocationRequest];
 }
 
 @end

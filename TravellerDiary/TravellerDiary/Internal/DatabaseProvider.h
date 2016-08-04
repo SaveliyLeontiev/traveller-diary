@@ -16,6 +16,8 @@
 - (RLMObject *)pathByName:(NSString *)name;
 - (NSArray *)paths;
 
+- (NSArray *)photosByPath:(Path *)path;
+
 - (Path *)currentPath;
 
 @end

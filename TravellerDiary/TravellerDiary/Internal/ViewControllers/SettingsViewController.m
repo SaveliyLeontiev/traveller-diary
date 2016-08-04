@@ -3,6 +3,7 @@
 #import "LoginController.h"
 #import "SettingsViewController.h"
 #import "Preferences.h"
+#import <INTULocationManager/INTULocationManager.h>
 
 
 @interface SettingsViewController ()
@@ -84,6 +85,30 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
     }
     return cell;
+}
+
+- (void)selectRowAtIndexPath:(nullable NSIndexPath *)indexPath animated:(BOOL)animated scrollPosition:(UITableViewScrollPosition)scrollPosition
+{
+    switch (indexPath.row) {
+        case 0:
+
+            break;
+        case 1:
+
+            break;
+        case 2:
+
+            break;
+        case 3:
+
+            break;
+        case 4:
+
+            break;
+            
+        default:
+            break;
+    }
 }
 
 #pragma mark - Action

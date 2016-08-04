@@ -3,6 +3,7 @@
 #import "LocationCoordinate.h"
 #import "Path.h"
 #import "User.h"
+#import "Photo.h"
 
 @interface DatabaseProvider ()
 
@@ -93,5 +94,16 @@
     }
     return [paths copy];
 }
+
+- (NSArray *)photosByPath:(Path *)path
+{
+    RLMResults *allPhotos = [Photo allObjects];
+    NSMutableArray *photos = [NSMutableArray array];
+    for (Photo *photo in allPhotos) {
+        [photos addObject:photo];
+    }
+    return [photos copy];
+}
+
 
 @end

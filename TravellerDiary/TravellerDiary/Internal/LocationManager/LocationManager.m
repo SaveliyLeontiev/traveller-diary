@@ -4,10 +4,21 @@
 
 @property (nonatomic) INTULocationManager *locationManager;
 @property (assign, nonatomic) INTULocationRequestID locationRequestID;
+@property (nonatomic) BOOL lowEnergyMode;
 
 @end
 
 @implementation LocationManager
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _lowEnergyMode = NO;
+        _desiredAccuracy = INTULocationAccuracyCity;
+    }
+    return self;
+}
 
 - (NSString *)getLocationErrorDescription:(INTULocationStatus)status
 {
@@ -23,31 +34,69 @@
     if (status == INTULocationStatusServicesDisabled) {
         return @"Error: Location services are turned off for all apps on this device.";
     }
+    if (status == INTULocationStatusTimedOut) {
+        return @"Location request timed out.";
+    }
     return @"An unknown error occurred.\n(Are you using iOS Simulator with location set to 'None'?)";
+}
+
+- (void)startSingleLocationRequest
+{
+    __weak __typeof(self) weakSelf = self;
+    INTULocationManager *locMgr = [INTULocationManager sharedInstance];
+    self.locationRequestID = [locMgr requestLocationWithDesiredAccuracy:self.desiredAccuracy
+                                                                timeout:5.0
+                                                   delayUntilAuthorized:YES
+                                                                  block:
+                              ^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+                                  __typeof(weakSelf) strongSelf = weakSelf;
+                                  
+                                  if (status == INTULocationStatusSuccess) {
+                                      [strongSelf.delegate location:currentLocation];
+                                  }
+                                  else {
+                                      [strongSelf.delegate monitoringSignificantLocationChangesFailedWithError:[strongSelf getLocationErrorDescription:status]];
+                                  }
+                                  strongSelf.locationRequestID = NSNotFound;
+                              }];
 }
 
 - (void)startMonitoringSignificantLocationChanges
 {
-    __weak __typeof(self) weakSelf = self;
-    self.locationManager = [INTULocationManager sharedInstance];
-    
-    self.locationRequestID = [self.locationManager subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
-        __typeof(weakSelf) strongSelf = weakSelf;
+    if (self.lowEnergyMode) {
+        __weak __typeof(self) weakSelf = self;
+        self.locationManager = [INTULocationManager sharedInstance];
         
-        if (status == INTULocationStatusSuccess) {
-//            NSLog(@"%f, %f, %@", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, currentLocation.description);
-            [strongSelf.delegate didChangeLocation:currentLocation];
-        }
-        else {
-            [strongSelf.delegate monitoringSignificantLocationChangesFailedWithError:[strongSelf getLocationErrorDescription:status]];
-        }
-    }];
+        self.locationRequestID = [self.locationManager subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __typeof(weakSelf) strongSelf = weakSelf;
+            
+            if (status == INTULocationStatusSuccess) {
+                [strongSelf.delegate didChangeLocation:currentLocation];
+            }
+            else {
+                [strongSelf.delegate monitoringSignificantLocationChangesFailedWithError:[strongSelf getLocationErrorDescription:status]];
+            }
+        }];
+    } else {
+        __weak __typeof(self) weakSelf = self;
+        self.locationManager = [INTULocationManager sharedInstance];
+        
+        self.locationRequestID = [self.locationManager subscribeToLocationUpdatesWithDesiredAccuracy:self.desiredAccuracy block:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+            __typeof(weakSelf) strongSelf = weakSelf;
+            
+            if (status == INTULocationStatusSuccess) {
+                [strongSelf.delegate didChangeLocation:currentLocation];
+            }
+            else {
+                [strongSelf.delegate monitoringSignificantLocationChangesFailedWithError:[strongSelf getLocationErrorDescription:status]];
+            }
+        }];
+    }
 }
 
 - (void)stopMonitoringSignificantLocationChanges
 {
     [self.locationManager cancelLocationRequest:self.locationRequestID];
-//    [self.locationManager forceCompleteLocationRequest:self.locationRequestID];
 }
 
 
