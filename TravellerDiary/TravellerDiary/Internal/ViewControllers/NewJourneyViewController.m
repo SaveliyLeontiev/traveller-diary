@@ -33,7 +33,7 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 @property (nonatomic) NewJourneyManager *journeyManager;
 @property (nonatomic) CLLocationCoordinate2D currentLocationCoordinate;
-@property (nonatomic) CLLocation* previousLocation;
+@property (nonatomic) CLLocation *previousLocation;
 @property (nonatomic) CLLocationDistance distance;
 @property (nonatomic) SaveViewController *saveViewController;
 
@@ -175,6 +175,10 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 {
+//    if ([self.startDate timeIntervalSinceDate:currentLocation.timestamp] > 0) {
+//        return;
+//    }
+    
     self.currentLocationCoordinate = currentLocation.coordinate;
     [self.path addCoordinate:self.currentLocationCoordinate];
     self.polyline.path = self.path;
@@ -187,7 +191,6 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
     [self.mapView moveCamera:self.cameraUpdate];
     [self countCurrentDistance:(CLLocation *)currentLocation];
     self.previousLocation = currentLocation;
-
 }
 
 - (void)monitoringSignificantLocationChangesFailedWithError:(NSString *)errorDescription
@@ -205,7 +208,7 @@ const NSInteger kDelta = - 100; // subtraction of initialTopViewHeight from mini
 
 - (void)countCurrentDistance:(CLLocation *)currentLocation
 {
-    self.distance += [currentLocation distanceFromLocation:self.previousLocation];
+    self.distance += [currentLocation distanceFromLocation:self.previousLocation] + 1;
     [self handleTimer:nil];
 }
 

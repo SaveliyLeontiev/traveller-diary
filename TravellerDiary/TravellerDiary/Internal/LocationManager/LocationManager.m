@@ -29,9 +29,9 @@
 - (void)startMonitoringSignificantLocationChanges
 {
     __weak __typeof(self) weakSelf = self;
-    weakSelf.locationManager = [INTULocationManager sharedInstance];
+    self.locationManager = [INTULocationManager sharedInstance];
     
-    self.locationRequestID = [weakSelf.locationManager subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
+    self.locationRequestID = [self.locationManager subscribeToSignificantLocationChangesWithBlock:^(CLLocation *currentLocation, INTULocationAccuracy achievedAccuracy, INTULocationStatus status) {
         __typeof(weakSelf) strongSelf = weakSelf;
         
         if (status == INTULocationStatusSuccess) {

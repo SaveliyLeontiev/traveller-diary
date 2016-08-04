@@ -56,6 +56,7 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
     [self.mapView animateWithCameraUpdate:cameraUpdate];
     
     self.polyline = [GMSPolyline polylineWithPath:self.path];
+    self.polyline.strokeWidth = 5;
     self.polyline.map = self.mapView;
     
     self.shared = YES;
