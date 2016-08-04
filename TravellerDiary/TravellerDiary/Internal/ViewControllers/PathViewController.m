@@ -118,4 +118,9 @@ static NSString *const kNumberOfRow = @"RowNumber";
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSLog(@"Selection");
+}
+
 @end
