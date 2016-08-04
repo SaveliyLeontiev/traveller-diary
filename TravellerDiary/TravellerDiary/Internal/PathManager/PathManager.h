@@ -9,4 +9,13 @@
 - (void)getPathDataForPopularWithSuccess:(void(^)(PathData *))success
                                  failure:(void(^)(NSString *))failure;
 
+- (void)getPathDataForNearestWithSuccess:(void(^)(PathData *))success
+                                 failure:(void(^)(NSString *))failure;
+
+- (void)postPath:(Path *)path
+          points:(NSArray<LocationCoordinate *> *)points
+          photos:(NSArray<UIImage *> *)photos
+         success:(void(^)(void))success
+         failure:(void(^)(NSInteger))failure;
+
 @end

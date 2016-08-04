@@ -8,6 +8,7 @@
 #import "LoginAPIManager.h"
 #import "AFNetworking/UIImageView+AFNetworking.h"
 #import "AFNetworking/AFImageDownloader.h"
+#import <CommonCrypto/CommonDigest.h>
 
 static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 static NSString *const kAuthorizationHeader = @"Authorization";
@@ -19,6 +20,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 @property (nonatomic) UserBuilder *userBuilder;
 @property (nonatomic) PathBuilder *pathBuilder;
 @property (nonatomic) PointBuilder *pointBuilder;
+@property (nonatomic) AFHTTPSessionManager *photoSessionManager;
 
 @end
 
@@ -36,8 +38,14 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         [_sessionManager.requestSerializer
             setValue:[NSString stringWithFormat:@"Bearer %@", hash]
             forHTTPHeaderField:kAuthorizationHeader];
-        [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"User-Agent"];
-        [_sessionManager.requestSerializer setValue:nil forHTTPHeaderField:@"Accept-Language"];
+        
+        _photoSessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:APIBaseURL];
+        _photoSessionManager.requestSerializer = [AFHTTPRequestSerializer serializer];
+        [_photoSessionManager.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type "];
+        [_photoSessionManager.requestSerializer
+         setValue:[NSString stringWithFormat:@"Bearer %@", hash]
+         forHTTPHeaderField:kAuthorizationHeader];
+
         _userBuilder = [[UserBuilder alloc] init];
         _pathBuilder = [[PathBuilder alloc] init];
         _pointBuilder = [[PointBuilder alloc] init];
@@ -147,7 +155,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         }
     }
     else {
-        NSURLSessionDataTask *task = [self.sessionManager
+        [self.sessionManager
          GET:@"path/mypath"
          parameters:nil
          progress:nil
@@ -242,6 +250,34 @@ static NSString *const kAuthorizationHeader = @"Authorization";
                  success([self.pathBuilder pathesWithArray:responseObject]);
              }
         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 failure(response.statusCode);
+             }
+         }];
+    }
+}
+
+- (void)getClosestPathToPoint:(LocationCoordinate *)point
+                      success:(void (^)(NSArray<Path *> *))success
+                      failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+    else {
+        NSString * stringURL = [NSString stringWithFormat:@"path/nearest/%f/%f",point.latitude,point.longitude];
+        [self.sessionManager
+         GET:stringURL
+         parameters:nil
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, NSArray *responseObject) {
+#warning No method to nearest paths
+         }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              if (failure) {
                  NSHTTPURLResponse *response =
@@ -355,6 +391,41 @@ static NSString *const kAuthorizationHeader = @"Authorization";
          __unused NSInteger i=0;
          
      }];
+}
+
+
+- (void)uploadPhoto:(UIImage *)photo
+         withPathId:(NSInteger)pathId
+            pointId:(NSInteger)pointId
+            success:(void (^)(void))success
+            failure:(void (^)(NSInteger))failure
+{
+    [self.photoSessionManager POST:@"photo/upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+        NSData *imageData = UIImageJPEGRepresentation(photo, 1);
+        [formData appendPartWithFileData:imageData name:kPhotoFile fileName:[self md5StringForData:imageData] mimeType:@"image/jpeg"];
+        [formData appendPartWithFormData:[[@(pathId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPathId];
+        [formData appendPartWithFormData:[[@(pointId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPointId];
+    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        
+    }];
+}
+
+- (NSString*)md5StringForData:(NSData *)data
+{
+    unsigned char md5[CC_MD5_DIGEST_LENGTH];
+    CC_MD5([data bytes], [data length], md5);
+    return [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
+            md5[0], md5[1],
+            md5[2], md5[3],
+            md5[4], md5[5],
+            md5[6], md5[7],
+            md5[8], md5[9],
+            md5[10], md5[11],
+            md5[12], md5[13],
+            md5[14], md5[15]
+            ];
 }
 
 @end

@@ -1,6 +1,7 @@
 #import "PathManager.h"
 #import "SessionAPIManager.h"
 #import "LoginController.h"
+#import "LocationManager.h"
 
 @interface PathManager ()
 
@@ -74,6 +75,12 @@
 - (void)getPathDataForPopularWithSuccess:(void (^)(PathData *))success
                                  failure:(void (^)(NSString *))failure
 {
+    [self.sessionAPIManager uploadPhoto:[UIImage imageNamed:@"Image.jpg"] withPathId:1 pointId:1 success:^{
+        
+    } failure:^(NSInteger errorCode) {
+        
+    }];
+    return;
     [self.sessionAPIManager
      getPopularPathWithSuccess:^(NSArray<Path *> *pathes) {
          PathData *pathData = [[PathData alloc] init];
@@ -89,6 +96,26 @@
              failure(NSLocalizedString(@"errorTitle", ));
          }
      }];
+}
+
+- (void)getPathDataForNearestWithSuccess:(void (^)(PathData *))success
+                                 failure:(void (^)(NSString *))failure
+{
+    LocationCoordinate *point;
+    [self.sessionAPIManager getClosestPathToPoint:point
+    success:^(NSArray<Path *> *pathes) {
+        PathData *pathData = [[PathData alloc] init];
+        pathData.sectionTitles = @[@""];
+        pathData.pathesInSectrion = @[pathes];
+    }
+    failure:^(NSInteger errorCode) {
+        if (errorCode == 401) {
+            [LoginController logout];
+        }
+        else {
+            failure(NSLocalizedString(@"errorTitle", ));
+        }
+    }];
 }
 
 @end

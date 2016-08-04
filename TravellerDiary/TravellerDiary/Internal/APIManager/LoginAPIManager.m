@@ -65,10 +65,6 @@ static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.
              }
          }];
     }
-    else if (failure) {
-        failure(NSLocalizedString(@"ErrorNoInternetConnection", ));
-    }
-
 }
 
 - (NSString *)parseHash:(NSDictionary *)hash

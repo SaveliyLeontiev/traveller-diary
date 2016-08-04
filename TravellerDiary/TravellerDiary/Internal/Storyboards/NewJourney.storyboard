@@ -141,7 +141,6 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="100" id="BYN-3g-Zyh"/>
                                                 </constraints>
-                                                <color key="textColor" red="0.70038448949999998" green="0.70038448949999998" blue="0.70038448949999998" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <userDefinedRuntimeAttributes>

@@ -37,6 +37,9 @@
                  success:(void(^)(void))success
                  failure:(void(^)(NSInteger))failure;
 - (void)getPopularPathWithSuccess:(void(^)(NSArray<Path *> *))success failure:(void(^)(NSInteger))failure;
+- (void)getClosestPathToPoint:(LocationCoordinate *)point
+                      success:(void(^)(NSArray<Path *> *))success
+                      failure:(void(^)(NSInteger))failure;
 
 /*
  * Point methods
@@ -56,5 +59,11 @@
 - (void)getPhotoWithImageURL:(NSURL *)imageURL
                      success:(void(^)(UIImage *))success
                      failure:(void(^)(NSInteger))failure;
+
+- (void)uploadPhoto:(UIImage *)photo
+         withPathId:(NSInteger)pathId
+            pointId:(NSInteger)pointId
+            success:(void(^)(void))success
+            failure:(void(^)(NSInteger))failure;
 
 @end

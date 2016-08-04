@@ -26,6 +26,12 @@ static NSString *const kPointLongitude = @"longitude";
 static NSString *const kPointLatitude = @"latitude";
 static NSString *const kPointCreatedAt = @"created_at";
 
+static NSString *const kPhotoFile = @"imageFiles";
+static NSString *const kPhotoPathId = @"path_id";
+static NSString *const kPhotoPointId = @"point_id";
+
+
+
 @interface Utility : NSObject
 
 + (NSInteger)intValueFromNum:(NSNumber *)num;
