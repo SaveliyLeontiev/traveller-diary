@@ -25,3 +25,10 @@
 
 //Settings.storyboard
 "SettingTabItemTitle" = "settings";
+"SettingsAccuracySectionTitle" = "Geolocation accuracy";
+"SettingsAccuracyCity" = "City";
+"SettingsAccuracyNeighborhood" = "Neighborhood";
+"SettingsAccuracyBlock" = "Block";
+"SettingsAccuracyHouse" = "House";
+"SettingsAccuracyRoom" = "Room";
+"LogoutButtonTitle" = "Log out";

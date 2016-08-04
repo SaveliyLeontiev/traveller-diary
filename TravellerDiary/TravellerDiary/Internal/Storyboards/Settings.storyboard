@@ -16,7 +16,43 @@
                     <view key="view" contentMode="scaleToFill" id="W7g-uW-2KD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="VLd-qI-muC">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
+                                <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="separatorColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ytd-75-bJJ" id="1wf-pj-w34"/>
+                                    <outlet property="delegate" destination="Ytd-75-bJJ" id="HRG-aD-gEh"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lb6-qD-sBc">
+                                <rect key="frame" x="60" y="459" width="200" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="logout"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="LogoutButtonTitle"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logout:" destination="Ytd-75-bJJ" eventType="touchUpInside" id="9VV-qe-A8i"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="lb6-qD-sBc" firstAttribute="leading" secondItem="W7g-uW-2KD" secondAttribute="leading" constant="60" id="7j2-kG-bLz"/>
+                            <constraint firstAttribute="trailing" secondItem="lb6-qD-sBc" secondAttribute="trailing" constant="60" id="MAn-bX-YVs"/>
+                            <constraint firstItem="VLd-qI-muC" firstAttribute="top" secondItem="W7g-uW-2KD" secondAttribute="top" id="MPC-a5-emC"/>
+                            <constraint firstAttribute="trailing" secondItem="VLd-qI-muC" secondAttribute="trailing" id="XfX-Us-Wn0"/>
+                            <constraint firstItem="1oB-Sf-S5r" firstAttribute="top" secondItem="lb6-qD-sBc" secondAttribute="bottom" constant="30" id="Z9z-fA-H7o"/>
+                            <constraint firstItem="lb6-qD-sBc" firstAttribute="top" secondItem="VLd-qI-muC" secondAttribute="bottom" constant="30" id="qYa-nV-d1w"/>
+                            <constraint firstItem="VLd-qI-muC" firstAttribute="leading" secondItem="W7g-uW-2KD" secondAttribute="leading" id="zXV-0D-oDf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="settings" id="q9G-q3-GmO">
                         <userDefinedRuntimeAttributes>
@@ -24,6 +60,9 @@
                         </userDefinedRuntimeAttributes>
                     </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="tableView" destination="VLd-qI-muC" id="aiK-i6-Axr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hha-Ep-haH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

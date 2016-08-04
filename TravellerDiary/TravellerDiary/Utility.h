@@ -30,5 +30,6 @@ static NSString *const kPointCreatedAt = @"created_at";
 
 + (NSInteger)intValueFromNum:(NSNumber *)num;
 + (BOOL)boolValueFromNum:(NSNumber *)num;
++ (float)floatValueFromNum:(NSNumber *)num;
 
 @end

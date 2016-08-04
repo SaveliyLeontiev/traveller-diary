@@ -9,7 +9,7 @@
 @property NSInteger userId;
 @property NSString *name;
 @property NSString *comment;
-@property NSInteger rating;
+@property float rating;
 @property (readonly) RLMLinkingObjects *coordinates;
 @property NSDate *createdAt;
 @property NSDate *updatedAt;

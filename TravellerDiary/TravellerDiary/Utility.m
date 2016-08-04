@@ -22,4 +22,14 @@
     }
 }
 
++ (float)floatValueFromNum:(NSNumber *)num
+{
+    if (![num isEqual:[NSNull null]]) {
+        return num.floatValue;
+    }
+    else {
+        return NO;
+    }
+}
+
 @end

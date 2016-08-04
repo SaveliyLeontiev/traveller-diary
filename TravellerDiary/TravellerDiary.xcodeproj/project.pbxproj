@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5312232B4515359CF1ABEC41 /* libPods-TravellerDiary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */; };
+		8406E4621D52F1C700D8CFED /* Preferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8406E4611D52F1C700D8CFED /* Preferences.m */; };
+		8406E48A1D53061900D8CFED /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8406E4891D53061900D8CFED /* Settings.storyboard */; };
 		842615E61D5069F20039B9E7 /* PathBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E51D5069F20039B9E7 /* PathBuilder.m */; };
 		842615EA1D50A3B00039B9E7 /* LoginController.m in Sources */ = {isa = PBXBuildFile; fileRef = 842615E91D50A3B00039B9E7 /* LoginController.m */; };
 		842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */; };
@@ -41,7 +43,6 @@
 		849D8FC11D48A3FF00C6F9C6 /* UIButton+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC01D48A3FF00C6F9C6 /* UIButton+Inspectable.m */; };
 		849D8FC41D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m in Sources */ = {isa = PBXBuildFile; fileRef = 849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */; };
 		849D8FC91D48E8B400C6F9C6 /* NewJourney.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */; };
-		849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 849D8FD01D48E96400C6F9C6 /* Settings.storyboard */; };
 		A5D110041D4F2C57003AC9E8 /* Path.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110031D4F2C57003AC9E8 /* Path.m */; };
 		A5D110071D4F2C87003AC9E8 /* LocationCoordinate.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110061D4F2C87003AC9E8 /* LocationCoordinate.m */; };
 		A5D1100A1D4F2D2B003AC9E8 /* DatabaseProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = A5D110091D4F2D2B003AC9E8 /* DatabaseProvider.m */; };
@@ -54,6 +55,9 @@
 /* Begin PBXFileReference section */
 		08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TravellerDiary.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		099D4A03709E8F96F0787BAF /* Pods-TravellerDiary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerDiary.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerDiary/Pods-TravellerDiary.debug.xcconfig"; sourceTree = "<group>"; };
+		8406E4601D52F1C700D8CFED /* Preferences.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Preferences.h; sourceTree = "<group>"; };
+		8406E4611D52F1C700D8CFED /* Preferences.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Preferences.m; sourceTree = "<group>"; };
+		8406E4891D53061900D8CFED /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		842615E41D5069F20039B9E7 /* PathBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PathBuilder.h; sourceTree = "<group>"; };
 		842615E51D5069F20039B9E7 /* PathBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PathBuilder.m; sourceTree = "<group>"; };
 		842615E81D50A3B00039B9E7 /* LoginController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginController.h; sourceTree = "<group>"; };
@@ -117,7 +121,6 @@
 		849D8FC31D48A85B00C6F9C6 /* UINavigationItem+Inspectable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationItem+Inspectable.m"; sourceTree = "<group>"; };
 		849D8FC51D48C6EC00C6F9C6 /* SignUpViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewControllerDelegate.h; sourceTree = "<group>"; };
 		849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewJourney.storyboard; sourceTree = "<group>"; };
-		849D8FD01D48E96400C6F9C6 /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		A53D394F1D50838800988397 /* SaveViewControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SaveViewControllerDelegate.h; sourceTree = "<group>"; };
 		A5D110021D4F2C57003AC9E8 /* Path.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Path.h; sourceTree = "<group>"; };
 		A5D110031D4F2C57003AC9E8 /* Path.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Path.m; sourceTree = "<group>"; };
@@ -156,6 +159,15 @@
 				08685F553D4A97FD5A40EC52 /* libPods-TravellerDiary.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8406E45F1D52F10A00D8CFED /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				8406E4601D52F1C700D8CFED /* Preferences.h */,
+				8406E4611D52F1C700D8CFED /* Preferences.m */,
+			);
+			path = Preferences;
 			sourceTree = "<group>";
 		};
 		842A23B11D4B486300D6B805 /* APIManager */ = {
@@ -236,6 +248,7 @@
 		844542C11D4748070043F3AD /* Internal */ = {
 			isa = PBXGroup;
 			children = (
+				8406E45F1D52F10A00D8CFED /* Preferences */,
 				843CD49A1D51CDE600E319E2 /* PhotoManager */,
 				846705011D50D40100B956A7 /* PathManager */,
 				8480346F1D4F83D200995823 /* Builder */,
@@ -284,8 +297,8 @@
 			children = (
 				844542C71D474E460043F3AD /* LogIn.storyboard */,
 				849D8FC81D48E8B400C6F9C6 /* NewJourney.storyboard */,
-				849D8FD01D48E96400C6F9C6 /* Settings.storyboard */,
 				842A23AC1D4B2D7200D6B805 /* PathTable.storyboard */,
+				8406E4891D53061900D8CFED /* Settings.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -474,9 +487,9 @@
 				849D8FB71D48970D00C6F9C6 /* Localizable.strings in Resources */,
 				844542BA1D4731700043F3AD /* LaunchScreen.storyboard in Resources */,
 				844542B71D4731700043F3AD /* Assets.xcassets in Resources */,
+				8406E48A1D53061900D8CFED /* Settings.storyboard in Resources */,
 				842A23AD1D4B2D7200D6B805 /* PathTable.storyboard in Resources */,
 				8430652B1D4A1B3400942080 /* Image.jpg in Resources */,
-				849D8FD11D48E96400C6F9C6 /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,6 +580,7 @@
 				A5D1101A1D4F9390003AC9E8 /* SaveViewController.m in Sources */,
 				A5D110041D4F2C57003AC9E8 /* Path.m in Sources */,
 				843065181D49CF9000942080 /* UITabBarItem+Inspectable.m in Sources */,
+				8406E4621D52F1C700D8CFED /* Preferences.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

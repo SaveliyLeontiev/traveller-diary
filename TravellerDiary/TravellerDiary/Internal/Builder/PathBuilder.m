@@ -26,7 +26,7 @@
     path.name = dict[kPathName];
     path.userId = [Utility intValueFromNum:dict[kPathUserId]];
     path.comment = dict[kPathComment];
-    path.rating = [Utility intValueFromNum:dict[kPathRating]];
+    path.rating = [Utility floatValueFromNum:dict[kPathRating]];
     path.createdAt = [self.dateFormater dateFromString:dict[kPathCreateAt]];
     path.updatedAt = [self.dateFormater dateFromString:dict[kPathUpdateAt]];
     path.shared = [Utility boolValueFromNum:dict[kPathShared]];

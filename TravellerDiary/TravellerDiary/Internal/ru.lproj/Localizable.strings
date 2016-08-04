@@ -25,3 +25,10 @@
 
 //Settings.storyboard
 "SettingTabItemTitle" = "настройки";
+"SettingsAccuracySectionTitle" = "Точность геолокации";
+"SettingsAccuracyCity" = "Город";
+"SettingsAccuracyNeighborhood" = "Пригород";
+"SettingsAccuracyBlock" = "Блок";
+"SettingsAccuracyHouse" = "Дом";
+"SettingsAccuracyRoom" = "Комната";
+"LogoutButtonTitle" = "Выйти";

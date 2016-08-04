@@ -12,6 +12,7 @@ static NSString *const kPassword = @"password";
     [[NSUserDefaults standardUserDefaults] setObject:hash forKey:kHash];
     [[NSUserDefaults standardUserDefaults] setObject:email forKey:kEmail];
     [[NSUserDefaults standardUserDefaults] setObject:password forKey:kPassword];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 + (NSString *)hash
