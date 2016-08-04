@@ -31,6 +31,8 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 @property (weak, nonatomic) IBOutlet ORStackScrollView *imagesContainerView;
 @property (nonatomic) GMSPolyline *polyline;
 
+@property (nonatomic, strong) IBOutletCollection(UIImageView) NSArray *stars;
+
 @end
 
 @implementation SaveViewController
@@ -39,6 +41,7 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
+    self.pathRating = 0;
 
     if (!self.saveMode) {
         //  запросить маршрут и его точки
@@ -75,6 +78,30 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
                                                       withFrame:self.view.bounds
                                                       andColors:@[[UIColor mainThemeColor], [UIColor flatYellowColor]]];
 }
+
+- (void)setPathRating:(float)pathRating
+{
+    _pathRating = pathRating;
+    NSArray <UIImageView *> *sortedStars = [self.stars sortedArrayUsingComparator:^NSComparisonResult(UITextField *obj1, UITextField *obj2) {
+        return [@(obj1.tag) compare:@(obj2.tag)];
+    }];
+    for (NSInteger i = 0; i < 5; i++) {
+        if (pathRating >= 1) {
+            sortedStars[i].image = [UIImage imageNamed:@"starWithFrame"];
+        }
+        else {
+            sortedStars[i].image = [UIImage imageNamed:@"star_gray"];
+        }
+        pathRating--;
+    }
+}
+
+- (IBAction)tapOnStar:(id)sender
+{
+    UIButton *star = sender;
+    self.pathRating = star.tag + 1;
+}
+
 
 - (IBAction)tapOnSaveButton:(id)sender
 {
