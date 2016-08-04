@@ -1,0 +1,34 @@
+"ErrorTitle" = "Error";
+"LoginAPIManagerErrorUserNotFound" = "Incorect e-mail or password";
+"ErrorNoInternetConnection" = "No conection with server";
+
+//Login.storyboard
+"EmailPlaceholder" = "e-mail";
+"PasswordPlaceholder" = "Password";
+"RepeatPasswordPlaceholder" = "Repeat password";
+"LogInButtonTitle" = "Log in";
+"ForgottenPasswordButtonTitle" = "Forgot your password?";
+"SignUpButtonTitle" = "Sign up";
+"FirstNamePlaceholder" = "First name";
+"LastNamePlaceholder" = "Last name";
+"LogInNavigationitemTitle" = "Log in";
+"SignUpNavigationitemTitle" = "Sign up";
+"SignUpErrorMessageWithEqualPasswords" = "Passwords not equal";
+
+//NewJourney.storyboard
+"NewJourneyTabItemTitle" = "new jorney";
+
+//PathTable.storyboard
+"HistoryNavigationItemTitle" = "History";
+"ClosestJourneyNavigationItemTitle" = "Nearby";
+"PopularJourneyNavigationItemTitle" = "Popular";
+
+//Settings.storyboard
+"SettingTabItemTitle" = "settings";
+"SettingsAccuracySectionTitle" = "Geolocation accuracy";
+"SettingsAccuracyCity" = "City";
+"SettingsAccuracyNeighborhood" = "Neighborhood";
+"SettingsAccuracyBlock" = "Block";
+"SettingsAccuracyHouse" = "House";
+"SettingsAccuracyRoom" = "Room";
+"LogoutButtonTitle" = "Log out";
