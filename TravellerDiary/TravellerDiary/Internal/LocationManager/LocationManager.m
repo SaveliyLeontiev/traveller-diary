@@ -35,7 +35,7 @@
         __typeof(weakSelf) strongSelf = weakSelf;
         
         if (status == INTULocationStatusSuccess) {
-            NSLog(@"%f, %f, %@", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, currentLocation.description);
+//            NSLog(@"%f, %f, %@", currentLocation.coordinate.latitude, currentLocation.coordinate.longitude, currentLocation.description);
             [strongSelf.delegate didChangeLocation:currentLocation];
         }
         else {
@@ -46,7 +46,8 @@
 
 - (void)stopMonitoringSignificantLocationChanges
 {
-    [self.locationManager forceCompleteLocationRequest:self.locationRequestID];
+    [self.locationManager cancelLocationRequest:self.locationRequestID];
+//    [self.locationManager forceCompleteLocationRequest:self.locationRequestID];
 }
 
 

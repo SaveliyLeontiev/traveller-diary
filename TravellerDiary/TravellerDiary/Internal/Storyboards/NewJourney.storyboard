@@ -35,7 +35,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="sFy-Qo-pO2">
                                         <rect key="frame" x="8" y="103" width="304" height="57"/>
                                         <attributedString key="attributedText">
-                                            <fragment content="Distance">
+                                            <fragment content="0.00 m">
                                                 <attributes>
                                                     <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <font key="NSFont" size="40" name="ChalkboardSE-Regular"/>
@@ -111,7 +111,7 @@
                     <connections>
                         <outlet property="distanceLabel" destination="sFy-Qo-pO2" id="XpG-UX-dBH"/>
                         <outlet property="imageView" destination="kiy-Az-7N2" id="GPd-Nq-E2g"/>
-                        <outlet property="mapView" destination="oaB-87-VQL" id="PkN-Ao-yVn"/>
+                        <outlet property="mapView" destination="oaB-87-VQL" id="07E-XT-sz6"/>
                         <outlet property="proportionalHeightConstraint" destination="Dr2-KX-fQU" id="SoW-oO-2oy"/>
                         <outlet property="timeLabel" destination="NU4-Pc-7UJ" id="lIB-SQ-nd2"/>
                         <outlet property="topSubview" destination="2Ip-hU-znG" id="k5w-HX-Vfc"/>
@@ -166,7 +166,7 @@
                                             <action selector="selectPhotos:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="9eL-z6-oHD"/>
                                         </connections>
                                     </button>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2w-np-0dr">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q2w-np-0dr" customClass="GMSMapView">
                                         <rect key="frame" x="20" y="20" width="280" height="183"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -180,8 +180,15 @@
                                             <action selector="tapOnSaveButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="wBo-1f-sff"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub4-Fu-Zpp">
+                                        <rect key="frame" x="19" y="467" width="48" height="30"/>
+                                        <state key="normal" title="Cancel"/>
+                                        <connections>
+                                            <action selector="tapOnCancelButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="MeA-ku-v1P"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0dd-JB-QVz">
-                                        <rect key="frame" x="32" y="435" width="49" height="30"/>
+                                        <rect key="frame" x="19" y="429" width="49" height="30"/>
                                         <state key="normal" title="Shared"/>
                                         <connections>
                                             <action selector="tapOnSharedButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="8j6-bJ-adi"/>
@@ -219,12 +226,13 @@
                     </view>
                     <connections>
                         <outlet property="commentTextView" destination="GC6-PB-7aY" id="Eto-Ln-m7e"/>
+                        <outlet property="mapView" destination="q2w-np-0dr" id="UkX-Gk-0Pb"/>
                         <outlet property="nameTextField" destination="rQq-5z-Jhl" id="geq-L5-Dld"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpF-h9-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="371"/>
+            <point key="canvasLocation" x="878" y="370"/>
         </scene>
     </scenes>
     <resources>
