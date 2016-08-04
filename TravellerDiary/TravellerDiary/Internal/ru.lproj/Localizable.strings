@@ -17,6 +17,11 @@
 
 //NewJourney.storyboard
 "NewJourneyTabItemTitle" = "новый маршрут";
+"PathNamePlaceholder" = "название";
+"RatingLabel" = "Рейтинг:";
+"AddPhotoButton" = " Добавить фото ";
+"CancelButton" = " Не сохранять ";
+"SaveButton" = " Сохранить ";
 
 //PathTable.storyboard
 "HistoryNavigationItemTitle" = "История";

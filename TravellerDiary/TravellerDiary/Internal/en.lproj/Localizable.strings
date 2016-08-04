@@ -17,6 +17,11 @@
 
 //NewJourney.storyboard
 "NewJourneyTabItemTitle" = "new jorney";
+"PathNamePlaceholder" = "name";
+"RatingLabel" = "Rating:";
+"AddPhotoButton" = " Add photo ";
+"CancelButton" = " Don't save ";
+"SaveButton" = " Save ";
 
 //PathTable.storyboard
 "HistoryNavigationItemTitle" = "History";

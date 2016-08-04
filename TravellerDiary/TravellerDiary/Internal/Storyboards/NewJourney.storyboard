@@ -159,6 +159,9 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="PathNamePlaceholder"/>
+                                                </userDefinedRuntimeAttributes>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ex1-Ce-KiT" customClass="ORStackScrollView">
                                                 <rect key="frame" x="20" y="446" width="280" height="60"/>
@@ -170,19 +173,6 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DIz-1n-irA">
                                                 <rect key="frame" x="20" y="525" width="280" height="35"/>
                                                 <subviews>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FY-6Z-CVE">
-                                                        <rect key="frame" x="238" y="0.0" width="42" height="35"/>
-                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <state key="normal" title=" Save "/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="7"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="tapOnSaveButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="wBo-1f-sff"/>
-                                                        </connections>
-                                                    </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ub4-Fu-Zpp">
                                                         <rect key="frame" x="0.0" y="0.0" width="56" height="35"/>
                                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -191,6 +181,7 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                                 <real key="value" value="7"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="CancelButton"/>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="tapOnCancelButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="MeA-ku-v1P"/>
@@ -210,6 +201,20 @@
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
                                                             <action selector="tapOnSharedButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="8j6-bJ-adi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4FY-6Z-CVE">
+                                                        <rect key="frame" x="238" y="0.0" width="42" height="35"/>
+                                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <state key="normal" title=" Save "/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                <real key="value" value="7"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="SaveButton"/>
+                                                        </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="tapOnSaveButton:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="wBo-1f-sff"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -234,6 +239,9 @@
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="RatingLabel"/>
+                                                </userDefinedRuntimeAttributes>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-Im-1ld">
                                                 <rect key="frame" x="20" y="408" width="80" height="30"/>
@@ -246,6 +254,7 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                         <real key="value" value="7"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="localizedString" value="AddPhotoButton"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="selectPhotos:" destination="9Uo-OK-C4B" eventType="touchUpInside" id="9eL-z6-oHD"/>
