@@ -70,4 +70,24 @@
      }];
 }
 
+- (void)getPathDataForPopularWithSuccess:(void (^)(PathData *))success
+                                 failure:(void (^)(NSString *))failure
+{
+    [self.sessionAPIManager
+     getPopularPathWithSuccess:^(NSArray<Path *> *pathes) {
+         PathData *pathData = [[PathData alloc] init];
+         pathData.sectionTitles = @[@""];
+         pathData.pathesInSectrion = @[pathes];
+         success(pathData);
+    }
+     failure:^(NSInteger errorCode) {
+         if (errorCode == 401) {
+             [LoginController logout];
+         }
+         else {
+             failure(NSLocalizedString(@"errorTitle", ));
+         }
+     }];
+}
+
 @end

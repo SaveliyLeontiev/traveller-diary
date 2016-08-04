@@ -35,37 +35,51 @@ static NSString *const kNumberOfRow = @"RowNumber";
 - (void)viewWillAppear:(BOOL)animated
 {
     PathManager *pathManager = [[PathManager alloc] init];
-    switch (self.pathTableType) {
-        case PopularPathTabelType:
-            //Load popular pathes in data
-            self.navigationItem.title = NSLocalizedString(@"PopularJourneyNavigationItemTitle", );
-            break;
-        case ClosestPathTabelType:
-            //Load nearby pathes in data
-            self.navigationItem.title = NSLocalizedString(@"ClosestJourneyNavigationItemTitle", );
-            break;
-        case HistoryPathTabelType:
-            [pathManager
-             getPathDataForHistoryWithSuccess:^(PathData *pathData) {
-                 self.pathData = pathData;
-                 [self.tableView reloadData];
-             }
-             failure:^(NSString *errorMessage) {
-                 UIAlertController *alert =
-                 [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
-                                                     message:errorMessage
-                                              preferredStyle:UIAlertControllerStyleAlert];
-                 UIAlertAction *defaultAction =
-                 [UIAlertAction actionWithTitle:@"OK"
-                                          style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction *action) {}];
-                 
-                 [alert addAction:defaultAction];
-                 [self presentViewController:alert animated:YES completion:nil];
-             }];
-            self.navigationItem.title = NSLocalizedString(@"HistoryNavigationItemTitle", );
-            
-            break;
+    if (self.pathTableType == PopularPathTabelType) {
+        [pathManager
+         getPathDataForPopularWithSuccess:^(PathData *pathData) {
+             self.pathData = pathData;
+             [self.tableView reloadData];
+         }
+         failure:^(NSString *errorMessage) {
+             UIAlertController *alert =
+             [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                                 message:errorMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+             UIAlertAction *defaultAction =
+             [UIAlertAction actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction *action) {}];
+             
+             [alert addAction:defaultAction];
+             [self presentViewController:alert animated:YES completion:nil];
+         }];
+        self.navigationItem.title = NSLocalizedString(@"PopularJourneyNavigationItemTitle", );
+    }
+    else if (self.pathTableType == ClosestPathTabelType) {
+        //Load nearby pathes in data
+        self.navigationItem.title = NSLocalizedString(@"ClosestJourneyNavigationItemTitle", );
+    }
+    else {
+        [pathManager
+         getPathDataForHistoryWithSuccess:^(PathData *pathData) {
+             self.pathData = pathData;
+             [self.tableView reloadData];
+         }
+         failure:^(NSString *errorMessage) {
+             UIAlertController *alert =
+             [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                                 message:errorMessage
+                                          preferredStyle:UIAlertControllerStyleAlert];
+             UIAlertAction *defaultAction =
+             [UIAlertAction actionWithTitle:@"OK"
+                                      style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction *action) {}];
+             
+             [alert addAction:defaultAction];
+             [self presentViewController:alert animated:YES completion:nil];
+         }];
+        self.navigationItem.title = NSLocalizedString(@"HistoryNavigationItemTitle", );
     }
 }
 
@@ -97,7 +111,7 @@ static NSString *const kNumberOfRow = @"RowNumber";
     Path *path = self.pathData.pathesInSectrion[indexPath.section][indexPath.row];
     cell.title.text = path.name;
     cell.date.text =  [self.dateFormater stringFromDate:path.createdAt];
-    cell.rate = 3.5;
+    cell.rate = path.rating;
     cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
 
     

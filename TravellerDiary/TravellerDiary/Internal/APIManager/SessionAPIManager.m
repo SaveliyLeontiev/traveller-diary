@@ -224,6 +224,33 @@ static NSString *const kAuthorizationHeader = @"Authorization";
     }
 }
 
+- (void)getPopularPathWithSuccess:(void(^)(NSArray<Path *> *))success failure:(void(^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+    else {
+        [self.sessionManager
+         GET:@"path/popular"
+         parameters:nil
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, NSArray<NSDictionary *> *responseObject) {
+             if (success) {
+                 success([self.pathBuilder pathesWithArray:responseObject]);
+             }
+        }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 failure(response.statusCode);
+             }
+         }];
+    }
+}
+
 - (void)deletePathWithId:(NSInteger)pathId
                  success:(void (^)(void))success
                  failure:(void (^)(NSInteger))failure

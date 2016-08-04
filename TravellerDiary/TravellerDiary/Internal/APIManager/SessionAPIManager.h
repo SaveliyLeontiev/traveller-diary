@@ -36,6 +36,7 @@
 - (void)deletePathWithId:(NSInteger)pathId
                  success:(void(^)(void))success
                  failure:(void(^)(NSInteger))failure;
+- (void)getPopularPathWithSuccess:(void(^)(NSArray<Path *> *))success failure:(void(^)(NSInteger))failure;
 
 /*
  * Point methods
