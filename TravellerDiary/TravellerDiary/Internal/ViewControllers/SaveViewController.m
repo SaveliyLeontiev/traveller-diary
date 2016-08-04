@@ -41,7 +41,6 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
     self.view.backgroundColor = [UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
 
     if (!self.saveMode) {
-        //  запросить маршрут и его точки
         
         self.nameTextField.userInteractionEnabled = NO;
         self.commentTextView.userInteractionEnabled = NO;
@@ -93,7 +92,8 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 
 - (IBAction)tapOnCancelButton:(id)sender
 {
-    [self.delegate didCloseViewController:self];
+    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self.delegate didCloseViewController:self];
 }
 
 - (IBAction)tapOnSharedButton:(id)sender
