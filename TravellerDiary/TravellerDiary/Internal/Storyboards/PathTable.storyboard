@@ -19,14 +19,15 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="b9Q-EW-N6a">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
-                                <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="GSl-Fb-WM0" id="ELe-ne-Uhk"/>
                                     <outlet property="delegate" destination="GSl-Fb-WM0" id="viG-Ja-D2e"/>
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="b9Q-EW-N6a" secondAttribute="trailing" id="06n-BD-4fQ"/>
                             <constraint firstItem="b9Q-EW-N6a" firstAttribute="leading" secondItem="lED-qW-Lju" secondAttribute="leading" id="U7e-Yd-qC7"/>

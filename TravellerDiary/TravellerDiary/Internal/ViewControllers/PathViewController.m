@@ -87,6 +87,16 @@ static NSString *const kNumberOfRow = @"RowNumber";
     }
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.view.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleTopToBottom
+                                                      withFrame:self.view.bounds
+                                                      andColors:@[[UIColor mainThemeColor], [UIColor flatYellowColor]]];
+}
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

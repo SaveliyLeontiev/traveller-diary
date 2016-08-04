@@ -19,6 +19,15 @@
     [super viewDidLoad];
 }
 
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    self.view.backgroundColor = [UIColor colorWithGradientStyle:UIGradientStyleTopToBottom
+                                                      withFrame:self.view.bounds
+                                                      andColors:@[[UIColor mainThemeColor], [UIColor flatYellowColor]]];
+}
+
 #pragma mark - UITableViewDelegate implementation
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

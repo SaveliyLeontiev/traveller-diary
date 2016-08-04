@@ -93,7 +93,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="uQ2-mG-FnE" firstAttribute="leading" secondItem="CWU-Gz-x7t" secondAttribute="leading" constant="60" id="03C-xQ-9jt"/>
                                             <constraint firstItem="uQ2-mG-FnE" firstAttribute="top" secondItem="bGA-kh-9V3" secondAttribute="bottom" constant="20" id="3fx-ZT-iuq"/>
@@ -114,6 +114,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="CWU-Gz-x7t" firstAttribute="top" secondItem="nZu-2B-LlJ" secondAttribute="top" id="Q7y-ZS-amx"/>
                                     <constraint firstAttribute="trailing" secondItem="CWU-Gz-x7t" secondAttribute="trailing" id="QbU-d3-PjK"/>
@@ -226,7 +227,7 @@
                                                 </connections>
                                             </textField>
                                         </subviews>
-                                        <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="qOM-1z-uId" firstAttribute="top" secondItem="Aqx-vK-Ba9" secondAttribute="bottom" constant="20" id="DQi-4v-vXL"/>
                                             <constraint firstItem="Aqx-vK-Ba9" firstAttribute="leading" secondItem="vg0-Tr-0rC" secondAttribute="leading" constant="60" id="H2I-2s-Zqg"/>
@@ -261,7 +262,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.59771414980000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="1mC-Mr-QLe" secondAttribute="bottom" id="2Um-u1-qqK"/>
                                     <constraint firstItem="vg0-Tr-0rC" firstAttribute="top" secondItem="C3f-41-Cu4" secondAttribute="top" constant="20" id="Sv9-xQ-I8y"/>
