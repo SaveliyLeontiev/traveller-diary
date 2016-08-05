@@ -61,14 +61,20 @@
  * Photo methods
  */
 
-- (void)getPhotoWithImageURL:(NSURL *)imageURL
-                     success:(void(^)(UIImage *))success
-                     failure:(void(^)(NSInteger))failure;
+- (void)getPhotoWithName:(NSString *)name
+                 success:(void (^)(UIImage *))success
+                 failure:(void (^)(NSInteger))failure;
 
 - (void)uploadPhoto:(UIImage *)photo
          withPathId:(NSInteger)pathId
             pointId:(NSInteger)pointId
             success:(void(^)(void))success
             failure:(void(^)(NSInteger))failure;
+
+- (void)getPhotosWithPhotosName:(NSArray<NSString *> *)photosName
+                        success:(void (^)(NSArray<UIImage *> *))success
+                        failure:(void (^)(NSInteger))failure;
+
+- (void)getPhotosNameWithPathid:(NSInteger)pathId success:(void(^)(NSArray<NSString *> *))success failure:(void(^)(NSInteger))failure;
 
 @end

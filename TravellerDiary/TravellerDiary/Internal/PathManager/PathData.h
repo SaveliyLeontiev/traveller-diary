@@ -5,5 +5,6 @@
 
 @property (nonatomic) NSArray<NSString *> *sectionTitles;
 @property (nonatomic) NSArray<NSArray<Path *> *> *pathesInSectrion;
+@property (nonatomic) NSDictionary<NSNumber *, NSArray<NSString *> *> *photosName;
 
 @end

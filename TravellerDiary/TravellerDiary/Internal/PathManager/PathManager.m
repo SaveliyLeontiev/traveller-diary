@@ -27,40 +27,66 @@
 {
     [self.sessionAPIManager
      getMyPathWithSuccess:^(NSArray<Path *> *pathes) {
-         [self.sessionAPIManager getPhotoWithImageURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"] success:nil failure:nil];
          PathData *pathData = [[PathData alloc] init];
          pathes = [pathes sortedArrayUsingComparator:^NSComparisonResult(Path *obj1, Path *obj2) {
              return [obj2.createdAt compare: obj1.createdAt];
          }];
-         if ([pathes count] == 0) {
-             pathData.sectionTitles = @[@""];
-             pathData.pathesInSectrion = @[@[]];
+         
+         NSMutableArray *photosName = [[NSMutableArray alloc] init];
+         NSMutableDictionary *photosNamesForPathID = [NSMutableDictionary dictionary];
+         
+         dispatch_group_t group = dispatch_group_create();
+         __block NSString *photoError = nil;
+         for (Path *path in pathes) {
+             dispatch_group_enter(group);
+             [self.sessionAPIManager getPhotosNameWithPathid:path.id success:^(NSArray<NSString *> *names) {
+                 photosNamesForPathID[@(path.id)] = names;
+                 
+                 [photosName addObject:names];
+                 dispatch_group_leave(group);
+             } failure:^(NSInteger errorCode) {
+                 photoError = NSLocalizedString(@"errorTitle", );
+                 dispatch_group_leave(group);
+             }];
          }
-         else {
-             NSCalendar *calendar = [[NSCalendar alloc]
-                                     initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
-             NSCalendarUnit units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
-             NSString *firstSectionTitle = [self.dateFormater stringFromDate:pathes[0].createdAt];
-             NSMutableArray *sectionTitles = [[NSMutableArray alloc] initWithArray:@[firstSectionTitle]];
-             NSMutableArray *pathesInSection = [[NSMutableArray alloc] init];
-             NSMutableArray *pathesInCurrentSection = [NSMutableArray arrayWithObject:pathes[0]];
-             for (NSInteger i = 1; i<[pathes count]; i++) {
-                 NSDateComponents *date1 = [calendar components:units fromDate:pathes[i-1].createdAt];
-                 NSDateComponents *date2 = [calendar components:units fromDate:pathes[i].createdAt];
-                 if (([date1 day] == [date2 day]) && ([date1 year] == [date2 year])) {
-                     [pathesInCurrentSection addObject:pathes[i]];
+         dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+             if (photoError) {
+                 failure(photoError);
+             }
+             else {
+                 if ([pathes count] == 0) {
+                     pathData.sectionTitles = @[@""];
+                     pathData.pathesInSectrion = @[@[]];
                  }
                  else {
+                     NSCalendar *calendar = [[NSCalendar alloc]
+                                             initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+                     NSCalendarUnit units = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay;
+                     NSString *firstSectionTitle = [self.dateFormater stringFromDate:pathes[0].createdAt];
+                     NSMutableArray *sectionTitles = [[NSMutableArray alloc] initWithArray:@[firstSectionTitle]];
+                     NSMutableArray *pathesInSection = [[NSMutableArray alloc] init];
+                     NSMutableArray *pathesInCurrentSection = [NSMutableArray arrayWithObject:pathes[0]];
+                     for (NSInteger i = 1; i<[pathes count]; i++) {
+                         NSDateComponents *date1 = [calendar components:units fromDate:pathes[i-1].createdAt];
+                         NSDateComponents *date2 = [calendar components:units fromDate:pathes[i].createdAt];
+                         if (([date1 day] == [date2 day]) && ([date1 year] == [date2 year])) {
+                             [pathesInCurrentSection addObject:pathes[i]];
+                         }
+                         else {
+                             [pathesInSection addObject:[pathesInCurrentSection copy]];
+                             [sectionTitles addObject:[self.dateFormater stringFromDate:pathes[i].createdAt]];
+                             pathesInCurrentSection = [NSMutableArray arrayWithObject:pathes[i]];
+                         }
+                     }
                      [pathesInSection addObject:[pathesInCurrentSection copy]];
-                     [sectionTitles addObject:[self.dateFormater stringFromDate:pathes[i].createdAt]];
-                     pathesInCurrentSection = [NSMutableArray arrayWithObject:pathes[i]];
+                     pathData.sectionTitles = [sectionTitles copy];
+                     pathData.pathesInSectrion = [pathesInSection copy];
+                     pathData.photosName = [photosNamesForPathID copy];
+//                     pathData.photosName = [photosName copy];
                  }
              }
-             [pathesInSection addObject:[pathesInCurrentSection copy]];
-             pathData.sectionTitles = [sectionTitles copy];
-             pathData.pathesInSectrion = [pathesInSection copy];
-         }
-         success(pathData);
+             success(pathData);
+         });
      }
      failure:^(NSInteger errorCode) {
          if (errorCode == 401) {
@@ -166,6 +192,28 @@
           failure:errorBlock];
      }
      failure:errorBlock];
+}
+
+- (void)getPathToMapWithPathId:(NSInteger)pathId
+                       success:(void (^)(void))success
+                       failure:(void (^)(NSString *))failure
+{
+    __block NSString *errorMessage = nil;
+    dispatch_group_t group = dispatch_group_create();
+    dispatch_group_enter(group);
+    [self.sessionAPIManager getPointsWithPathId:pathId success:^(NSArray<LocationCoordinate *> *points) {
+        dispatch_group_leave(group);
+    } failure:^(NSInteger errorCode) {
+        switch (errorCode) {
+            case NSURLErrorNotConnectedToInternet:
+                errorMessage = NSLocalizedString(@"ErrorNoInternetConnection", );
+            default:
+                errorMessage = NSLocalizedString(@"errorTitle", );
+                break;
+        }
+        dispatch_group_leave(group);
+    }];
+    dispatch_group_enter(group);
 }
 
 

@@ -1,4 +1,5 @@
 "ErrorTitle" = "Error";
+"errorTitle" = "Error";
 "LoginAPIManagerErrorUserNotFound" = "Incorect e-mail or password";
 "ErrorNoInternetConnection" = "No conection with server";
 

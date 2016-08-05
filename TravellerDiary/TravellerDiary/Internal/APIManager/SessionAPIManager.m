@@ -417,20 +417,47 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 
 #pragma mark - Photo requests
 
-- (void)getPhotoWithImageURL:(NSURL *)imageURL
+- (void)getPhotoWithName:(NSString *)name
                      success:(void (^)(UIImage *))success
                      failure:(void (^)(NSInteger))failure
 {
-    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/%@",name]]];
     [[[UIImageView alloc] init] setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
      {
-         __unused NSInteger i=0;
+         success(image);
      } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-         __unused NSInteger i=0;
-         
+         if (failure) {
+             NSHTTPURLResponse *response =
+             error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+             failure(response.statusCode);
+         }
      }];
 }
 
+- (void)getPhotosWithPhotosName:(NSArray<NSString *> *)photosName success:(void (^)(NSArray<UIImage *> *))success failure:(void (^)(NSInteger))failure
+{
+    NSMutableArray *photos = [[NSMutableArray alloc] init];
+    dispatch_group_t group = dispatch_group_create();
+    __block NSInteger photoError = 0;
+    for (NSString * name in photosName) {
+         dispatch_group_enter(group);
+        [self getPhotoWithName:name success:^(UIImage *photo) {
+            [photos addObject:photo];
+             dispatch_group_leave(group);
+        } failure:^(NSInteger errorCode) {
+            photoError = errorCode;
+             dispatch_group_leave(group);
+        }];
+    }
+    dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+        if (photoError) {
+            failure(photoError);
+        }
+        else {
+            success([photos copy]);
+        }
+    });
+}
 
 - (void)uploadPhoto:(UIImage *)photo
          withPathId:(NSInteger)pathId
@@ -470,6 +497,33 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 
 }
 
-
+- (void)getPhotosNameWithPathid:(NSInteger)pathId success:(void (^)(NSArray<NSString *> *))success failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+    else {
+        [self.sessionManager
+         GET:[NSString stringWithFormat:@"photo/path/%i",pathId]
+         parameters:nil
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, NSArray<NSDictionary *> *responseObject) {
+             NSMutableArray *photosName = [[NSMutableArray alloc] init];
+             for (NSDictionary *dict in responseObject) {
+                 [photosName addObject:dict[@"file_path"]];
+             }
+             success([photosName copy]);
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 failure(response.statusCode);
+             }
+         }];
+    }
+}
 
 @end

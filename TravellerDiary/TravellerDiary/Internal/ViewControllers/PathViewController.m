@@ -126,15 +126,20 @@ static NSString *const kNumberOfRow = @"RowNumber";
     cell.title.text = path.name;
     cell.date.text =  [self.dateFormater stringFromDate:path.createdAt];
     cell.rate = path.rating;
-    cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
-//    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/Logo.png"]];
-//    [cell.cover setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
-//    {
-//        cell.cover.image = image;
-//    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
-//        __unused NSInteger i=0;
-//        
-//    }];
+    NSString *photoName;
+    
+    photoName = [self.pathData.photosName[@(path.id)] firstObject] ? : @"Logo.png";
+    
+//    cell.cover.image = [UIImage imageNamed:@"Image.jpg"];
+    NSString *imageURL = [NSString stringWithFormat:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/%@",photoName];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+    [cell.cover setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
+    {
+        cell.cover.image = image;
+    } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+        __unused NSInteger i=0;
+        
+    }];
     return cell;
 }
 
@@ -147,6 +152,7 @@ static NSString *const kNumberOfRow = @"RowNumber";
     saveVC.pathId = path.id;
     saveVC.pathName = path.name;
     saveVC.comment = path.comment;
+    saveVC.shared = path.shared;
     saveVC.saveMode = NO;
     [self.navigationController pushViewController:saveVC animated:YES];
 }

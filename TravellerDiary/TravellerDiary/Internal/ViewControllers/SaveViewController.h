@@ -13,7 +13,7 @@
 @property (nonatomic) NSInteger duration;
 @property (nonatomic) NSInteger distance;
 @property (nonatomic) NSString *comment;
-
+@property (nonatomic) BOOL shared;
 @property (nonatomic) BOOL saveMode;
 
 @end

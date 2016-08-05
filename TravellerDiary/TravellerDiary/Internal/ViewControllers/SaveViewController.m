@@ -25,7 +25,7 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 @property (weak, nonatomic) IBOutlet UIView *buttonSubView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *imagesContainerViewHeightConstraint;
 
-@property (nonatomic) BOOL shared;
+
 
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 @property (weak, nonatomic) IBOutlet ORStackScrollView *imagesContainerView;
@@ -50,6 +50,13 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
         
         self.buttonSubView.hidden = YES;
         self.addPhotoButton.hidden = YES;
+    }
+    
+    if (self.shared) {
+        [self.sharedButton setImage:[UIImage imageNamed:@"unlock"] forState:UIControlStateNormal];
+    }
+    else {
+        [self.sharedButton setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
     }
     
     GMSCoordinateBounds *coordinateBounds = [[GMSCoordinateBounds alloc] initWithPath:self.path];
