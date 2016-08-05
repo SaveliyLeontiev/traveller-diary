@@ -431,6 +431,11 @@
                         <outletCollection property="stars" destination="1BX-bS-c58" id="MKU-TS-DKw"/>
                         <outletCollection property="stars" destination="udj-Ad-0T4" id="Vi9-3v-0Ws"/>
                         <outletCollection property="stars" destination="qtg-eB-b9s" id="J8H-ma-1OH"/>
+                        <outletCollection property="buttons" destination="lrP-wF-qLo" id="Ass-0S-7xy"/>
+                        <outletCollection property="buttons" destination="mft-V0-6tE" id="ecE-lz-jED"/>
+                        <outletCollection property="buttons" destination="Y8a-1z-Nim" id="IQp-6H-vIB"/>
+                        <outletCollection property="buttons" destination="kfr-I6-7Vm" id="a1F-8j-bZm"/>
+                        <outletCollection property="buttons" destination="mgA-A3-vhT" id="aFA-4Z-HkS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MpF-h9-hca" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -33,6 +33,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         
         NSURL *APIBaseURL = [NSURL URLWithString:kAPIBaseURLString];
         _sessionManager = [[AFHTTPSessionManager alloc] initWithBaseURL:APIBaseURL];
+        _sessionManager.requestSerializer = [AFJSONRequestSerializer serializer];
         _sessionManager.responseSerializer = [AFJSONResponseSerializer serializer];
         [_sessionManager.requestSerializer setCachePolicy:NSURLRequestReloadIgnoringLocalCacheData];
         [_sessionManager.requestSerializer
@@ -208,7 +209,6 @@ static NSString *const kAuthorizationHeader = @"Authorization";
         NSInteger sharedNum = path.shared ? 1:0;
         NSDictionary *data = @{kPathName: path.name,
                                kPathDistance: @(path.distance),
-                               kPathDuration: @(path.duration),
                                kPathShared: @(sharedNum),
                                kPathRating: @(path.rating),
                                kPathComment: path.comment};
@@ -355,20 +355,15 @@ static NSString *const kAuthorizationHeader = @"Authorization";
              success:(void (^)(void))success
              failure:(void (^)(NSInteger))failure
 {
-    if (![AFNetworkReachabilityManager sharedManager].reachable) {
-        if (failure) {
-            failure(NSURLErrorNotConnectedToInternet);
-        }
-        else {
             NSMutableArray *data = [[NSMutableArray alloc] init];
             for (LocationCoordinate *point in points) {
-                [data addObject:@{kPointPathId: @(pathId),
+                [data addObject:@{kPointPathId: [@(pathId) stringValue],
                                   kPointLongitude: @(point.longitude),
                                   kPointLatitude: @(point.latitude)}];
             }
             [self.sessionManager
-             POST:@"path/load"
-             parameters:data
+             POST:@"point/load"
+             parameters:[data copy]
              progress:nil
              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                  if (success) {
@@ -382,8 +377,6 @@ static NSString *const kAuthorizationHeader = @"Authorization";
                      failure(response.statusCode);
                  }
              }];
-        }
-    }
 }
 
 - (void)getPointsWithPathId:(NSInteger)pathId
@@ -476,7 +469,8 @@ static NSString *const kAuthorizationHeader = @"Authorization";
          parameters:nil
          constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
             NSData *imageData = UIImageJPEGRepresentation(photo, 1);
-            [formData appendPartWithFileData:imageData name:kPhotoFile fileName:[Utility md5StringForData:imageData] mimeType:@"image/jpeg"];
+             NSString *filename = [NSString stringWithFormat:@"%@.jpeg",[Utility md5StringForData:imageData] ];
+            [formData appendPartWithFileData:imageData name:kPhotoFile fileName:filename mimeType:@"image/jpeg"];
             [formData appendPartWithFormData:[[@(pathId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPathId];
 //            [formData appendPartWithFormData:[[@(pointId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPointId];
         }

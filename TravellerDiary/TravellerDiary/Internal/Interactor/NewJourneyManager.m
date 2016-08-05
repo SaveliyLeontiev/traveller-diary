@@ -49,6 +49,7 @@
 - (void)didChangeLocation:(CLLocation *)currentLocation;
 {
     if ([self.startDate timeIntervalSinceDate:currentLocation.timestamp] > 0.0) {
+        self.currentPath = nil;
         return;
     }
 //    [self saveCurrentLocation:currentLocation];

@@ -264,7 +264,7 @@
 				846705011D50D40100B956A7 /* PathManager */,
 				8480346F1D4F83D200995823 /* Builder */,
 				A5D110011D4F2BD1003AC9E8 /* Model */,
-				A5D110101D4F2EC3003AC9E8 /* Interactor */,
+				A5D110101D4F2EC3003AC9E8 /* NewJourneyManager */,
 				A5D1100B1D4F2E1F003AC9E8 /* LocationManager */,
 				A5D110001D4F2B8A003AC9E8 /* DatabaseProvider */,
 				842A23B11D4B486300D6B805 /* APIManager */,
@@ -427,13 +427,14 @@
 			path = LocationManager;
 			sourceTree = "<group>";
 		};
-		A5D110101D4F2EC3003AC9E8 /* Interactor */ = {
+		A5D110101D4F2EC3003AC9E8 /* NewJourneyManager */ = {
 			isa = PBXGroup;
 			children = (
 				A5D110141D4F2FA8003AC9E8 /* NewJourneyManagerDelegate.h */,
 				A5D110111D4F2F5C003AC9E8 /* NewJourneyManager.h */,
 				A5D110121D4F2F5C003AC9E8 /* NewJourneyManager.m */,
 			);
+			name = NewJourneyManager;
 			path = Interactor;
 			sourceTree = "<group>";
 		};

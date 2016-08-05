@@ -20,4 +20,6 @@
 
 - (Path *)currentPath;
 
+- (NSArray *)locationCoordinatesByPath:(Path *)path;
+
 @end

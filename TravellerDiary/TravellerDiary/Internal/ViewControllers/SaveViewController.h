@@ -15,5 +15,6 @@
 @property (nonatomic) NSString *comment;
 @property (nonatomic) BOOL shared;
 @property (nonatomic) BOOL saveMode;
-
+@property (nonatomic) NSArray<NSString *> *photoNames;
+@property (nonatomic) float pathCurrentrating;
 @end

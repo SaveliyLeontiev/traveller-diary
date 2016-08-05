@@ -3,4 +3,9 @@
 
 @implementation LocationCoordinate
 
++ (NSString *)primaryKey
+{
+    return @"id";
+}
+
 @end

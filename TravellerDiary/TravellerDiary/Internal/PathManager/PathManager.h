@@ -18,6 +18,6 @@
          success:(void(^)(void))success
          failure:(void(^)(NSString *))failure;
 
-- (void)getPathToMapWithPathId:(NSInteger)pathId success:(void(^)(void))success failure:(void(^)(NSString *))failure;
+- (void)getPathToMapWithPathId:(NSInteger)pathId success:(void(^)(NSArray<LocationCoordinate *> *))success failure:(void(^)(NSString *))failure;
 
 @end

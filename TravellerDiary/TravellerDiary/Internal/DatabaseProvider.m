@@ -105,5 +105,16 @@
     return [photos copy];
 }
 
+- (NSArray *)locationCoordinatesByPath:(Path *)path
+{
+    RLMResults *allCoordinates= [LocationCoordinate allObjects];
+    NSMutableArray *coordinates = [NSMutableArray array];
+    for (LocationCoordinate *locationCoordinate in allCoordinates) {
+        [coordinates addObject:locationCoordinate];
+    }
+    return [coordinates copy];
+}
+
+
 
 @end

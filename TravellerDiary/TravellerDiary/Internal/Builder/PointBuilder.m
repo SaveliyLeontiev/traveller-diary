@@ -7,8 +7,8 @@
 {
     LocationCoordinate *point = [[LocationCoordinate alloc] init];
     point.id = [Utility intValueFromNum:dict[kPointId]];
-    point.longitude = [Utility intValueFromNum:dict[kPointLongitude]];
-    point.latitude = [Utility intValueFromNum:dict[kPointLatitude]];
+    point.longitude = [Utility floatValueFromNum:dict[kPointLongitude]];
+    point.latitude = [Utility floatValueFromNum:dict[kPointLatitude]];
     return point;
 }
 

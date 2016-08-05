@@ -154,6 +154,8 @@ static NSString *const kNumberOfRow = @"RowNumber";
     saveVC.comment = path.comment;
     saveVC.shared = path.shared;
     saveVC.saveMode = NO;
+    saveVC.photoNames = self.pathData.photosName[@(path.id)];
+    saveVC.pathCurrentrating = path.rating;
     [self.navigationController pushViewController:saveVC animated:YES];
 }
 

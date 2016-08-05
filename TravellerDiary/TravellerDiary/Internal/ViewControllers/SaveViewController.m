@@ -8,7 +8,9 @@
 #import "DeletableImageView.h"
 
 #import "UIColor+HexString.h"
-
+#import "AFNetworking/UIImageView+AFNetworking.h"
+#import "AFNetworking/AFImageDownloader.h"
+#import "PathManager.h"
 
 static const CGFloat kImagesContainerViewHeight = 60.0f;
 
@@ -32,6 +34,9 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 @property (nonatomic) GMSPolyline *polyline;
 
 @property (nonatomic, strong) IBOutletCollection(UIImageView) NSArray *stars;
+@property (nonatomic) IBOutletCollection(UIButton) NSArray *buttons;
+
+@property (nonatomic) PathManager *pathManager;
 
 @end
 
@@ -40,8 +45,10 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.pathManager = [[PathManager alloc] init];
     self.view.backgroundColor = [UIColor colorWithRandomFlatColorOfShadeStyle:UIShadeStyleLight];
     self.pathRating = 0;
+    self.images = [NSMutableArray array];
 
     if (!self.saveMode) {
         
@@ -50,6 +57,56 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
         
         self.buttonSubView.hidden = YES;
         self.addPhotoButton.hidden = YES;
+        for (UIButton *button in self.buttons) {
+            button.enabled = NO;
+        }
+        self.nameTextField.text = self.pathName;
+        self.commentTextView.text = self.comment;
+        self.pathRating = self.pathCurrentrating;
+        
+        [self.pathManager getPathToMapWithPathId:self.pathId success:^(NSArray<LocationCoordinate *> *points) {
+            self.path = [GMSMutablePath path];
+            for (int i = 0; i < points.count; i++) {
+                [self.path addLatitude:points[i].latitude longitude:points[i].longitude];
+            }
+            GMSCoordinateBounds *coordinateBounds = [[GMSCoordinateBounds alloc] initWithPath:self.path];
+            GMSCameraUpdate *cameraUpdate = [GMSCameraUpdate fitBounds:coordinateBounds];
+            
+            [self.mapView animateWithCameraUpdate:cameraUpdate];
+            
+            self.polyline.path = self.path;
+            dispatch_group_t group = dispatch_group_create();
+            for (NSString *photoName in self.photoNames) {
+                dispatch_group_enter(group);
+                NSString *imageURL = [NSString stringWithFormat:@"http://api.photowalker.demo.school.noveogroup.com/photo/get/%@",photoName];
+                NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:imageURL]];
+                [[[UIImageView alloc] init] setImageWithURLRequest:urlRequest placeholderImage:nil success:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, UIImage * _Nonnull image)
+                 {
+
+                     [self addImageOnStackView:image];
+                      dispatch_group_leave(group);
+                     
+                 } failure:^(NSURLRequest * _Nonnull request, NSHTTPURLResponse * _Nullable response, NSError * _Nonnull error) {
+                     __unused NSInteger i=0;
+                     
+                 }];
+                dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                    
+                });
+            }
+        } failure:^(NSString *errorMessage) {
+            UIAlertController *alert =
+            [UIAlertController alertControllerWithTitle:NSLocalizedString(@"ErrorTitle", )
+                                                message:errorMessage
+                                         preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction =
+            [UIAlertAction actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action) {}];
+            
+            [alert addAction:defaultAction];
+            [self presentViewController:alert animated:YES completion:nil];
+        }];
     }
     
     if (self.shared) {
@@ -68,8 +125,7 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
     self.polyline.strokeWidth = 5;
     self.polyline.map = self.mapView;
     
-    self.shared = YES;
-    self.images = [NSMutableArray array];
+    self.shared = NO;
     self.datebaseProvider = [DatabaseProvider sharedInstance];
     
     self.imagesContainerViewHeightConstraint.constant = 0.0f;
@@ -119,9 +175,27 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
     path.shared = self.shared;
     path.distance = self.distance;
     path.duration = self.duration;
+    path.rating = self.pathRating;
     
     [self.datebaseProvider updateObject:path];
-    [self.delegate didCloseViewController:self];
+    
+    NSMutableArray *points = [[NSMutableArray alloc] init];
+    
+    for (int i = 0; i < self.path.count; i++) {
+        LocationCoordinate *locationCoordinate = [[LocationCoordinate alloc] init];
+        locationCoordinate.latitude = [self.path coordinateAtIndex:i].latitude;
+        locationCoordinate.longitude = [self.path coordinateAtIndex:i].longitude;
+        locationCoordinate.path = path;
+        locationCoordinate.date = [NSDate date];
+        [points addObject:locationCoordinate];
+//        [self.datebaseProvider updateObject:locationCoordinate];
+    }
+    
+    [self.pathManager postPath:path points:[points copy] photos:self.images success:^{
+        [self.delegate didCloseViewController:self];
+    } failure:^(NSString *errorMessage) {
+        NSLog(@"%@",errorMessage);
+    }];
 }
 
 - (IBAction)tapOnCancelButton:(id)sender
@@ -132,12 +206,13 @@ static const CGFloat kImagesContainerViewHeight = 60.0f;
 
 - (IBAction)tapOnSharedButton:(id)sender
 {
-    self.shared = !self.shared;
     if (self.shared) {
-        [self.sharedButton setImage:[UIImage imageNamed:@"unlock"] forState:UIControlStateNormal];
+        [self.sharedButton setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
+        self.shared = NO;
     }
     else {
-        [self.sharedButton setImage:[UIImage imageNamed:@"lock"] forState:UIControlStateNormal];
+        [self.sharedButton setImage:[UIImage imageNamed:@"unlock"] forState:UIControlStateNormal];
+        self.shared = YES;
     }
 }
 

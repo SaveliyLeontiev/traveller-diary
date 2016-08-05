@@ -82,7 +82,6 @@
                      pathData.sectionTitles = [sectionTitles copy];
                      pathData.pathesInSectrion = [pathesInSection copy];
                      pathData.photosName = [photosNamesForPathID copy];
-//                     pathData.photosName = [photosName copy];
                  }
              }
              success(pathData);
@@ -195,25 +194,20 @@
 }
 
 - (void)getPathToMapWithPathId:(NSInteger)pathId
-                       success:(void (^)(void))success
+                       success:(void (^)(NSArray<LocationCoordinate *> *))success
                        failure:(void (^)(NSString *))failure
 {
-    __block NSString *errorMessage = nil;
-    dispatch_group_t group = dispatch_group_create();
-    dispatch_group_enter(group);
     [self.sessionAPIManager getPointsWithPathId:pathId success:^(NSArray<LocationCoordinate *> *points) {
-        dispatch_group_leave(group);
+        success(points);
     } failure:^(NSInteger errorCode) {
         switch (errorCode) {
             case NSURLErrorNotConnectedToInternet:
-                errorMessage = NSLocalizedString(@"ErrorNoInternetConnection", );
+                failure(NSLocalizedString(@"ErrorNoInternetConnection", ));
             default:
-                errorMessage = NSLocalizedString(@"errorTitle", );
+                failure( NSLocalizedString(@"errorTitle", ));
                 break;
         }
-        dispatch_group_leave(group);
     }];
-    dispatch_group_enter(group);
 }
 
 
