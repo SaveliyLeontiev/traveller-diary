@@ -8,7 +8,7 @@
 #import "LoginAPIManager.h"
 #import "AFNetworking/UIImageView+AFNetworking.h"
 #import "AFNetworking/AFImageDownloader.h"
-#import <CommonCrypto/CommonDigest.h>
+
 
 static NSString *const kAPIBaseURLString = @"http://api.photowalker.demo.school.noveogroup.com";
 static NSString *const kAuthorizationHeader = @"Authorization";
@@ -202,7 +202,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
     }
 }
 
-- (void)createPath:(Path *)path success:(void (^)(void))success failure:(void (^)(NSInteger))failure
+- (void)createPath:(Path *)path success:(void (^)(NSInteger))success failure:(void (^)(NSInteger))failure
 {
     if ([AFNetworkReachabilityManager sharedManager].reachable) {
         NSInteger sharedNum = path.shared ? 1:0;
@@ -210,14 +210,15 @@ static NSString *const kAuthorizationHeader = @"Authorization";
                                kPathDistance: @(path.distance),
                                kPathDuration: @(path.duration),
                                kPathShared: @(sharedNum),
-                               kPathRating: @(path.rating)};
+                               kPathRating: @(path.rating),
+                               kPathComment: path.comment};
         [self.sessionManager
          POST:@"path/create"
          parameters:data
          progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+         success:^(NSURLSessionDataTask * _Nonnull task, NSDictionary *responseObject) {
              if (success) {
-                 success();
+                 success([Utility intValueFromNum:responseObject[@"id"]]);
              }
          }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -317,6 +318,7 @@ static NSString *const kAuthorizationHeader = @"Authorization";
 #pragma mark - Point request
 
 - (void)createPoint:(LocationCoordinate *)point
+             pathId:(NSInteger)pathId
             success:(void (^)(void))success
             failure:(void (^)(NSInteger))failure
 {
@@ -325,11 +327,47 @@ static NSString *const kAuthorizationHeader = @"Authorization";
             failure(NSURLErrorNotConnectedToInternet);
         }
         else {
-            NSDictionary *data = @{kPointPathId: @(point.path.id),
+            NSDictionary *data = @{kPointPathId: @(pathId),
                                    kPointLongitude: @(point.longitude),
                                    kPointLatitude: @(point.latitude)};
+                    [self.sessionManager
+                     POST:@"point/add"
+                     parameters:data
+                     progress:nil
+                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                         if (success) {
+                             success();
+                         }
+                     }
+                     failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                         if (failure) {
+                             NSHTTPURLResponse *response =
+                             error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                             failure(response.statusCode);
+                         }
+                     }];
+        }
+    }
+}
+
+- (void)createPoints:(NSArray<LocationCoordinate *> *)points
+              pathId:(NSInteger)pathId
+             success:(void (^)(void))success
+             failure:(void (^)(NSInteger))failure
+{
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+        else {
+            NSMutableArray *data = [[NSMutableArray alloc] init];
+            for (LocationCoordinate *point in points) {
+                [data addObject:@{kPointPathId: @(pathId),
+                                  kPointLongitude: @(point.longitude),
+                                  kPointLatitude: @(point.latitude)}];
+            }
             [self.sessionManager
-             POST:@"point/add"
+             POST:@"path/load"
              parameters:data
              progress:nil
              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
@@ -400,32 +438,38 @@ static NSString *const kAuthorizationHeader = @"Authorization";
             success:(void (^)(void))success
             failure:(void (^)(NSInteger))failure
 {
-    [self.photoSessionManager POST:@"photo/upload" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
-        NSData *imageData = UIImageJPEGRepresentation(photo, 1);
-        [formData appendPartWithFileData:imageData name:kPhotoFile fileName:[self md5StringForData:imageData] mimeType:@"image/jpeg"];
-        [formData appendPartWithFormData:[[@(pathId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPathId];
-        [formData appendPartWithFormData:[[@(pointId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPointId];
-    } progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-        
-    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
-    }];
+    if (![AFNetworkReachabilityManager sharedManager].reachable) {
+        if (failure) {
+            failure(NSURLErrorNotConnectedToInternet);
+        }
+    }
+    else {
+        [self.photoSessionManager
+         POST:@"photo/upload"
+         parameters:nil
+         constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
+            NSData *imageData = UIImageJPEGRepresentation(photo, 1);
+            [formData appendPartWithFileData:imageData name:kPhotoFile fileName:[Utility md5StringForData:imageData] mimeType:@"image/jpeg"];
+            [formData appendPartWithFormData:[[@(pathId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPathId];
+//            [formData appendPartWithFormData:[[@(pointId) stringValue] dataUsingEncoding:NSUTF8StringEncoding] name:kPhotoPointId];
+        }
+         progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             if (success) {
+                 success();
+             }
+        }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             if (failure) {
+                 NSHTTPURLResponse *response =
+                 error.userInfo[AFNetworkingOperationFailingURLResponseErrorKey];
+                 failure(response.statusCode);
+             }
+        }];
+    }
+
 }
 
-- (NSString*)md5StringForData:(NSData *)data
-{
-    unsigned char md5[CC_MD5_DIGEST_LENGTH];
-    CC_MD5([data bytes], [data length], md5);
-    return [NSString stringWithFormat: @"%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x%02x",
-            md5[0], md5[1],
-            md5[2], md5[3],
-            md5[4], md5[5],
-            md5[6], md5[7],
-            md5[8], md5[9],
-            md5[10], md5[11],
-            md5[12], md5[13],
-            md5[14], md5[15]
-            ];
-}
+
 
 @end

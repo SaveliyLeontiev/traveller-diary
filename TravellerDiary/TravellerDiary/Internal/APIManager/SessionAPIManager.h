@@ -32,7 +32,7 @@
               success:(void(^)(Path *))success
               failure:(void(^)(NSInteger))failure;
 
-- (void)createPath:(Path *)path success:(void(^)(void))success failure:(void(^)(NSInteger))failure;
+- (void)createPath:(Path *)path success:(void(^)(NSInteger))success failure:(void(^)(NSInteger))failure;
 - (void)deletePathWithId:(NSInteger)pathId
                  success:(void(^)(void))success
                  failure:(void(^)(NSInteger))failure;
@@ -46,11 +46,16 @@
  */
 
 - (void)createPoint:(LocationCoordinate *)point
+             pathId:(NSInteger)pathId
             success:(void(^)(void))success
             failure:(void(^)(NSInteger))failure;
 - (void)getPointsWithPathId:(NSInteger)pathId
                    success:(void(^)(NSArray<LocationCoordinate *> *))success
                    failure:(void(^)(NSInteger))failure;
+- (void)createPoints:(NSArray<LocationCoordinate *> *)points
+              pathId:(NSInteger)pathId
+             success:(void(^)(void))success
+             failure:(void(^)(NSInteger))failure;
 
 /*
  * Photo methods

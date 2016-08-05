@@ -37,5 +37,6 @@ static NSString *const kPhotoPointId = @"point_id";
 + (NSInteger)intValueFromNum:(NSNumber *)num;
 + (BOOL)boolValueFromNum:(NSNumber *)num;
 + (float)floatValueFromNum:(NSNumber *)num;
++ (NSString*)md5StringForData:(NSData *)data;
 
 @end

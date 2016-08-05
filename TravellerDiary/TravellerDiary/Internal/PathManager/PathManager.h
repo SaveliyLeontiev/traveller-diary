@@ -16,6 +16,6 @@
           points:(NSArray<LocationCoordinate *> *)points
           photos:(NSArray<UIImage *> *)photos
          success:(void(^)(void))success
-         failure:(void(^)(NSInteger))failure;
+         failure:(void(^)(NSString *))failure;
 
 @end

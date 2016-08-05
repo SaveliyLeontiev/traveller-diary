@@ -75,12 +75,6 @@
 - (void)getPathDataForPopularWithSuccess:(void (^)(PathData *))success
                                  failure:(void (^)(NSString *))failure
 {
-    [self.sessionAPIManager uploadPhoto:[UIImage imageNamed:@"Image.jpg"] withPathId:1 pointId:1 success:^{
-        
-    } failure:^(NSInteger errorCode) {
-        
-    }];
-    return;
     [self.sessionAPIManager
      getPopularPathWithSuccess:^(NSArray<Path *> *pathes) {
          PathData *pathData = [[PathData alloc] init];
@@ -117,5 +111,62 @@
         }
     }];
 }
+
+- (void)postPath:(Path *)path
+          points:(NSArray<LocationCoordinate *> *)points
+          photos:(NSArray<UIImage *> *)photos
+         success:(void (^)(void))success
+         failure:(void (^)(NSString *))failure
+{
+    void(^errorBlock)(NSInteger) = ^void(NSInteger errorCode) {
+        switch (errorCode) {
+            case 401:
+                [LoginController logout];
+                break;
+            case NSURLErrorNotConnectedToInternet:
+                failure(NSLocalizedString(@"ErrorNoInternetConnection", ));
+            default:
+                failure(NSLocalizedString(@"errorTitle", ));
+                break;
+        }
+    };
+    
+    [self.sessionAPIManager
+     createPath:path
+     success:^(NSInteger pathId){
+         [self.sessionAPIManager createPoints:points pathId:pathId
+          success:^{
+              dispatch_group_t group = dispatch_group_create();
+              __block NSString *errorMessage;
+              for (UIImage *photo in photos) {
+                  dispatch_group_enter(group);
+                  [self.sessionAPIManager uploadPhoto:photo withPathId:pathId pointId:0
+                    success:^{
+                      dispatch_group_leave(group);
+                  } failure:^(NSInteger errorCode) {
+                      switch (errorCode) {
+                          case NSURLErrorNotConnectedToInternet:
+                              errorMessage = NSLocalizedString(@"ErrorNoInternetConnection", );
+                          default:
+                              errorMessage = NSLocalizedString(@"errorTitle", );
+                              break;
+                      }
+                      dispatch_group_leave(group);
+                  }];
+              }
+              dispatch_group_notify(group, dispatch_get_main_queue(), ^{
+                  if (errorMessage) {
+                      failure(errorMessage);
+                  }
+                  else {
+                      success();
+                  }
+              });
+         }
+          failure:errorBlock];
+     }
+     failure:errorBlock];
+}
+
 
 @end
